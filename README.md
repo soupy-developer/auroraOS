@@ -13,7 +13,7 @@ A window manager/desktop environment in your browser.
 oceanOS follows [GNU General Public License v2.0](https://tldrlegal.com/license/gnu-general-public-license-v2).
 
 This means that you are **allowed to**
-* Use oceanOS for commercial purposes
+* Use oceanOS for commercial purposes (not that it has a use for commercial stuff but yeah)
 * Modify oceanOS and create derivatives
 * Distribute original/modified derivatives
 * Place a warranty
