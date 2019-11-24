@@ -28,3 +28,5 @@ This means that you **must**
 * Include copyright
 * State significant changes to oceanOS (Rewriting window manager, significant GUI changes)
 * Include the full text of the same **GNU General Public License v2.0** license that oceanOS uses
+
+## Need to contact me? My Discord is soup#5935.
