@@ -113,6 +113,8 @@ function windowEnable(elmnt) {
   var maximized = false;
   var width = null;
   var height = null;
+  var top = null;
+  var left = null;
   document.getElementById(elmnt.id + "Close").onmouseup = function() {
     elmnt.style.transition = null;
     elmnt.style.transform = "scale(0.1)";
@@ -130,6 +132,8 @@ function windowEnable(elmnt) {
       maximized = true;
       width = document.getElementById(elmnt.id + "Body").style.width ? document.getElementById(elmnt.id + "Body").style.width : "300px";
       height = document.getElementById(elmnt.id + "Body").style.height ? document.getElementById(elmnt.id + "Body").style.height : "300px";
+      top = elmnt.style.top;
+      left = elmnt.style.left;
       elmnt.style.width = width;
       elmnt.style.height = height;
       document.getElementById(elmnt.id + "Body").style.resize = "none";
@@ -149,7 +153,8 @@ function windowEnable(elmnt) {
       setTimeout(function() {
         elmnt.style.width = width;
         elmnt.style.height = height;
-        elmnt.style.top = "50px";
+        elmnt.style.top = top;
+        elmnt.style.left = left;
         setTimeout(function() {elmnt.style.transition = "none";elmnt.style.height = null;elmnt.style.width = null;document.getElementById(elmnt.id + "Body").style.height = height;document.getElementById(elmnt.id + "Body").style.width = width;maximized = false;}, 500);
       }, 1)
     }

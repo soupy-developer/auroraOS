@@ -51,8 +51,8 @@ a:hover { text-decoration: underline; }
   padding-right: 10px;
   display: inline-block;
 }
-.sysbarButton:hover { background-color: rgba(3,169,255,0.5); }
-.sysbarButton:active { background-color: #004b8a; }
+.sysbarButton:hover, button:hover, .checkmark:hover:not(.notAllowed), select:hover { background-color: rgba(3,169,255,0.5); }
+.sysbarButton:active, button:active, .checkmark:active:not(.notAllowed), select:active { background-color: #004b8a; }
 
 .contextMenu {
   position: relative;
@@ -153,7 +153,7 @@ h1 { margin-top: 10px; margin-bottom:10px; }
 .windowMaximize:hover { background-color: rgba(0,255,0,0.4); }
 .windowMaximize:active { background-color: rgba(0,100,0,0.6); }
 
-input, button, textarea {
+input, button, textarea, select {
   background-color: rgba(0,0,0,0.3);
   color: #ebebeb;
   border-radius: 5px;
@@ -163,13 +163,15 @@ input, button, textarea {
   border: none;
   outline: none;
 }
-button:hover, .checkmark:hover {
-  background-color: rgba(0,0,0,0.5);
+input[type="color"] {
+  padding:2px;
 }
-button:active, .checkmark:active {
-  background-color: rgba(0,0,0,0.6);
+option {
+  background-color: black;
+  color: #ebebeb;
+  outline: none;
 }
-button[disabled], input[disabled], textarea[disabled] {
+button[disabled], input[disabled], textarea[disabled], select[disabled] {
   background: rgba(0,0,0,0.15);
   color: rgba(255,255,255,0.3);
   cursor: not-allowed;

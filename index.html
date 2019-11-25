@@ -28,6 +28,29 @@
         <div id="writeBold" class="sysbarButton"><b>B</b></div>
         <div id="writeItalics" class="sysbarButton"><i>i</i></div>
         <div id="writeUnderline" class="sysbarButton"><u>U</u></div>
+        <select id="writeFont">
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Arial">Arial</option>
+        </select>
+        <select id="writeFontSize">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+        <select id="writeFormatBlock">
+          <option value="plain">Normal</option>
+          <option value="h1">Heading 1</option>
+          <option value="h2">Heading 2</option>
+          <option value="h3">Heading 3</option>
+          <option value="h4">Heading 4</option>
+          <option value="h5">Heading 5</option>
+          <option value="h6">Heading 6</option>
+          <option value="address">Address</option>
+        </select>
       </div>
       <iframe id="writeText" style="background-color:rgba(255,255,255,0.7);width:100%;height:calc(100% - 46px);border:none;" src="Write/editor.html"></iframe>
     </div>
@@ -61,6 +84,13 @@
       <input type="range"></input> Slider<br><br>
       <input type="range" disabled></input>Disabled Slider<br><br>
       <textarea placeholder="TextArea"></textarea> <textarea disabled placeholder="Disabled TextArea"></textarea>
+      <br><br>
+      <select>
+        <option>Selection Box</option>
+        <option>isn't soup good at css?</option>
+        <option>yeah, i thought so</option>
+      </select>
+      <select disabled><option>Disabled Selection Box</option></select>
       <br><br>
       <button onclick="document.getElementById('uiWindowBody').classList.add('blur')">Click me to make this window a blurWindow!</button>
     </div>
