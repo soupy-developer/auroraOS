@@ -10,6 +10,7 @@
 <body>
   <script src="main.js" async="async"></script>
   <script src="Settings/app.js" async="async"></script>
+  <script src="Write/app.js" async="async"></script>
   <div id="startup" style="cursor:progress;background-color:black;color:white;width:100%;height:100%;position:absolute;z-index:256;text-align:center;"><img src="logo.webp" style="position:absolute;top:50%;left:50%;margin-top:-95px;margin-left:-75px;"><img src="loading.webp" style="position:absolute;top:50%;left:50%;margin-top:160px;margin-left:-15px;width:30px;height:30px;"><noscript><p style="width:100%;">Your browser doesn't support JavaScript :(</p></noscript><p style="width:100%;position:absolute;bottom:0;">© 2019 soup</p></div>
   <div id="shutdown" style="display:none;"></div>
   <div id="alert" class="window" style="display:none;z-index:200;">
@@ -20,12 +21,19 @@
       <button onclick="document.getElementById('alert').style.display='none';">OK</button>
     </div>
   </div>
+  <div id="writeWindow" class="window" style="display:none;">
+    <div id="writeWindowTitleBar" class="windowTitleBar blur"><div id="writeWindowClose" class="windowClose">X</div><div id="writeWindowMaximize" class="windowMaximize">X</div>Write</div>
+    <div id="writeWindowBody" class="windowBody blur" style="padding:0;">
+      <div class="sysbar"><div id="writeBold" class="sysbarButton"><strong>B</strong></div><div id="writeItalics" class="sysbarButton"><i>i</i></div><div id="writeUnderline" class="sysbarButton"><u>U</u></div></div>
+      <iframe id="writeText" style="width:100%;height:calc(100% - 46px);border:none;" src="Write/editor.html" contenteditable></iframe>
+    </div>
+  </div>
   <div id="terminalWindow" class="window" style="display:none;">
     <div id="terminalWindowTitleBar" class="windowTitleBar blur"><div id="terminalWindowClose" class="windowClose">X</div><div id="terminalWindowMaximize" class="windowMaximize">X</div>Terminal</div>
     <div id="terminalWindowBody" class="windowBody blur" style="padding:0;">
       <button style="width:calc(100% - 10px);margin-left:5px;margin-right:5px;" onclick="document.getElementById('terminalOutput').innerHTML = '⮞ ' + eval(document.getElementById('terminalCode').value)">Evaluate</button>
       <br>
-      <textarea autocomplete="nope" id="terminalCode" style="width:100%;height:calc(100% - 57px);resize:none;border-radius:0;font-family:monospace;margin-top:5px;"></textarea>
+      <textarea autocomplete="a" id="terminalCode" style="width:100%;height:calc(100% - 57px);resize:none;border-radius:0;font-family:monospace;margin-top:5px;"></textarea>
       <div id="terminalOutput" style="width:calc(100% - 10px);margin-left:5px;margin-right:5px;">⮞</div>
     </div>
   </div>
@@ -87,7 +95,7 @@
   </div>
   <div id="systemContextMenu" class="contextMenu blur" style="display:none;">
     <div id="aboutWindowOpen" class="contextMenuSelection">About oceanOS</div>
-    <div id="settingsWindowOpen" class="contextMenuSelection">Settings</div>
+    <div id="settingsWindowOpen2" class="contextMenuSelection">Settings</div>
     <div id="terminalWindowOpen2" class="contextMenuSelection">Terminal</div>
     <div class="contextMenuSeparator"></div>
     <div id="systemShutdown" class="contextMenuSelection">Shutdown</div>
@@ -95,9 +103,10 @@
     <div class="notAllowed contextMenuSelection">Sleep</div>
   </div>
   <div id="appsContextMenu" class="contextMenu blur" style="display:none;">
-    <div id="settingsWindowOpen2" class="contextMenuSelection"><img src="Settings/icon.webp" style="vertical-align:sub;margin-right:5px;">Settings</div>
-    <div id="terminalWindowOpen" class="contextMenuSelection"><img src="Terminal/icon.webp" style="vertical-align:sub;margin-right:5px;">Terminal</div>
-    <div id="uiWindowOpen" class="contextMenuSelection"><img src="UI/icon.webp" style="vertical-align:sub;margin-right:5px;">UI</div>
+    <div id="settingsWindowOpen4" class="contextMenuSelection"><img src="Settings/icon.webp" style="vertical-align:sub;margin-right:5px;">Settings</div>
+    <div id="terminalWindowOpen4" class="contextMenuSelection"><img src="Terminal/icon.webp" style="vertical-align:sub;margin-right:5px;">Terminal</div>
+    <div id="uiWindowOpen2" class="contextMenuSelection"><img src="UI/icon.webp" style="vertical-align:sub;margin-right:5px;">UI</div>
+    <div id="writeWindowOpen2" class="contextMenuSelection"><img src="Write/icon.webp" style="vertical-align:sub;margin-right:5px;">Write</div>
   </div>
   <div id="osContextMenu" class="contextMenu blur" style="display:none;position:fixed;">
     <div id="closeAllWindows" class="contextMenuSelection" onclick="closeAllWindows()">Close all windows</div>
@@ -106,9 +115,10 @@
     <div id="terminalWindowOpen3" class="contextMenuSelection">Terminal</div>
   </div>
   <div class="dock blur">
-    <div id="uiWindowOpen2" class="dockIcon"><img src="UI/icon.webp"></div>
-    <div id="terminalWindowOpen4" class="dockIcon"><img src="Terminal/icon.webp"></div>
-    <div id="settingsWindowOpen4" class="dockIcon"><img src="Settings/icon.webp"></div>
+    <div id="writeWindowOpen" class="dockIcon"><img src="Write/icon.webp"></div>
+    <div id="uiWindowOpen" class="dockIcon"><img src="UI/icon.webp"></div>
+    <div id="terminalWindowOpen" class="dockIcon"><img src="Terminal/icon.webp"></div>
+    <div id="settingsWindowOpen" class="dockIcon"><img src="Settings/icon.webp"></div>
   </div>
 </body>
 

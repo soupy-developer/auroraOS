@@ -12,7 +12,8 @@ var windows = [
   document.getElementById("aboutWindow"),
   document.getElementById("terminalWindow"),
   document.getElementById("uiWindow"),
-  document.getElementById("settingsWindow")
+  document.getElementById("settingsWindow"),
+  document.getElementById("writeWindow")
 ];
 
 setInterval( function() {
