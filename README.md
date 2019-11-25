@@ -4,6 +4,8 @@ A window manager/desktop environment in your browser.
 © 2019 [soup](https://www.youtube.com/channel/UCK3sTrOaVuGHqsXJcWjceLw)
 
 [Try it out!](https://soupy-developer.github.io/oceanOS/index.html) | [Trailer](https://www.youtube.com/watch?v=BrLeCAFD4bo)
+
+**To clear up confusion, eitan3085 is my alternate account.**
 # Features
 * Easy to use GUI
 * Beautiful GUI
