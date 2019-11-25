@@ -6,6 +6,7 @@ document.getElementById("writeItalics").onmouseup = function() { text.contentWin
 document.getElementById("writeUnderline").onmouseup = function() { text.contentWindow.document.execCommand("underline"); }
 
 setInterval(function() {
+  alert("Write", "AA", text.contentWindow.document.body.scrollHeight);
   if (text.contentWindow.document.body.scrollHeight > 1000) {
     text.style.height = text.contentWindow.document.body.scrollHeight + "px";
     alert("Write", "I_AM_NOT_A_MAC", text.contentWindow.document.body.scrollHeight + "px");
