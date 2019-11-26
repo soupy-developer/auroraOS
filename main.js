@@ -13,7 +13,8 @@ var windows = [
   document.getElementById("terminalWindow"),
   document.getElementById("uiWindow"),
   document.getElementById("settingsWindow"),
-  document.getElementById("writeWindow")
+  document.getElementById("writeWindow"),
+  document.getElementById("calculatorWindow")
 ];
 
 setInterval( function() {

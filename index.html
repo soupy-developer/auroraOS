@@ -11,6 +11,7 @@
   <script src="main.js" async="async"></script>
   <script src="Settings/app.js" async="async"></script>
   <script src="Write/app.js" async="async"></script>
+  <script src="Calculator/app.js" async="async"></script>
   <div id="startup" style="cursor:progress;background-color:black;color:white;width:100%;height:100%;position:absolute;z-index:256;text-align:center;"><img src="logo.webp" style="position:absolute;top:50%;left:50%;margin-top:-95px;margin-left:-75px;"><img src="loading.webp" style="position:absolute;top:50%;left:50%;margin-top:160px;margin-left:-15px;width:30px;height:30px;"><noscript><p style="width:100%;">Your browser doesn't support JavaScript :(</p></noscript><p style="width:100%;position:absolute;bottom:0;">© 2019 soup</p></div>
   <div id="shutdown" style="display:none;"></div>
   <div id="alert" class="window" style="display:none;z-index:200;">
@@ -19,6 +20,34 @@
       <h1 id="alertTitle">Title</h1>
       <p id="alertMessage">Message</p>
       <button onclick="document.getElementById('alert').style.display='none';">OK</button>
+    </div>
+  </div>
+  <div id="calculatorWindow" class="window" style="display:none;">
+    <div id="calculatorWindowTitleBar" class="windowTitleBar blur"><div id="calculatorWindowClose" class="windowClose">X</div>Calculator</div>
+    <div id="calculatorWindowBody" class="windowBody blur" style="resize:none;">
+      <input id="calculatorDisplay" type="textbox" placeholder="0" disabled value="0" style="background-color:rgba(0,0,0,0.3);text-align:right;color:white;font-size:30px;cursor:default;width:250px;">
+      <br><br>
+      <button id="calculator_O" value="+" style="width:60px;height:60px;font-size:24px;">+</button>
+      <button id="calculator_O" value="-" style="width:60px;height:60px;font-size:24px;">-</button>
+      <button id="calculator_O" value="*" style="width:60px;height:60px;font-size:24px;">&times;</button>
+      <button id="calculator_O" value="/" style="width:60px;height:60px;font-size:24px;">&divide;</button>
+      <br><br>
+      <button id="calculator_N" value="7" style="width:60px;height:60px;font-size:24px;">7</button>
+      <button id="calculator_N" value="8" style="width:60px;height:60px;font-size:24px;">8</button>
+      <button id="calculator_N" value="9" style="width:60px;height:60px;font-size:24px;">9</button>
+      <br><br>
+      <button id="calculator_N" value="4" style="width:60px;height:60px;font-size:24px;">4</button>
+      <button id="calculator_N" value="5" style="width:60px;height:60px;font-size:24px;">5</button>
+      <button id="calculator_N" value="6" style="width:60px;height:60px;font-size:24px;">6</button>
+      <br><br>
+      <button id="calculator_N" value="1" style="width:60px;height:60px;font-size:24px;">1</button>
+      <button id="calculator_N" value="2" style="width:60px;height:60px;font-size:24px;">2</button>
+      <button id="calculator_N" value="3" style="width:60px;height:60px;font-size:24px;">3</button>
+      <br><br>
+      <button id="calculator_N" value="0" style="width:60px;height:60px;font-size:24px;">0</button>
+      <button id="calculatorDecimal" style="width:60px;height:60px;font-size:24px;">.</button>
+      <button id="calculatorClear" style="width:60px;height:60px;font-size:24px;">AC</button>
+      <button id="calculator_O" value="=" style="width:60px;height:297px;font-size:24px;position:absolute;top:calc(100% - 312px);right:15px;">=</button>
     </div>
   </div>
   <div id="writeWindow" class="window" style="display:none;">
@@ -78,7 +107,7 @@
   <div id="uiWindow" class="window" style="display:none;">
     <div id="uiWindowTitleBar" class="windowTitleBar blur"><div id="uiWindowClose" class="windowClose">X</div><div id="uiWindowMaximize" class="windowMaximize">X</div>UI</div>
     <div id="uiWindowBody" class="windowBody">
-      <div class="sysbar" style="margin-right:-15px;margin-left:-15px;"><div class="sysbarButton" onclick="alert('UI', 'You found me!', 'oceanOS has custom alerts!')">Menu Bar & Button</div></div>
+      <div class="sysbar" style="margin-right:-15px;margin-left:-15px;margin-top:-15px;"><div class="sysbarButton" onclick="alert('UI', 'You found me!', 'oceanOS has custom alerts!')">Menu Bar & Button</div></div>
       <h1>Header</h1>
       <p>Paragraph</p>
       <div class="contextMenu blur"><div class="contextMenuSelection notAllowed">Context Menu</div><div class="contextMenuSeparator"></div><div class="contextMenuSelection">...in a window!?</div></div>
@@ -152,6 +181,7 @@
     <div id="terminalWindowOpen4" class="contextMenuSelection"><img src="Terminal/icon.webp" style="vertical-align:sub;margin-right:5px;">Terminal</div>
     <div id="uiWindowOpen2" class="contextMenuSelection"><img src="UI/icon.webp" style="vertical-align:sub;margin-right:5px;">UI</div>
     <div id="writeWindowOpen2" class="contextMenuSelection"><img src="Write/icon.webp" style="vertical-align:sub;margin-right:5px;">Write</div>
+    <div id="calculatorWindowOpen2" class="contextMenuSelection"><img src="Calculator/icon.webp" style="vertical-align:sub;margin-right:5px;">Calculator</div>
   </div>
   <div id="osContextMenu" class="contextMenu blur" style="display:none;position:fixed;">
     <div id="closeAllWindows" class="contextMenuSelection" onclick="closeAllWindows()">Close all windows</div>
@@ -160,6 +190,7 @@
     <div id="terminalWindowOpen3" class="contextMenuSelection">Terminal</div>
   </div>
   <div class="dock blur">
+    <div id="calculatorWindowOpen" class="dockIcon"><img src="Calculator/icon.webp"></div>
     <div id="writeWindowOpen" class="dockIcon"><img src="Write/icon.webp"></div>
     <div id="uiWindowOpen" class="dockIcon"><img src="UI/icon.webp"></div>
     <div id="terminalWindowOpen" class="dockIcon"><img src="Terminal/icon.webp"></div>

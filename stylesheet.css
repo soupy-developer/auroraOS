@@ -110,7 +110,6 @@ a:hover { text-decoration: underline; }
   color: #ebebeb;
   border-radius: 0px 0px 5px 5px;
   padding: 15px;
-  padding-top: 0;
   height: 100%;
   resize: both;
   overflow: auto;
