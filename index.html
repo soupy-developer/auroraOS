@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>oceanOS</title>
+  <title>flyOS</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="stylesheet.css" rel="stylesheet">
 </head>
@@ -23,7 +23,7 @@
     </div>
   </div>
   <div id="calculatorWindow" class="window" style="display:none;">
-    <div id="calculatorWindowTitleBar" class="windowTitleBar blur"><div id="calculatorWindowClose" class="windowClose">X</div>Calculator</div>
+    <div id="calculatorWindowTitleBar" class="windowTitleBar blur"><div id="calculatorWindowClose" class="windowAction"><img src="close.svg"></div><ui>Calculator</ui></div>
     <div id="calculatorWindowBody" class="windowBody blur" style="resize:none;">
       <input id="calculatorDisplay" type="textbox" placeholder="0" disabled value="0" style="background-color:rgba(0,0,0,0.3);text-align:right;color:white;font-size:30px;cursor:default;width:250px;">
       <br><br>
@@ -51,7 +51,7 @@
     </div>
   </div>
   <div id="writeWindow" class="window" style="display:none;">
-    <div id="writeWindowTitleBar" class="windowTitleBar blur"><div id="writeWindowClose" class="windowClose">X</div><div id="writeWindowMaximize" class="windowMaximize">X</div>Write</div>
+    <div id="writeWindowTitleBar" class="windowTitleBar blur"><div id="writeWindowClose" class="windowAction"><img src="close.svg"></div><div id="writeWindowMaximize" class="windowAction"><img src="max.svg"></div><ui>Write</ui></div>
     <div id="writeWindowBody" class="windowBody blur" style="padding:0;">
       <div class="sysbar">
         <div id="writeBold" class="sysbarButton"><b>B</b></div>
@@ -96,7 +96,7 @@
     </div>
   </div>
   <div id="terminalWindow" class="window" style="display:none;">
-    <div id="terminalWindowTitleBar" class="windowTitleBar blur"><div id="terminalWindowClose" class="windowClose">X</div><div id="terminalWindowMaximize" class="windowMaximize">X</div>Terminal</div>
+    <div id="terminalWindowTitleBar" class="windowTitleBar blur"><div id="terminalWindowClose" class="windowAction"><img src="close.svg"></div><div id="terminalWindowMaximize" class="windowAction"><img src="max.svg"></div><ui>Terminal</ui></div>
     <div id="terminalWindowBody" class="windowBody blur" style="padding:0;">
       <button style="width:calc(100% - 10px);margin-left:5px;margin-right:5px;" onclick="document.getElementById('terminalOutput').innerHTML = '⮞ ' + eval(document.getElementById('terminalCode').value)">Evaluate</button>
       <br>
@@ -105,9 +105,9 @@
     </div>
   </div>
   <div id="uiWindow" class="window" style="display:none;">
-    <div id="uiWindowTitleBar" class="windowTitleBar blur"><div id="uiWindowClose" class="windowClose">X</div><div id="uiWindowMaximize" class="windowMaximize">X</div>UI</div>
+    <div id="uiWindowTitleBar" class="windowTitleBar blur"><div id="uiWindowClose" class="windowAction"><img src="close.svg"></div><div id="uiWindowMaximize" class="windowAction"><img src="max.svg"></div><ui>UI</ui></div>
     <div id="uiWindowBody" class="windowBody">
-      <div class="sysbar" style="margin-right:-15px;margin-left:-15px;margin-top:-15px;"><div class="sysbarButton" onclick="alert('UI', 'You found me!', 'oceanOS has custom alerts!')">Menu Bar & Button</div></div>
+      <div class="sysbar" style="margin-right:-15px;margin-left:-15px;margin-top:-15px;"><div class="sysbarButton" onclick="alert('UI', 'You found me!', 'flyOS has custom alerts!')">Menu Bar & Button</div></div>
       <h1>Header</h1>
       <p>Paragraph</p>
       <div class="contextMenu blur"><div class="contextMenuSelection notAllowed">Context Menu</div><div class="contextMenuSeparator"></div><div class="contextMenuSelection">...in a window!?</div></div>
@@ -136,7 +136,7 @@
     </div>
   </div>
   <div id="settingsWindow" class="window" style="display:none;">
-    <div id="settingsWindowTitleBar" class="windowTitleBar blur"><div id="settingsWindowClose" class="windowClose">X</div><div id="settingsWindowMaximize" class="windowMaximize">X</div>Settings</div>
+    <div id="settingsWindowTitleBar" class="windowTitleBar blur"><div id="settingsWindowClose" class="windowAction"><img src="close.svg"></div><div id="settingsWindowMaximize" class="windowAction"><img src="max.svg"></div><ui>Settings</ui></div>
     <div id="settingsWindowBody" class="windowBody blur">
       <h1>Customization</h1>
       <h2>System</h2>
@@ -144,6 +144,10 @@
         <input type="checkbox" id="settingsTransparencyEffects" checked>
         <span class="checkmark">✓</span>
       </label>
+      <select id="settingsTheme">
+        <option value="dark">Dark Mode</option>
+        <option value="light">Light Mode</option>
+      </select>
       <h2>Wallpaper</h2>
       <input type="textbox" placeholder="Wallpaper URL" id="settingsWallpaperURL"> <button id="settingsWallpaperURLSelect">Select</button>
       <h1>Accessibility</h1>
@@ -152,10 +156,10 @@
     </div>
   </div>
   <div id="aboutWindow" class="window" style="display:none;">
-    <div id="aboutWindowTitleBar" class="windowTitleBar blur"><div id="aboutWindowClose" class="windowClose">X</div>About oceanOS</div>
+    <div id="aboutWindowTitleBar" class="windowTitleBar blur"><div id="aboutWindowClose" class="windowAction"><img src="close.svg"></div>About flyOS</div>
     <div id="aboutWindowBody" class="windowBody blur" style="resize:none;text-align:center;">
       <img src="logo.webp" style="float:left;margin-right:15px;">
-    <h1 style="float:right;margin-top:20px;margin-left:45px;margin-right:45px;">oceanOS</h1>
+    <h1 style="float:right;margin-top:20px;margin-left:45px;margin-right:45px;">flyOS</h1>
     <p><strong>Build </strong>14</p>
     <p><strong>Version </strong>1.0.0</p>
     <p>Made with love by <a href="https://www.youtube.com/channel/UCK3sTrOaVuGHqsXJcWjceLw">soup</a></p>
@@ -163,12 +167,12 @@
   </div>
   <div class="desktopIcon"><img src="logo.webp"><br>Icon Test</div>
   <div id="sysbar" class="sysbar blur">
-    <div id="systemButton" class="sysbarButton"><strong>oceanOS</strong></div>
+    <div id="systemButton" class="sysbarButton"><strong>flyOS</strong></div>
     <div id="appsButton" class="sysbarButton">Applications</div>
     <div id="sysbarClock" class="sysbarObject" style="float:right;"></div>
   </div>
   <div id="systemContextMenu" class="contextMenu blur" style="display:none;">
-    <div id="aboutWindowOpen" class="contextMenuSelection">About oceanOS</div>
+    <div id="aboutWindowOpen" class="contextMenuSelection">About flyOS</div>
     <div id="settingsWindowOpen2" class="contextMenuSelection">Settings</div>
     <div id="terminalWindowOpen2" class="contextMenuSelection">Terminal</div>
     <div class="contextMenuSeparator"></div>

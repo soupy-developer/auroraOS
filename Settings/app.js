@@ -10,6 +10,10 @@ var backgroundURL = document.getElementById("settingsWallpaperURL");
 var backgroundURLStyle = document.createElement("style");
 document.head.appendChild(backgroundURLStyle);
 backgroundURLStyle.sheet.insertRule("a{}");
+var theme = document.getElementById("settingsTheme");
+var themeStyle = document.createElement("style");
+document.head.appendChild(themeStyle);
+themeStyle.sheet.insertRule("a{}");
 
 fontSize.addEventListener("input", function() {
   fontSizeStyle.sheet.deleteRule(0);
@@ -30,4 +34,14 @@ transparencyEffects.onchange = function() {
 document.getElementById("settingsWallpaperURLSelect").onclick = function() {
   backgroundURLStyle.sheet.deleteRule(0);
   backgroundURLStyle.sheet.insertRule("body{background-image:url('" + backgroundURL.value + "')}")
+}
+
+theme.onchange = function() {
+  if (theme.value == "light") {
+    themeStyle.sheet.deleteRule(0);
+    themeStyle.sheet.insertRule(".blur{background-color:rgba(255,255,255,0.4);color:black;}");
+  } else {
+    themeStyle.sheet.deleteRule(0);
+    themeStyle.sheet.insertRule("a{}");
+  }
 }
