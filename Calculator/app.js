@@ -5,31 +5,28 @@ var calculator = {
   operator: null,
 };
 var display = document.getElementById("calculatorDisplay");
-function handleOperator(nextOperator) {
-  const inputValue = parseFloat(calculator.displayValue);
-  if (calculator.firstOperand == null) {
-    calculator.firstOperand = inputValue;
-  } else if (calculator.operator) {
-    const result = performCalculation[calculator.operator](calculator.firstOperand, inputValue);
-    calculator.displayValue = String(result);
-    calculator.firstOperand = result;
-  }
-  calculator.waitingForSecondOperand = true;
-  calculator.operator = nextOperator;
-  console.log(calculator);
-}
 const performCalculation = {
-    '/': (firstOperand, secondOperand) => firstOperand / secondOperand,
-    '*': (firstOperand, secondOperand) => firstOperand * secondOperand,
-    '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
-    '-': (firstOperand, secondOperand) => firstOperand - secondOperand,
-    '=': (firstOperand, secondOperand) => secondOperand
-  };
+  '/': (firstOperand, secondOperand) => firstOperand / secondOperand,
+  '*': (firstOperand, secondOperand) => firstOperand * secondOperand,
+  '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
+  '-': (firstOperand, secondOperand) => firstOperand - secondOperand,
+  '=': (firstOperand, secondOperand) => secondOperand
+};
 
 document.getElementById("calculatorWindowBody").addEventListener("click", e => {
   if (!e.target.matches("button")) return;
   if (e.target.id.includes("_O")) {
-    handleOperator(e.target.value);
+    const inputValue = parseFloat(calculator.displayValue);
+    if (calculator.firstOperand == null) {
+      calculator.firstOperand = inputValue;
+    } else if (calculator.operator) {
+      const result = performCalculation[calculator.operator](calculator.firstOperand, inputValue);
+      calculator.displayValue = String(result);
+      calculator.firstOperand = result;
+    }
+    calculator.waitingForSecondOperand = true;
+    calculator.operator = e.target.value;
+    console.log(calculator);
     return display.value = calculator.displayValue;
   }
   if (e.target.id.includes("_N")) {
@@ -42,8 +39,8 @@ document.getElementById("calculatorWindowBody").addEventListener("click", e => {
     return display.value = calculator.displayValue;
   }
   if (e.target.id.includes("Decimal")) {
-    if (!calculator.displayValue.includes(dot)) {
-      calculator.displayValue += dot;
+    if (!calculator.displayValue.includes(e.target.innerText)) {
+      calculator.displayValue += e.target.innerText;
       return display.value = calculator.displayValue;
     }
   }
