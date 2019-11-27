@@ -1,8 +1,6 @@
-var sysbarSystem = document.getElementById("systemButton");
-var sysbarApps = document.getElementById("appsButton");
-var sysbarSystemContextMenu = document.getElementById("systemContextMenu");
-var sysbarAppsContextMenu = document.getElementById("appsContextMenu");
-var sysbarClick = false;
+var menubarSystem = document.getElementById("systemButton");
+var apps = document.getElementById("applications");
+var menubarClick = false;
 var clockDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 var clockMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -21,56 +19,26 @@ setInterval( function() {
 	var date = new Date();
   var minute = date.getMinutes()
   if (minute < 10) minute = "0" + date.getMinutes();
-	document.getElementById("sysbarClock").innerHTML = clockDays[date.getDay()] + " " + clockMonths[date.getMonth()] + " " + date.getDate() + " - " + " " + date.getHours() + ":" + minute;
+	document.getElementById("menubarClock").innerHTML = clockDays[date.getDay()] + " " + clockMonths[date.getMonth()] + " " + date.getDate() + "<br>" + date.getHours() + ":" + minute;
 }, 2000);
 
-sysbarSystem.addEventListener("click", function() {
-  if (sysbarClick) {
-    sysbarClick = false;
-    sysbarSystem.style = null;
-    sysbarSystemContextMenu.style = "display:none;";
-    sysbarAppsContextMenu.style = "display:none;";
-    sysbarApps.style = null;
+menubarSystem.addEventListener("click", function() {
+  if (menubarClick) {
+    menubarClick = false;
+    menubarSystem.style = null;
+    apps.style.transform = "scale(0)";
+    apps.style.opacity = 0;
+    setTimeout(function() {
+      apps.style.display = "none";
+    }, 100);
   } else {
-    sysbarClick = true;
-    sysbarSystemContextMenu.style = "transform:translate(0px, -20px);";
-    setTimeout(function(){
-      sysbarSystemContextMenu.style = "transform:translate(0px, 0px);";
-    }, 1)
-    sysbarSystem.style = "background-color:#004b8a";
-  }
-});
-sysbarApps.addEventListener("click", function() {
-  if (sysbarClick) {
-    sysbarClick = false;
-    sysbarApps.style = null;
-    sysbarSystemContextMenu.style = "display:none;";
-    sysbarAppsContextMenu.style = "display:none;";
-    sysbarSystem.style = null;
-  } else {
-    sysbarClick = true;
-    sysbarAppsContextMenu.style = "transform:translate(2.57rem, -20px);";
-    setTimeout(function(){
-      sysbarAppsContextMenu.style = "transform:translate(2.57rem, 0px);";
-    }, 1)
-    sysbarApps.style = "background-color:#004b8a";
-  }
-});
-
-sysbarSystem.addEventListener("mouseover", function() {
-  if (sysbarClick) {
-    sysbarSystem.style = "background-color:#004b8a";
-    sysbarSystemContextMenu.style = null;
-    sysbarAppsContextMenu.style = "display:none;";
-    sysbarApps.style = null;
-  }
-});
-sysbarApps.addEventListener("mouseover", function() {
-  if (sysbarClick) {
-    sysbarApps.style = "background-color:#004b8a";
-    sysbarSystemContextMenu.style = "display:none;";
-    sysbarAppsContextMenu.style = "transform:translate(2.57rem, 0px);";
-    sysbarSystem.style = null;
+    menubarClick = true;
+    apps.style.display = null;
+    setTimeout(function() {
+      apps.style.transform = null;
+      apps.style.opacity = null;
+    }, 1);
+    menubarSystem.style = "background-color:#004b8a";
   }
 });
 
@@ -102,7 +70,6 @@ function windowEnable(elmnt) {
   var firstActivate = document.getElementById(elmnt.id + "Open")
   var secondActivate = null;
   var thirdActivate = null;
-  var fourthActivate = null;
   var maximizer = null;
   var maximized = false;
   var width = null;
@@ -119,7 +86,6 @@ function windowEnable(elmnt) {
   }
   try {var secondActivate=document.getElementById(elmnt.id + "Open2");}catch(a){}
   try {var thirdActivate=document.getElementById(elmnt.id + "Open3");}catch(a){}
-  try {var fourthActivate=document.getElementById(elmnt.id + "Open4");}catch(a){}
   try {var maximizer=document.getElementById(elmnt.id + "Maximize");}catch(a){}
   function maximize() {
     if (maximized == false) {
@@ -135,10 +101,10 @@ function windowEnable(elmnt) {
       document.getElementById(elmnt.id + "Body").style.width = null;
       elmnt.style.transition = "0.5s"
       setTimeout(function() {
-        elmnt.style.top = "31px";
+        elmnt.style.top = "0";
         elmnt.style.left = "0";
         elmnt.style.width = "100%";
-        elmnt.style.height = "calc(100vh - 148px)";
+        elmnt.style.height = "calc(100vh - 100px)";
         setTimeout(function() {elmnt.style.transition = "none";}, 500);
       }, 1)
     } else {
@@ -157,6 +123,7 @@ function windowEnable(elmnt) {
   function openWindow() {
     if (maximizer) document.getElementById(elmnt.id + "Body").style.resize = null;
     if (maximized) maximized = false;
+    if (apps.style.display !== "none") document.getElementById("systemButton").click();
     elmnt.style = "top: 30px;";
     windows.forEach(window => window.style.zIndex = 1);
     elmnt.style.zIndex = 2;
@@ -170,7 +137,6 @@ function windowEnable(elmnt) {
   firstActivate.addEventListener("click", openWindow)
   if (secondActivate) secondActivate.addEventListener("click", openWindow);
   if (thirdActivate) thirdActivate.addEventListener("click", openWindow);
-  if (fourthActivate) fourthActivate.addEventListener("click", openWindow);
   document.getElementById(elmnt.id + "TitleBar").onmousedown = function(e) {
     if (maximized == false) {
       e = e || window.event;

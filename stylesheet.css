@@ -10,49 +10,44 @@ a:hover { text-decoration: underline; }
 
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.5); border-radius: 5px; }
-::-webkit-scrollbar-thumb:hover { background-color: rgba(0,0,0,0.5); }
 
-.sysbar {
-  background-color: rgb(50,50,50);
-  padding-left: 5px;
-  padding-right: 5px;
-  color: white;
-  border-radius: 0px 0px 5px 5px;
-  cursor: default;
+.fullscreen { text-align: center; transition: 0.3s; width: 100%; height: 100%; position: fixed; top:0; z-index: 254; padding: 75px; }
+.fullscreen div {
+  text-align: center;
+  display: inline-block;
+  margin: 30px;
 }
+.fullscreen div img { height: 80px; width: 80px; }
+.fullscreen div img:hover { filter: brightness(70%); }
 
 .dock {
-  left: 25%;
-  width: 50%;
+  width: 100%;
   text-align: center;
   background-color: rgb(50,50,50);
   color: white;
   border-radius: 5px 5px 0px 0px;
   cursor: default;
-  padding: 10px;
-  position: absolute;
+  padding: 7px;
+  position: fixed;
   bottom: 0;
+  z-index: 255;
 }
-.dockIcon {
+.dock img {
   display: inline-block;
-  padding-left: 5px;
-  padding-right: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
   transition: cubic-bezier(.17,.67,0,.83) 0.3s;
+  height: 50px;
+  width: 50px;
 }
-.dockIcon:hover {
+.dock img:hover {
   filter: brightness(70%);
-  padding-left: 20px;
-  padding-right: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  transform: translateY(-15px) scale(1.5);
 }
-
-.sysbarButton, .sysbarObject {
-  padding: 6px;
-  padding-left: 10px;
-  padding-right: 10px;
-  display: inline-block;
-}
-.sysbarButton:hover, button:hover, .checkmark:hover:not(.notAllowed), select:hover { background-color: rgba(3,169,255,0.5); }
-.sysbarButton:active, button:active, .checkmark:active:not(.notAllowed), select:active { background-color: #004b8a; }
+.dock .menubarButton { float: left; }
+.dock .menubarObject { float: right; }
 
 .contextMenu {
   position: relative;
@@ -77,12 +72,6 @@ a:hover { text-decoration: underline; }
 .notAllowed {
   color: rgba(255,255,255,0.3);
   cursor: not-allowed;
-}
-.contextMenuSelection:hover:not(.notAllowed) {
-  background-color: rgba(3,169,255,0.5);
-}
-.contextMenuSelection:active:not(.notAllowed) {
-  background-color: #004b8a;
 }
 .contextMenuSeparator {
   border-top: 1px solid rgba(255,255,255,0.3);
@@ -116,16 +105,9 @@ a:hover { text-decoration: underline; }
   resize: both;
   overflow: auto;
 }
-.windowBody .sysbar {
-  background-color: transparent;
-  padding: 5px;
-  border-radius: 0;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-}
-.windowBody .sysbarButton { border-radius: 5px; margin: 0;}
 .blur {
   color: rgb(240,240,240);
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.6);
   backdrop-filter: blur(20px);
 }
 h1 { margin-top: 10px; margin-bottom:10px; }
@@ -195,16 +177,33 @@ input[type="range"]::-webkit-slider-thumb {
   background: silver;
 }
 input[type="range"]::-webkit-slider-thumb:hover { background: gray; }
+.menubar {
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  border-radius: 0px 0px 5px 5px;
+  cursor: default;
+}
+.menubarButton, .menubarObject {
+  padding: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline-block;
+  border-radius: 5px;
+}
+.menubarButton:hover, button:hover, .checkmark:hover:not(.notAllowed), select:hover, .contextMenuSelection:hover:not(.notAllowed), ::-webkit-scrollbar-thumb:hover { background-color: rgba(3,169,255,0.5); }
+.menubarButton:active, button:active, .checkmark:active:not(.notAllowed), select:active, .contextMenuSelection:active:not(.notAllowed), ::-webkit-scrollbar-thumb:active { background-color: #004b8a; }
 
 .desktopIcon {
   color: white;
   text-shadow: 0px 0px 5px #000000;
   text-align: center;
-  position: fixed;
-  top: 30px;
   margin: 10px;
   border-radius: 5px;
   padding: 10px;
+  display: inline-block;
 }
 .desktopIcon img { width: 75px; height: 75px; }
 .desktopIcon:hover {

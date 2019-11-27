@@ -53,11 +53,11 @@
   <div id="writeWindow" class="window" style="display:none;">
     <div id="writeWindowTitleBar" class="windowTitleBar blur"><div id="writeWindowClose" class="windowAction"><img src="close.svg"></div><div id="writeWindowMaximize" class="windowAction"><img src="max.svg"></div><ui>Write</ui></div>
     <div id="writeWindowBody" class="windowBody blur" style="padding:0;">
-      <div class="sysbar">
-        <div id="writeBold" class="sysbarButton"><b>B</b></div>
-        <div id="writeItalics" class="sysbarButton"><i>i</i></div>
-        <div id="writeUnderline" class="sysbarButton"><u>U</u></div>
-        <div id="writeStrikethrough" class="sysbarButton"><strike>S</strike></div>
+      <div class="menubar">
+        <div id="writeBold" class="menubarButton"><b>B</b></div>
+        <div id="writeItalics" class="menubarButton"><i>i</i></div>
+        <div id="writeUnderline" class="menubarButton"><u>U</u></div>
+        <div id="writeStrikethrough" class="menubarButton"><strike>S</strike></div>
         <select id="writeFont">
           <option value="Times New Roman" style="font-family:'Times New Roman';">Times New Roman</option>
           <option value="Georgia" style="font-family:'Georgia';">Georgia</option>
@@ -76,9 +76,9 @@
           <option value="6">6</option>
           <option value="7">7</option>
         </select>
-        <div id="writeIndentLeft" class="sysbarButton">|🡠</div>
-        <div id="writeIndentCenter" class="sysbarButton">|</div>
-        <div id="writeIndentRight" class="sysbarButton">🡢|</div>
+        <div id="writeIndentLeft" class="menubarButton">|🡠</div>
+        <div id="writeIndentCenter" class="menubarButton">|</div>
+        <div id="writeIndentRight" class="menubarButton">🡢|</div>
         <select id="writeFormatBlock">
           <option value="pre">Normal</option>
           <option value="h1">Heading 1</option>
@@ -89,8 +89,8 @@
           <option value="h6">Heading 6</option>
           <option value="address">Address</option>
         </select>
-        <div id="writeOrderedList" class="sysbarButton">1.</div>
-        <div id="writeUnorderedList" class="sysbarButton">•</div>
+        <div id="writeOrderedList" class="menubarButton">1.</div>
+        <div id="writeUnorderedList" class="menubarButton">•</div>
       </div>
       <iframe id="writeText" style="background-color:rgba(255,255,255,0.7);width:100%;height:calc(100% - 46px);border:none;" src="Write/editor.html"></iframe>
     </div>
@@ -107,7 +107,7 @@
   <div id="uiWindow" class="window" style="display:none;">
     <div id="uiWindowTitleBar" class="windowTitleBar blur"><div id="uiWindowClose" class="windowAction"><img src="close.svg"></div><div id="uiWindowMaximize" class="windowAction"><img src="max.svg"></div><ui>UI</ui></div>
     <div id="uiWindowBody" class="windowBody">
-      <div class="sysbar" style="margin-right:-15px;margin-left:-15px;margin-top:-15px;"><div class="sysbarButton" onclick="alert('UI', 'You found me!', 'flyOS has custom alerts!')">Menu Bar & Button</div></div>
+      <div class="menubar" style="margin-right:-15px;margin-left:-15px;margin-top:-15px;"><div class="menubarButton" onclick="alert('UI', 'You found me!', 'flyOS has custom alerts!')">Menu Bar & Button</div></div>
       <h1>Header</h1>
       <p>Paragraph</p>
       <div class="contextMenu blur"><div class="contextMenuSelection notAllowed">Context Menu</div><div class="contextMenuSeparator"></div><div class="contextMenuSelection">...in a window!?</div></div>
@@ -156,33 +156,12 @@
     <div id="aboutWindowBody" class="windowBody blur" style="resize:none;text-align:center;">
       <img src="logo.webp" style="float:left;margin-right:15px;">
     <h1 style="float:right;margin-top:20px;margin-left:45px;margin-right:45px;">flyOS</h1>
-    <p><strong>Build </strong>17</p>
-    <p><strong>Update </strong>1911-3</p>
+    <p><strong>Build </strong>21</p>
+    <p><strong>Update </strong>1911-5</p>
     <p>Made with love by <a href="https://www.youtube.com/channel/UCK3sTrOaVuGHqsXJcWjceLw">soup</a></p>
     </div>
   </div>
   <div class="desktopIcon"><img src="logo.webp"><br>Icon Test</div>
-  <div id="sysbar" class="sysbar blur">
-    <div id="systemButton" class="sysbarButton"><img src="logo.webp" style="height:1.2rem;width:1.2rem;margin:-2px;"></div>
-    <div id="appsButton" class="sysbarButton">Applications</div>
-    <div id="sysbarClock" class="sysbarObject" style="float:right;"></div>
-  </div>
-  <div id="systemContextMenu" class="contextMenu blur" style="display:none;">
-    <div id="aboutWindowOpen" class="contextMenuSelection">About flyOS</div>
-    <div id="settingsWindowOpen2" class="contextMenuSelection">Settings</div>
-    <div id="terminalWindowOpen2" class="contextMenuSelection">Terminal</div>
-    <div class="contextMenuSeparator"></div>
-    <div id="systemShutdown" class="contextMenuSelection">Shutdown</div>
-    <div id="systemReboot" class="contextMenuSelection">Reboot</div>
-    <div class="notAllowed contextMenuSelection">Sleep</div>
-  </div>
-  <div id="appsContextMenu" class="contextMenu blur" style="display:none;">
-    <div id="settingsWindowOpen4" class="contextMenuSelection"><img src="Settings/icon.webp" style="vertical-align:sub;margin-right:5px;">Settings</div>
-    <div id="terminalWindowOpen4" class="contextMenuSelection"><img src="Terminal/icon.webp" style="vertical-align:sub;margin-right:5px;">Terminal</div>
-    <div id="uiWindowOpen2" class="contextMenuSelection"><img src="UI/icon.webp" style="vertical-align:sub;margin-right:5px;">UI</div>
-    <div id="writeWindowOpen2" class="contextMenuSelection"><img src="Write/icon.webp" style="vertical-align:sub;margin-right:5px;">Write</div>
-    <div id="calculatorWindowOpen2" class="contextMenuSelection"><img src="Calculator/icon.webp" style="vertical-align:sub;margin-right:5px;">Calculator</div>
-  </div>
   <div id="osContextMenu" class="contextMenu blur" style="display:none;position:fixed;">
     <div id="closeAllWindows" class="contextMenuSelection">Close all windows</div>
     <div class="contextMenuSeparator"></div>
@@ -190,11 +169,23 @@
     <div id="terminalWindowOpen3" class="contextMenuSelection">Terminal</div>
   </div>
   <div class="dock blur">
-    <div id="calculatorWindowOpen" class="dockIcon"><img src="Calculator/icon.webp"></div>
-    <div id="writeWindowOpen" class="dockIcon"><img src="Write/icon.webp"></div>
-    <div id="uiWindowOpen" class="dockIcon"><img src="UI/icon.webp"></div>
-    <div id="terminalWindowOpen" class="dockIcon"><img src="Terminal/icon.webp"></div>
-    <div id="settingsWindowOpen" class="dockIcon"><img src="Settings/icon.webp"></div>
+    <div id="systemButton" class="menubarButton"><img src="logo.webp" style="transform:scale(1);margin:0;filter:none;height:35px;width:35px;padding-top:0px;padding:-4px;"></div>
+    <img id="calculatorWindowOpen" style="margin-left:45px;" src="Calculator/icon.webp">
+    <img id="writeWindowOpen" src="Write/icon.webp">
+    <img id="uiWindowOpen" src="UI/icon.webp">
+    <img id="terminalWindowOpen" src="Terminal/icon.webp">
+    <img id="settingsWindowOpen" src="Settings/icon.webp">
+    <div id="menubarClock" style="font-size:14px;text-align:right;" class="menubarObject"></div>
+  </div>
+  <div id="applications" class="fullscreen blur" style="display:none;transform:scale(0);opacity:0;">
+    <h1 id="aboutWindowOpen" style="cursor:default;margin-top:-15px;">flyOS</h1>
+    <div><img id="calculatorWindowOpen2" src="Calculator/icon.webp"><br>Calculator</div>
+    <div><img id="WriteWindowOpen2" src="Write/icon.webp"><br>Write</div>
+    <div><img id="UIWindowOpen2" src="UI/icon.webp"><br>UI</div>
+    <div><img id="terminalWindowOpen2" src="Terminal/icon.webp"><br>Terminal</div>
+    <div><img id="settingsWindowOpen2" src="Settings/icon.webp"><br>Settings</div>
+    <br>
+    <ui style="margin-left:-12.75%;width:25%;position:fixed;bottom:45px;"><div id="systemShutdown" style="margin-right:15px;"class="menubarButton">Shut down</div><div id="systemReboot" class="menubarButton">Restart</div></ui>
   </div>
 </body>
 

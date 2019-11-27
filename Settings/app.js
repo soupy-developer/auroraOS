@@ -14,6 +14,8 @@ var theme = document.getElementById("settingsTheme");
 var themeStyle = document.createElement("style");
 document.head.appendChild(themeStyle);
 themeStyle.sheet.insertRule("a{}");
+themeStyle.sheet.insertRule("b{}");
+themeStyle.sheet.insertRule("c{}");
 
 fontSize.addEventListener("input", function() {
   fontSizeStyle.sheet.deleteRule(0);
@@ -39,9 +41,17 @@ document.getElementById("settingsWallpaperURLSelect").onclick = function() {
 theme.onchange = function() {
   if (theme.value == "light") {
     themeStyle.sheet.deleteRule(0);
-    themeStyle.sheet.insertRule(".blur{background-color:rgba(255,255,255,0.4);color:black;}");
+    themeStyle.sheet.deleteRule(0);
+    themeStyle.sheet.deleteRule(0);
+    themeStyle.sheet.insertRule(".blur{background-color:rgba(255,255,255,0.4);}");
+    themeStyle.sheet.insertRule(".windowAction{filter:brightness(0%);}");
+    themeStyle.sheet.insertRule("*{color:black;}");
   } else {
     themeStyle.sheet.deleteRule(0);
+    themeStyle.sheet.deleteRule(0);
+    themeStyle.sheet.deleteRule(0);
     themeStyle.sheet.insertRule("a{}");
+    themeStyle.sheet.insertRule("b{}");
+    themeStyle.sheet.insertRule("c{}");
   }
 }
