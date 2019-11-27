@@ -1,4 +1,4 @@
-# oceanOS
+# flyOS
 A window manager/desktop environment in your browser.
 
 © 2019 [soup](https://www.youtube.com/channel/UCK3sTrOaVuGHqsXJcWjceLw)
@@ -12,23 +12,23 @@ A window manager/desktop environment in your browser.
 * Fast Window Manager
 * Simplicity
 # License
-oceanOS follows [GNU General Public License v2.0](https://tldrlegal.com/license/gnu-general-public-license-v2).
+follows [GNU General Public License v2.0](https://tldrlegal.com/license/gnu-general-public-license-v2).
 
 This means that you are **allowed to**
-* Use oceanOS for commercial purposes (not that it has a use for commercial stuff but yeah)
-* Modify oceanOS and create derivatives
+* Use flyOS for commercial purposes (not that it has a use for commercial stuff but yeah)
+* Modify flyOS and create derivatives
 * Distribute original/modified derivatives
 * Place a warranty
 
 This means that you **cannot**
-* Sublicense oceanOS
+* Sublicense flyOS
 * Hold liable
 
 This means that you **must**
-* Include original (Instructions to obtain original oceanOS, e.g. GitHub link)
+* Include original (Instructions to obtain original flyOS, e.g. GitHub link)
 * Disclose your source code
 * Include copyright
-* State significant changes to oceanOS (Rewriting window manager, significant GUI changes)
-* Include the full text of the same **GNU General Public License v2.0** license that oceanOS uses
+* State significant changes to flyOS (Rewriting window manager, significant GUI changes)
+* Include the full text of the same **GNU General Public License v2.0** license that flyOS uses
 
 ## Need to contact me? My Discord is soup#5935.
