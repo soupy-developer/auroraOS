@@ -12,7 +12,7 @@ A window manager/desktop environment in your browser.
 * Fast Window Manager
 * Simplicity
 # License
-follows [GNU General Public License v2.0](https://tldrlegal.com/license/gnu-general-public-license-v2).
+flyOS follows [GNU General Public License v2.0](https://tldrlegal.com/license/gnu-general-public-license-v2).
 
 This means that you are **allowed to**
 * Use flyOS for commercial purposes (not that it has a use for commercial stuff but yeah)
