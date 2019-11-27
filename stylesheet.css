@@ -106,9 +106,7 @@ a:hover { text-decoration: underline; }
   cursor: default;
   text-align: center;
 }
-.windowTitleBar ui {
-  margin-right: 3.5rem;
-}
+.windowTitleBar ui { margin-right: 3.5rem; }
 .windowBody {
   background-color: rgb(50,50,50);
   color: #ebebeb;
@@ -127,7 +125,7 @@ a:hover { text-decoration: underline; }
 .windowBody .sysbarButton { border-radius: 5px; margin: 0;}
 .blur {
   color: rgb(240,240,240);
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.7);
   backdrop-filter: blur(20px);
 }
 h1 { margin-top: 10px; margin-bottom:10px; }

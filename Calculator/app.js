@@ -15,6 +15,15 @@ const performCalculation = {
 
 document.getElementById("calculatorWindowBody").addEventListener("click", e => {
   if (!e.target.matches("button")) return;
+  if (e.target.id.includes("_N")) {
+    if (calculator.waitingForSecondOperand === true) {
+      calculator.displayValue = e.target.value;
+      calculator.waitingForSecondOperand = false;
+    } else {
+      calculator.displayValue = calculator.displayValue === '0' ? e.target.value : calculator.displayValue + e.target.value;
+    }
+    return display.value = calculator.displayValue;
+  }
   if (e.target.id.includes("_O")) {
     const inputValue = parseFloat(calculator.displayValue);
     if (calculator.firstOperand == null) {
@@ -27,15 +36,6 @@ document.getElementById("calculatorWindowBody").addEventListener("click", e => {
     calculator.waitingForSecondOperand = true;
     calculator.operator = e.target.value;
     console.log(calculator);
-    return display.value = calculator.displayValue;
-  }
-  if (e.target.id.includes("_N")) {
-    if (calculator.waitingForSecondOperand === true) {
-      calculator.displayValue = e.target.value;
-      calculator.waitingForSecondOperand = false;
-    } else {
-      calculator.displayValue = calculator.displayValue === '0' ? e.target.value : calculator.displayValue + e.target.value;
-    }
     return display.value = calculator.displayValue;
   }
   if (e.target.id.includes("Decimal")) {

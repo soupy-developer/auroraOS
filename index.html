@@ -121,17 +121,13 @@
       </label>
       <button>Button</button> <button disabled>Disabled Button</button><br><br>
       <input type="textbox" placeholder="TextBox"></input> <input type="textbox" disabled placeholder="Disabled TextBox"></input><br><br>
-      <input type="range"></input> Slider<br><br>
-      <input type="range" disabled></input>Disabled Slider<br><br>
-      <textarea placeholder="TextArea"></textarea> <textarea disabled placeholder="Disabled TextArea"></textarea>
-      <br><br>
+      <input type="range"></input> Slider<br><br> <input type="range" disabled></input>Disabled Slider<br><br>
+      <textarea placeholder="TextArea"></textarea> <textarea disabled placeholder="Disabled TextArea"></textarea><br><br>
       <select>
         <option>Selection Box</option>
         <option>isn't soup good at css?</option>
-        <option>yeah, i thought so</option>
       </select>
-      <select disabled><option>Disabled Selection Box</option></select>
-      <br><br>
+      <select disabled><option>Disabled Selection Box</option></select><br><br>
       <button onclick="document.getElementById('uiWindowBody').classList.add('blur')">Click me to make this window a blurWindow!</button>
     </div>
   </div>
@@ -160,14 +156,14 @@
     <div id="aboutWindowBody" class="windowBody blur" style="resize:none;text-align:center;">
       <img src="logo.webp" style="float:left;margin-right:15px;">
     <h1 style="float:right;margin-top:20px;margin-left:45px;margin-right:45px;">flyOS</h1>
-    <p><strong>Build </strong>14</p>
-    <p><strong>Version </strong>1.0.0</p>
+    <p><strong>Build </strong>17</p>
+    <p><strong>Update </strong>1911-3</p>
     <p>Made with love by <a href="https://www.youtube.com/channel/UCK3sTrOaVuGHqsXJcWjceLw">soup</a></p>
     </div>
   </div>
   <div class="desktopIcon"><img src="logo.webp"><br>Icon Test</div>
   <div id="sysbar" class="sysbar blur">
-    <div id="systemButton" class="sysbarButton"><strong>flyOS</strong></div>
+    <div id="systemButton" class="sysbarButton"><img src="logo.webp" style="height:1.2rem;width:1.2rem;margin:-2px;"></div>
     <div id="appsButton" class="sysbarButton">Applications</div>
     <div id="sysbarClock" class="sysbarObject" style="float:right;"></div>
   </div>
@@ -188,7 +184,7 @@
     <div id="calculatorWindowOpen2" class="contextMenuSelection"><img src="Calculator/icon.webp" style="vertical-align:sub;margin-right:5px;">Calculator</div>
   </div>
   <div id="osContextMenu" class="contextMenu blur" style="display:none;position:fixed;">
-    <div id="closeAllWindows" class="contextMenuSelection" onclick="closeAllWindows()">Close all windows</div>
+    <div id="closeAllWindows" class="contextMenuSelection">Close all windows</div>
     <div class="contextMenuSeparator"></div>
     <div id="settingsWindowOpen3" class="contextMenuSelection">Settings</div>
     <div id="terminalWindowOpen3" class="contextMenuSelection">Terminal</div>

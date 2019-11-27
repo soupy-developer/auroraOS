@@ -20,9 +20,9 @@ var windows = [
 setInterval( function() {
 	var date = new Date();
   var minute = date.getMinutes()
-  if (date.getMinutes() < 10) minute = "0" + date.getMinutes();
+  if (minute < 10) minute = "0" + date.getMinutes();
 	document.getElementById("sysbarClock").innerHTML = clockDays[date.getDay()] + " " + clockMonths[date.getMonth()] + " " + date.getDate() + " - " + " " + date.getHours() + ":" + minute;
-}, 1000);
+}, 2000);
 
 sysbarSystem.addEventListener("click", function() {
   if (sysbarClick) {
@@ -49,9 +49,9 @@ sysbarApps.addEventListener("click", function() {
     sysbarSystem.style = null;
   } else {
     sysbarClick = true;
-    sysbarAppsContextMenu.style = "transform:translate(81px, -20px);";
+    sysbarAppsContextMenu.style = "transform:translate(2.57rem, -20px);";
     setTimeout(function(){
-      sysbarAppsContextMenu.style = "transform:translate(81px, 0px);";
+      sysbarAppsContextMenu.style = "transform:translate(2.57rem, 0px);";
     }, 1)
     sysbarApps.style = "background-color:#004b8a";
   }
@@ -69,7 +69,7 @@ sysbarApps.addEventListener("mouseover", function() {
   if (sysbarClick) {
     sysbarApps.style = "background-color:#004b8a";
     sysbarSystemContextMenu.style = "display:none;";
-    sysbarAppsContextMenu.style = "transform:translate(81px, 0px);";
+    sysbarAppsContextMenu.style = "transform:translate(2.57rem, 0px);";
     sysbarSystem.style = null;
   }
 });
@@ -83,25 +83,18 @@ document.addEventListener("contextmenu", function(e) {
       osContextMenu.style.top = e.clientY + "px";
     }, 1)
 }, false);
-document.addEventListener("mouseup", function() {
-  osContextMenu.style = "display:none;position:fixed;"
-})
+document.addEventListener("mouseup", function() { osContextMenu.style = "display:none;position:fixed;" })
 
-document.getElementById("systemShutdown").onmousedown = function() {
+document.getElementById("systemShutdown").onclick = function() {
   document.getElementById("shutdown").style = null;
   setTimeout(function() {
     document.getElementById("shutdown").style = "transition:0.5s;background-color:black;width:100%;height:100%;position:absolute;z-index:256;";
   }, 1)
 }
 
-document.getElementById("systemReboot").onmousedown = function() {
-  document.getElementById("shutdown").style = null;
-  setTimeout(function() {
-    document.getElementById("shutdown").style = "transition:0.5s;background-color:black;width:100%;height:100%;position:absolute;z-index:256;";
-  }, 1);
-  setTimeout(function() {
-    location = location;
-  }, 1000);
+document.getElementById("systemReboot").onclick = function() {
+  document.getElementById("systemShutdown").click();
+  setTimeout(function() { location = location; }, 1000);
 }
 
 function windowEnable(elmnt) {
@@ -116,7 +109,7 @@ function windowEnable(elmnt) {
   var height = null;
   var top = null;
   var left = null;
-  document.getElementById(elmnt.id + "Close").onmouseup = function() {
+  document.getElementById(elmnt.id + "Close").onclick= function() {
     elmnt.style.transition = null;
     elmnt.style.transform = "scale(0.1)";
     elmnt.style.opacity = 0;
@@ -202,18 +195,9 @@ function windowEnable(elmnt) {
 
 windows.forEach(window => windowEnable(window));
 
-document.getElementById("closeAllWindows").onmousedown = function() {
-  windows.forEach(window => {
-    window.style.transition = null;
-    window.style.transform = "scale(0.1)";
-    window.style.opacity = 0;
-    setTimeout(function() {
-      window.style = "display: none;";
-    }, 200)
-  })
-}
+document.getElementById("closeAllWindows").onmouseup = function() { windows.forEach(window => document.getElementById(window.id + "Close").click()) }
 
-window.alert = function(window, title, message) {
+window.alert = function(window, message, title="Alert") {
   var windowObject = document.getElementById(window.toLowerCase() + "Window");
   document.getElementById("alertTitleBar").innerHTML = window;
   document.getElementById("alertTitle").innerHTML = title;
@@ -221,9 +205,7 @@ window.alert = function(window, title, message) {
   document.getElementById("alert").style.display = null;
   document.getElementById("alert").style.left = windowObject.style.left;
   document.getElementById("alert").style.top = parseInt(windowObject.style.top.substring(0, windowObject.style.top.length - 2)) - 20 + "px";
-  setTimeout(function() {
-    document.getElementById("alert").style.top = windowObject.style.top;
-  }, 1)
+  setTimeout(function() { document.getElementById("alert").style.top = windowObject.style.top; }, 1);
 }
 
 window.onload = function() { // executes after everything executed & resources finished loading - KEEP THIS AT BOTTOM
@@ -231,6 +213,6 @@ window.onload = function() { // executes after everything executed & resources f
   document.getElementById("shutdown").style = "background-color:black;width:100%;height:100%;position:fixed;z-index:256;";
   setTimeout(function() {
     document.getElementById("shutdown").style = "transition:0.5s;margin:50%;margin-top:25%;width:0%;height:0%;position:fixed;";
-    setTimeout(function(){document.getElementById("shutdown").style = "display: none;"},600)
+    setTimeout(function(){document.getElementById("shutdown").style = "display: none;"},500)
   }, 1000)
 }
