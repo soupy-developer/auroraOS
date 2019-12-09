@@ -14,14 +14,7 @@
   <script src="main.js" async="async"></script>
   <div id="startup" style="cursor:progress;background-color:black;color:white;width:100%;height:100%;position:absolute;z-index:256;text-align:center;"><img src="logo.webp" style="position:absolute;top:50%;left:50%;margin-top:-95px;margin-left:-75px;"><img src="loading.webp" style="position:absolute;top:50%;left:50%;margin-top:160px;margin-left:-15px;width:30px;height:30px;"><noscript><p style="width:100%;">Your browser doesn't support JavaScript :(</p></noscript><p style="width:100%;position:absolute;bottom:0;">© 2019 soup</p></div>
   <div id="shutdown" style="display:none;"></div>
-  <div id="alert" class="window" style="display:none;z-index:200;">
-    <div id="alertTitleBar" class="windowTitleBar blur">Window</div>
-    <div class="windowBody blur" style="resize:none;padding-right:50px;">
-      <h1 id="alertTitle">Title</h1>
-      <p id="alertMessage">Message</p>
-      <button onclick="document.getElementById('alert').style.display='none';">OK</button>
-    </div>
-  </div>
+  <div id="alert" class="window" style="display:none;z-index:200;"><div id="alertTitleBar" class="windowTitleBar blur">Window</div><div class="windowBody blur" style="resize:none;padding-right:50px;"><h1 id="alertTitle">Title</h1><p id="alertMessage">Message</p><button id="alertClose">OK</button></div></div>
   <div id="calculatorWindow" class="window" style="display:none;">
     <div id="calculatorWindowTitleBar" class="windowTitleBar blur"><div id="calculatorWindowClose" class="windowAction"><img src="close.svg"></div><ui>Calculator</ui></div>
     <div id="calculatorWindowBody" class="windowBody blur" style="resize:none;">
@@ -107,7 +100,7 @@
   <div id="uiWindow" class="window" style="display:none;">
     <div id="uiWindowTitleBar" class="windowTitleBar blur"><div id="uiWindowClose" class="windowAction"><img src="close.svg"></div><div id="uiWindowMaximize" class="windowAction"><img src="max.svg"></div><ui>UI</ui></div>
     <div id="uiWindowBody" class="windowBody">
-      <div class="menubar" style="margin-right:-15px;margin-left:-15px;margin-top:-15px;"><div class="menubarButton" onclick="alert('UI', 'You found me!', 'flyOS has custom alerts!')">Menu Bar & Button</div></div>
+      <div class="menubar" style="margin-right:-15px;margin-left:-15px;margin-top:-15px;"><div class="menubarButton" onclick="alert('You found me!', 'flyOS has custom alerts!', 'UI')">Menu Bar & Button</div></div>
       <h1>Header</h1>
       <p>Paragraph</p>
       <div class="contextMenu blur"><div class="contextMenuSelection notAllowed">Context Menu</div><div class="contextMenuSeparator"></div><div class="contextMenuSelection">...in a window!?</div></div>
@@ -156,12 +149,11 @@
     <div id="aboutWindowBody" class="windowBody blur" style="resize:none;text-align:center;">
       <img src="logo.webp" style="float:left;margin-right:15px;">
     <h1 style="float:right;margin-top:20px;margin-left:45px;margin-right:45px;">flyOS</h1>
-    <p><strong>Build </strong>21</p>
-    <p><strong>Update </strong>1911-5</p>
+    <p><strong>Build </strong>23</p>
+    <p><strong>Update </strong>1912-2</p>
     <p>Made with love by <a href="https://www.youtube.com/channel/UCK3sTrOaVuGHqsXJcWjceLw">soup</a></p>
     </div>
   </div>
-  <div class="desktopIcon"><img src="logo.webp"><br>Icon Test</div>
   <div id="osContextMenu" class="contextMenu blur" style="display:none;position:fixed;">
     <div id="closeAllWindows" class="contextMenuSelection">Close all windows</div>
     <div class="contextMenuSeparator"></div>
@@ -178,7 +170,7 @@
     <div id="menubarClock" style="font-size:14px;text-align:right;" class="menubarObject"></div>
   </div>
   <div id="applications" class="fullscreen blur" style="display:none;transform:scale(0);opacity:0;">
-    <h1 id="aboutWindowOpen" style="cursor:default;margin-top:-15px;">flyOS</h1>
+    <h1 id="aboutWindowOpen" style="cursor:default;margin-top:-15px;transition:cubic-bezier(.17,.67,0,.83) 0.3s;">flyOS</h1>
     <div><img id="calculatorWindowOpen2" src="Calculator/icon.webp"><br>Calculator</div>
     <div><img id="writeWindowOpen2" src="Write/icon.webp"><br>Write</div>
     <div><img id="uiWindowOpen2" src="UI/icon.webp"><br>UI</div>

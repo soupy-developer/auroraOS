@@ -7,6 +7,7 @@ var clockMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"
 var osContextMenu = document.getElementById("osContextMenu");
 
 var windows = [
+  document.getElementById("alert"),
   document.getElementById("aboutWindow"),
   document.getElementById("terminalWindow"),
   document.getElementById("uiWindow"),
@@ -28,6 +29,7 @@ menubarSystem.addEventListener("click", function() {
     menubarSystem.style = null;
     apps.style.transform = "scale(0)";
     apps.style.opacity = 0;
+    apps.style.top = null;
     setTimeout(function() {
       apps.style.display = "none";
     }, 100);
@@ -37,6 +39,7 @@ menubarSystem.addEventListener("click", function() {
     setTimeout(function() {
       apps.style.transform = null;
       apps.style.opacity = null;
+      apps.style.top = "0";
     }, 1);
     menubarSystem.style = "background-color:#004b8a";
   }
@@ -67,7 +70,7 @@ document.getElementById("systemReboot").onclick = function() {
 
 function windowEnable(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  var firstActivate = document.getElementById(elmnt.id + "Open")
+  var firstActivate = null;
   var secondActivate = null;
   var thirdActivate = null;
   var maximizer = null;
@@ -76,7 +79,11 @@ function windowEnable(elmnt) {
   var height = null;
   var top = null;
   var left = null;
-  document.getElementById(elmnt.id + "Close").onclick= function() {
+  try {var firstActivate=document.getElementById(elmnt.id + "Open");}catch(a){}
+  try {var secondActivate=document.getElementById(elmnt.id + "Open2");}catch(a){}
+  try {var thirdActivate=document.getElementById(elmnt.id + "Open3");}catch(a){}
+  try {var maximizer=document.getElementById(elmnt.id + "Maximize");}catch(a){}
+  document.getElementById(elmnt.id + "Close").onclick = function() {
     elmnt.style.transition = null;
     elmnt.style.transform = "scale(0.1)";
     elmnt.style.opacity = 0;
@@ -84,9 +91,6 @@ function windowEnable(elmnt) {
       elmnt.style = "display: none;";
     }, 200)
   }
-  try {var secondActivate=document.getElementById(elmnt.id + "Open2");}catch(a){}
-  try {var thirdActivate=document.getElementById(elmnt.id + "Open3");}catch(a){}
-  try {var maximizer=document.getElementById(elmnt.id + "Maximize");}catch(a){}
   function maximize() {
     if (maximized == false) {
       maximized = true;
@@ -123,7 +127,7 @@ function windowEnable(elmnt) {
   function openWindow() {
     if (maximizer) document.getElementById(elmnt.id + "Body").style.resize = null;
     if (maximized) maximized = false;
-    if (apps.style.display !== "none") document.getElementById("systemButton").click();
+    if (apps.style.display !== "none") menubarSystem.click();
     elmnt.style = "top: 30px;";
     windows.forEach(window => window.style.zIndex = 1);
     elmnt.style.zIndex = 2;
@@ -134,7 +138,7 @@ function windowEnable(elmnt) {
       elmnt.style.transition = "none";
     }, 100)
   }
-  firstActivate.addEventListener("click", openWindow)
+  if (firstActivate) firstActivate.addEventListener("click", openWindow);
   if (secondActivate) secondActivate.addEventListener("click", openWindow);
   if (thirdActivate) thirdActivate.addEventListener("click", openWindow);
   document.getElementById(elmnt.id + "TitleBar").onmousedown = function(e) {
@@ -163,15 +167,19 @@ windows.forEach(window => windowEnable(window));
 
 document.getElementById("closeAllWindows").onmouseup = function() { windows.forEach(window => document.getElementById(window.id + "Close").click()) }
 
-window.alert = function(window, message, title="Alert") {
-  var windowObject = document.getElementById(window.toLowerCase() + "Window");
+window.alert = function(message, title="Alert", window="Alert") {
+  document.getElementById("alert").style.display = null;
+  if (!(window === "Alert")) {
+    var windowObject = document.getElementById(window.toLowerCase() + "Window");
+    document.getElementById("alert").style.left = windowObject.style.left;
+    document.getElementById("alert").style.top = parseInt(windowObject.style.top.substring(0, windowObject.style.top.length - 2)) - 20 + "px";
+    setTimeout(function() { document.getElementById("alert").style.top = windowObject.style.top; }, 1);
+    setTimeout(function() { document.getElementById("alert").style.transition = "none"; }, 100);
+  }
   document.getElementById("alertTitleBar").innerHTML = window;
   document.getElementById("alertTitle").innerHTML = title;
   document.getElementById("alertMessage").innerHTML = message;
-  document.getElementById("alert").style.display = null;
-  document.getElementById("alert").style.left = windowObject.style.left;
-  document.getElementById("alert").style.top = parseInt(windowObject.style.top.substring(0, windowObject.style.top.length - 2)) - 20 + "px";
-  setTimeout(function() { document.getElementById("alert").style.top = windowObject.style.top; }, 1);
+  document.getElementById("alert").style.zIndex = 200;
 }
 
 window.onload = function() { // executes after everything executed & resources finished loading - KEEP THIS AT BOTTOM
@@ -180,5 +188,5 @@ window.onload = function() { // executes after everything executed & resources f
   setTimeout(function() {
     document.getElementById("shutdown").style = "transition:0.5s;margin:50%;margin-top:25%;width:0%;height:0%;position:fixed;";
     setTimeout(function(){document.getElementById("shutdown").style = "display: none;"},500)
-  }, 1000)
+  }, 500)
 }
