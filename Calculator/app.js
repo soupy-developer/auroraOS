@@ -35,7 +35,6 @@ document.getElementById("calculatorWindowBody").addEventListener("click", e => {
     }
     calculator.waitingForSecondOperand = true;
     calculator.operator = e.target.value;
-    console.log(calculator);
     return display.value = calculator.displayValue;
   }
   if (e.target.id.includes("Decimal")) {

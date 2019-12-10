@@ -6,6 +6,23 @@ var clockMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"
 
 var osContextMenu = document.getElementById("osContextMenu");
 
+var os = {
+  alert: function(message, title="Alert", window="Alert") {
+    document.getElementById("alert").style.display = null;
+    if (!(window === "Alert")) {
+      var windowObject = document.getElementById(window.toLowerCase() + "Window");
+      document.getElementById("alert").style.left = windowObject.style.left;
+      document.getElementById("alert").style.top = parseInt(windowObject.style.top.substring(0, windowObject.style.top.length - 2)) - 20 + "px";
+      setTimeout(function() { document.getElementById("alert").style.top = windowObject.style.top; }, 1);
+      setTimeout(function() { document.getElementById("alert").style.transition = "none"; }, 100);
+    }
+    document.getElementById("alertTitleBar").innerHTML = window;
+    document.getElementById("alertTitle").innerHTML = title;
+    document.getElementById("alertMessage").innerHTML = message;
+    document.getElementById("alert").style.zIndex = 200;
+  }
+}
+
 var windows = [
   document.getElementById("alert"),
   document.getElementById("aboutWindow"),
@@ -90,6 +107,7 @@ function windowEnable(elmnt) {
     setTimeout(function() {
       elmnt.style = "display: none;";
     }, 200)
+    if (secondActivate) secondActivate.className = null;
   }
   function maximize() {
     if (maximized == false) {
@@ -128,6 +146,7 @@ function windowEnable(elmnt) {
     if (maximizer) document.getElementById(elmnt.id + "Body").style.resize = null;
     if (maximized) maximized = false;
     if (apps.style.display !== "none") menubarSystem.click();
+    if (secondActivate) secondActivate.className += " windowOpen";
     elmnt.style = "top: 30px;";
     windows.forEach(window => window.style.zIndex = 1);
     elmnt.style.zIndex = 2;
@@ -166,21 +185,6 @@ function windowEnable(elmnt) {
 windows.forEach(window => windowEnable(window));
 
 document.getElementById("closeAllWindows").onmouseup = function() { windows.forEach(window => document.getElementById(window.id + "Close").click()) }
-
-window.alert = function(message, title="Alert", window="Alert") {
-  document.getElementById("alert").style.display = null;
-  if (!(window === "Alert")) {
-    var windowObject = document.getElementById(window.toLowerCase() + "Window");
-    document.getElementById("alert").style.left = windowObject.style.left;
-    document.getElementById("alert").style.top = parseInt(windowObject.style.top.substring(0, windowObject.style.top.length - 2)) - 20 + "px";
-    setTimeout(function() { document.getElementById("alert").style.top = windowObject.style.top; }, 1);
-    setTimeout(function() { document.getElementById("alert").style.transition = "none"; }, 100);
-  }
-  document.getElementById("alertTitleBar").innerHTML = window;
-  document.getElementById("alertTitle").innerHTML = title;
-  document.getElementById("alertMessage").innerHTML = message;
-  document.getElementById("alert").style.zIndex = 200;
-}
 
 window.onload = function() { // executes after everything executed & resources finished loading - KEEP THIS AT BOTTOM
   document.body.removeChild(document.getElementById("startup"));

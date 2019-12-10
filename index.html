@@ -100,7 +100,7 @@
   <div id="uiWindow" class="window" style="display:none;">
     <div id="uiWindowTitleBar" class="windowTitleBar blur"><div id="uiWindowClose" class="windowAction"><img src="close.svg"></div><div id="uiWindowMaximize" class="windowAction"><img src="max.svg"></div><ui>UI</ui></div>
     <div id="uiWindowBody" class="windowBody">
-      <div class="menubar" style="margin-right:-15px;margin-left:-15px;margin-top:-15px;"><div class="menubarButton" onclick="alert('You found me!', 'flyOS has custom alerts!', 'UI')">Menu Bar & Button</div></div>
+      <div class="menubar" style="margin-right:-15px;margin-left:-15px;margin-top:-15px;"><div class="menubarButton" onclick="os.alert('You found me!', 'flyOS has custom alerts!', 'UI')">Menu Bar & Button</div></div>
       <h1>Header</h1>
       <p>Paragraph</p>
       <div class="contextMenu blur"><div class="contextMenuSelection notAllowed">Context Menu</div><div class="contextMenuSeparator"></div><div class="contextMenuSelection">...in a window!?</div></div>
@@ -149,8 +149,8 @@
     <div id="aboutWindowBody" class="windowBody blur" style="resize:none;text-align:center;">
       <img src="logo.webp" style="float:left;margin-right:15px;">
     <h1 style="float:right;margin-top:20px;margin-left:45px;margin-right:45px;">flyOS</h1>
-    <p><strong>Build </strong>23</p>
-    <p><strong>Update </strong>1912-2</p>
+    <p><strong>Build</strong> 25</p>
+    <p><strong>Version</strong> 2.1</p>
     <p>Made with love by <a href="https://www.youtube.com/channel/UCK3sTrOaVuGHqsXJcWjceLw">soup</a></p>
     </div>
   </div>
@@ -161,21 +161,21 @@
     <div id="terminalWindowOpen3" class="contextMenuSelection">Terminal</div>
   </div>
   <div class="dock blur">
-    <div id="systemButton" class="menubarButton"><img src="logo.webp" style="transform:scale(1);margin:0;filter:none;height:35px;width:35px;padding-top:0px;padding:-4px;"></div>
-    <img id="calculatorWindowOpen" style="margin-left:45px;" src="Calculator/icon.webp">
-    <img id="writeWindowOpen" src="Write/icon.webp">
-    <img id="uiWindowOpen" src="UI/icon.webp">
-    <img id="terminalWindowOpen" src="Terminal/icon.webp">
-    <img id="settingsWindowOpen" src="Settings/icon.webp">
+    <div id="systemButton" class="menubarButton"><img src="logo.webp" style="border-radius:0px;transform:scale(1);margin:0;filter:none;height:35px;width:35px;padding-top:0px;padding:-4px;"></div>
+    <img id="calculatorWindowOpen2" style="margin-left:45px;" src="Calculator/icon.webp">
+    <img id="writeWindowOpen2" src="Write/icon.webp">
+    <img id="uiWindowOpen2" src="UI/icon.webp">
+    <img id="terminalWindowOpen2" src="Terminal/icon.webp">
+    <img id="settingsWindowOpen2" src="Settings/icon.webp">
     <div id="menubarClock" style="font-size:14px;text-align:right;" class="menubarObject"></div>
   </div>
   <div id="applications" class="fullscreen blur" style="display:none;transform:scale(0);opacity:0;">
     <h1 id="aboutWindowOpen" style="cursor:default;margin-top:-15px;transition:cubic-bezier(.17,.67,0,.83) 0.3s;">flyOS</h1>
-    <div><img id="calculatorWindowOpen2" src="Calculator/icon.webp"><br>Calculator</div>
-    <div><img id="writeWindowOpen2" src="Write/icon.webp"><br>Write</div>
-    <div><img id="uiWindowOpen2" src="UI/icon.webp"><br>UI</div>
-    <div><img id="terminalWindowOpen2" src="Terminal/icon.webp"><br>Terminal</div>
-    <div><img id="settingsWindowOpen2" src="Settings/icon.webp"><br>Settings</div>
+    <div><img id="calculatorWindowOpen" src="Calculator/icon.webp"><br>Calculator</div>
+    <div><img id="writeWindowOpen" src="Write/icon.webp"><br>Write</div>
+    <div><img id="uiWindowOpen" src="UI/icon.webp"><br>UI</div>
+    <div><img id="terminalWindowOpen" src="Terminal/icon.webp"><br>Terminal</div>
+    <div><img id="settingsWindowOpen" src="Settings/icon.webp"><br>Settings</div>
     <br>
     <ui style="margin-left:-12.75%;width:25%;position:fixed;bottom:45px;"><div id="systemShutdown" style="margin-right:15px;"class="menubarButton">Shut down</div><div id="systemReboot" class="menubarButton">Restart</div></ui>
   </div>

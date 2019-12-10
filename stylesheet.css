@@ -17,6 +17,8 @@ a:hover { text-decoration: underline; }
 .fullscreen div:hover, .fullscreen h1:hover { transform: scale(1.25); }
 .fullscreen div:active, .fullscreen h1:active { transform: scale(1.5); }
 
+.windowOpen { border: rgba(3,169,255,0.5) solid 4px; }
+
 .dock {
   width: 100%;
   text-align: center;
@@ -36,6 +38,7 @@ a:hover { text-decoration: underline; }
   transition: cubic-bezier(.17,.67,0,.83) 0.3s;
   height: 50px;
   width: 50px;
+  border-radius: 100%;
 }
 .dock img:hover {
   margin-left: 20px;
@@ -196,11 +199,11 @@ input[type="range"]::-webkit-slider-thumb:hover { background: gray; }
 }
 .menubarButton:hover, button:hover:not([disabled]), .checkmark:hover:not(.notAllowed), select:hover:not([disabled]), .contextMenuSelection:hover:not(.notAllowed), ::-webkit-scrollbar-thumb:hover { background-color: rgba(3,169,255,0.5); }
 .menubarButton:active, button:active:not([disabled]), .checkmark:active:not(.notAllowed), select:active:not([disabled]), .contextMenuSelection:active:not(.notAllowed), ::-webkit-scrollbar-thumb:active { background-color: #004b8a; }
-button, .menubarButton, .checkmark {
+button, .checkmark:not(.notAllowed) {
   overflow: hidden;
   transform: translate3d(0, 0, 0);
 }
-button:after, .menubarButton:after, .checkmark:after {
+button:after, .checkmark:not(.notAllowed):after {
   content: "";
   display: block;
   position: absolute;
@@ -214,9 +217,9 @@ button:after, .menubarButton:after, .checkmark:after {
   background-position: 50%;
   transform: scale(10, 10);
   opacity: 0;
-  transition: transform .5s, opacity 1s;
+  transition: transform .3s, opacity 1s;
 }
-button:active:after, .menubarButton:active:after, .checkmark:active:not(.notAllowed):after {
+button:active:after, .checkmark:not(.notAllowed):active:after {
   transform: scale(0,0);
   opacity: .3;
   transition: 0s;
