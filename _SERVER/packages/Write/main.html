@@ -1,0 +1,43 @@
+<div id="%window%TitleBar" class="windowTitleBar blur"><div id="%window%Close" class="windowAction"><img src="close.svg"></div><div id="%window%Maximize" class="windowAction"><img src="max.svg"></div><div id="%window%Minimize" class="windowAction"><img src="min.svg"></div><ui>Write</ui></div>
+    <div id="%window%Body" class="windowBody blur" style="padding:0;">
+      <div class="menubar">
+        <div id="%package%Bold" class="menubarButton"><b>B</b></div>
+        <div id="%package%Italics" class="menubarButton"><i>i</i></div>
+        <div id="%package%Underline" class="menubarButton"><u>U</u></div>
+        <div id="%package%Strikethrough" class="menubarButton"><strike>S</strike></div>
+        <select id="%package%Font">
+          <option value="Times New Roman" style="font-family:'Times New Roman';">Times New Roman</option>
+          <option value="Georgia" style="font-family:'Georgia';">Georgia</option>
+          <option value="Arial" style="font-family:'Arial';">Arial</option>
+          <option value="Verdana" style="font-family:'Verdana';">Verdana</option>
+          <option value="open sans">Open Sans</option>
+          <option value="Courier New" style="font-family:'Courier New';">Courier New</option>
+          <option value="Lucida Console" style="font-family:'Lucida Console';">Lucida Console</option>
+        </select>
+        <select id="%package%FontSize">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+        <div id="%package%IndentLeft" class="menubarButton">|&#129120;</div>
+        <div id="%package%IndentCenter" class="menubarButton">|</div>
+        <div id="%package%IndentRight" class="menubarButton">&#129122;|</div>
+        <select id="%package%FormatBlock">
+          <option value="pre">Normal</option>
+          <option value="h1">Heading 1</option>
+          <option value="h2">Heading 2</option>
+          <option value="h3">Heading 3</option>
+          <option value="h4">Heading 4</option>
+          <option value="h5">Heading 5</option>
+          <option value="h6">Heading 6</option>
+          <option value="address">Address</option>
+        </select>
+        <div id="%package%OrderedList" class="menubarButton">1.</div>
+        <div id="%package%UnorderedList" class="menubarButton">&#8226;</div>
+      </div>
+      <iframe id="%package%Text" style="background-color:rgba(255,255,255,0.7);width:100%;height:calc(100% - 46px);"></iframe>
+    </div>

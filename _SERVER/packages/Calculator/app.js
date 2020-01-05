@@ -1,11 +1,16 @@
+;(async function(){
+var package = os.runningPackages[document.currentScript.id];
+var mainWindowRaw = await package.resource("main.html");
+var mainWindow = package.createWindow(atob(mainWindowRaw));
+
 var calculator = {
   displayValue: "0",
   firstOperand: null,
   waitingForSecondOperand: false,
-  operator: null,
+  operator: null
 };
-var display = document.getElementById("calculatorDisplay");
-const performCalculation = {
+var display = document.getElementById(`${package.name}Display`);
+var performCalculation = {
   '/': (firstOperand, secondOperand) => firstOperand / secondOperand,
   '*': (firstOperand, secondOperand) => firstOperand * secondOperand,
   '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
@@ -13,7 +18,7 @@ const performCalculation = {
   '=': (firstOperand, secondOperand) => secondOperand
 };
 
-document.getElementById("calculatorWindowBody").addEventListener("click", e => {
+document.getElementById(`${mainWindow.id}Body`).onclick = function(e) {
   if (!e.target.matches("button")) return;
   if (e.target.id.includes("_N")) {
     if (calculator.waitingForSecondOperand === true) {
@@ -50,4 +55,5 @@ document.getElementById("calculatorWindowBody").addEventListener("click", e => {
     calculator.operator = null;
     return display.value = calculator.displayValue;
   }
-});
+}
+})()

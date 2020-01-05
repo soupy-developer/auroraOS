@@ -2,180 +2,33 @@
 <html>
 
 <head>
-  <title>flyOS</title>
+  <title>auroraOS</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-  <link href="stylesheet.css" rel="stylesheet">
+  <link href="default.css" rel="stylesheet">
+  <link id="STYLE_Theme" href="data:text/css;base64,Ojotd2Via2l0LXNjcm9sbGJhci10aHVtYiB7IGJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwwLDAsMC41KTsgYm9yZGVyLXJhZGl1czogNXB4OyB9DQoNCi5mdWxsc2NyZWVuIHsNCiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDUwLDUwLDUwKTsNCiAgY29sb3I6IHdoaXRlOw0KfQ0KDQouZG9jayB7DQogIGJhY2tncm91bmQtY29sb3I6IHJnYig1MCw1MCw1MCk7DQogIGNvbG9yOiB3aGl0ZTsNCn0NCg0KLmNvbnRleHRNZW51IHsNCiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDUwLDUwLDUwKTsNCiAgY29sb3I6IHdoaXRlOw0KfQ0KLm5vdEFsbG93ZWQgew0KICBjb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwwLjMpOw0KfQ0KLmNvbnRleHRNZW51U2VwYXJhdG9yIHsNCiAgYm9yZGVyLXRvcDogMXB4IHNvbGlkIHJnYmEoMjU1LDI1NSwyNTUsMC4zKTsNCn0NCg0KLndpbmRvd1RpdGxlQmFyIHsNCiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLDAsMCwwLjUpOw0KICBjb2xvcjogd2hpdGU7DQp9DQoud2luZG93Qm9keSB7DQogIGJhY2tncm91bmQtY29sb3I6IHJnYig1MCw1MCw1MCk7DQogIGNvbG9yOiAjZWJlYmViOw0KfQ0KLndpbmRvd0FjdGlvbiB7DQogIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50Ow0KICBwYWRkaW5nLWxlZnQ6IDAuMmVtOw0KICBwYWRkaW5nLXJpZ2h0OiAwLjJlbTsNCiAgbWFyZ2luLXJpZ2h0OiAwLjRlbTsNCiAgbWFyZ2luLXRvcDogLTAuMDVlbTsNCiAgZmxvYXQ6IGxlZnQ7DQp9DQoud2luZG93QWN0aW9uIGltZyB7DQogIGhlaWdodDogMC45NXJlbTsNCiAgd2lkdGg6IDAuOTVyZW07DQp9DQoud2luZG93QWN0aW9uIGltZzpob3ZlciB7IGZpbHRlcjogYnJpZ2h0bmVzcyg1MCUpOyB9DQoud2luZG93QWN0aW9uIGltZzphY3RpdmUgeyBmaWx0ZXI6IGJyaWdodG5lc3MoMzAlKTsgfQ0KDQppbnB1dCwgYnV0dG9uLCB0ZXh0YXJlYSwgc2VsZWN0IHsNCiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLDAsMCwwLjMpOw0KICBjb2xvcjogI2ViZWJlYjsNCiAgYm9yZGVyLXJhZGl1czogNXB4Ow0KICBwYWRkaW5nOiA1cHg7DQogIHBhZGRpbmctbGVmdDogN3B4Ow0KICBwYWRkaW5nLXJpZ2h0OiA3cHg7DQogIGJvcmRlcjogbm9uZTsNCn0NCg0Kb3B0aW9uIHsNCiAgYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7DQogIGNvbG9yOiAjZWJlYmViOw0KfQ0KYnV0dG9uW2Rpc2FibGVkXSwgaW5wdXRbZGlzYWJsZWRdLCB0ZXh0YXJlYVtkaXNhYmxlZF0sIHNlbGVjdFtkaXNhYmxlZF0gew0KICBiYWNrZ3JvdW5kOiByZ2JhKDAsMCwwLDAuMTUpOw0KICBjb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwwLjMpOw0KfQ0KLmNoYm94Q29udGFpbmVyIGlucHV0OmNoZWNrZWQgfiAuY2hlY2ttYXJrIHsgY29sb3I6IHdoaXRlOyB9DQouY2hlY2ttYXJrIHsNCiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLDAsMCwwLjMpOw0KICBjb2xvcjogdHJhbnNwYXJlbnQ7DQp9DQppbnB1dFt0eXBlPSJyYW5nZSJdIHsgaGVpZ2h0OiAzcHg7IH0NCmlucHV0W3R5cGU9InJhbmdlIl06Oi13ZWJraXQtc2xpZGVyLXRodW1iIHsNCiAgd2lkdGg6IDIwcHg7DQogIGhlaWdodDogMjBweDsNCiAgYm9yZGVyLXJhZGl1czogMTAwJTsNCiAgYmFja2dyb3VuZDogc2lsdmVyOw0KfQ0KaW5wdXRbdHlwZT0icmFuZ2UiXTo6LXdlYmtpdC1zbGlkZXItdGh1bWI6aG92ZXIgeyBiYWNrZ3JvdW5kOiBncmF5OyB9DQoubWVudWJhciB7DQogIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50Ow0KICBib3JkZXItYm90dG9tOiAxcHggc29saWQgcmdiYSgyNTUsMjU1LDI1NSwwLjMpOw0KICBjb2xvcjogd2hpdGU7DQp9DQoubWVudWJhckJ1dHRvbiwgLm1lbnViYXJPYmplY3Qgew0KICBib3JkZXItcmFkaXVzOiA1cHg7DQp9DQoubWVudWJhckJ1dHRvbjpob3ZlciwgYnV0dG9uOmhvdmVyOm5vdChbZGlzYWJsZWRdKSwgLmNoZWNrbWFyazpob3Zlcjpub3QoLm5vdEFsbG93ZWQpLCBzZWxlY3Q6aG92ZXI6bm90KFtkaXNhYmxlZF0pLCAuY29udGV4dE1lbnVTZWxlY3Rpb246aG92ZXI6bm90KC5ub3RBbGxvd2VkKSwgOjotd2Via2l0LXNjcm9sbGJhci10aHVtYjpob3ZlciB7IGJhY2tncm91bmQtY29sb3I6IHJnYmEoMywxNjksMjU1LDAuNSk7IH0NCi5tZW51YmFyQnV0dG9uOmFjdGl2ZSwgYnV0dG9uOmFjdGl2ZTpub3QoW2Rpc2FibGVkXSksIC5jaGVja21hcms6YWN0aXZlOm5vdCgubm90QWxsb3dlZCksIHNlbGVjdDphY3RpdmU6bm90KFtkaXNhYmxlZF0pLCAuY29udGV4dE1lbnVTZWxlY3Rpb246YWN0aXZlOm5vdCgubm90QWxsb3dlZCksIDo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWI6YWN0aXZlIHsgYmFja2dyb3VuZC1jb2xvcjogIzAwNGI4YTsgfQ0KYnV0dG9uLCAuY2hlY2ttYXJrOm5vdCgubm90QWxsb3dlZCkgew0KICBvdmVyZmxvdzogaGlkZGVuOw0KICB0cmFuc2Zvcm06IHRyYW5zbGF0ZTNkKDAsIDAsIDApOw0KfQ0KYnV0dG9uOmFmdGVyLCAuY2hlY2ttYXJrOm5vdCgubm90QWxsb3dlZCk6YWZ0ZXIgew0KICBjb250ZW50OiAiIjsNCiAgZGlzcGxheTogYmxvY2s7DQogIHBvc2l0aW9uOiBhYnNvbHV0ZTsNCiAgd2lkdGg6IDEwMCU7DQogIGhlaWdodDogMTAwJTsNCiAgdG9wOiAwOw0KICBsZWZ0OiAtMXB4Ow0KICBwb2ludGVyLWV2ZW50czogbm9uZTsNCiAgYmFja2dyb3VuZC1pbWFnZTogcmFkaWFsLWdyYWRpZW50KGNpcmNsZSwgd2hpdGUgOCUsIHRyYW5zcGFyZW50IDEwJSk7DQogIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7DQogIGJhY2tncm91bmQtcG9zaXRpb246IDUwJTsNCiAgdHJhbnNmb3JtOiBzY2FsZSgxMCwgMTApOw0KICBvcGFjaXR5OiAwOw0KICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gLjNzLCBvcGFjaXR5IDFzOw0KfQ0KYnV0dG9uOmFjdGl2ZTphZnRlciwgLmNoZWNrbWFyazpub3QoLm5vdEFsbG93ZWQpOmFjdGl2ZTphZnRlciB7DQogIHRyYW5zZm9ybTogc2NhbGUoMCwwKTsNCiAgb3BhY2l0eTogLjM7DQogIHRyYW5zaXRpb246IDBzOw0KfQ0KDQouYmx1ciB7DQogIGNvbG9yOiByZ2IoMjQwLDI0MCwyNDApOw0KICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsMCwwLDAuNik7DQogIGJhY2tkcm9wLWZpbHRlcjogYmx1cigyMHB4KTsNCn0=" rel="stylesheet">
+  <script src="core.js" defer></script>
 </head>
 
 <body>
-  <script src="Settings/app.js" async="async"></script>
-  <script src="Write/app.js" async="async"></script>
-  <script src="Calculator/app.js" async="async"></script>
-  <script src="main.js" async="async"></script>
   <div id="startup" style="cursor:progress;background-color:black;color:white;width:100%;height:100%;position:absolute;z-index:256;text-align:center;"><img src="logo.webp" style="position:absolute;top:50%;left:50%;margin-top:-95px;margin-left:-75px;"><img src="loading.webp" style="position:absolute;top:50%;left:50%;margin-top:160px;margin-left:-15px;width:30px;height:30px;"><noscript><p style="width:100%;">Your browser doesn't support JavaScript :(</p></noscript><p style="width:100%;position:absolute;bottom:0;">© 2019 soup</p></div>
   <div id="shutdown" style="display:none;"></div>
-  <div id="alert" class="window" style="display:none;z-index:200;"><div id="alertTitleBar" class="windowTitleBar blur">Window</div><div class="windowBody blur" style="resize:none;padding-right:50px;"><h1 id="alertTitle">Title</h1><p id="alertMessage">Message</p><button id="alertClose">OK</button></div></div>
-  <div id="calculatorWindow" class="window" style="display:none;">
-    <div id="calculatorWindowTitleBar" class="windowTitleBar blur"><div id="calculatorWindowClose" class="windowAction"><img src="close.svg"></div><ui>Calculator</ui></div>
-    <div id="calculatorWindowBody" class="windowBody blur" style="resize:none;">
-      <input id="calculatorDisplay" type="textbox" placeholder="0" disabled value="0" style="background-color:rgba(0,0,0,0.3);text-align:right;color:white;font-size:30px;cursor:default;width:250px;">
-      <br><br>
-      <button id="calculator_O" value="+" style="width:60px;height:60px;font-size:24px;">+</button>
-      <button id="calculator_O" value="-" style="width:60px;height:60px;font-size:24px;">-</button>
-      <button id="calculator_O" value="*" style="width:60px;height:60px;font-size:24px;">&times;</button>
-      <button id="calculator_O" value="/" style="width:60px;height:60px;font-size:24px;">&divide;</button>
-      <br><br>
-      <button id="calculator_N" value="7" style="width:60px;height:60px;font-size:24px;">7</button>
-      <button id="calculator_N" value="8" style="width:60px;height:60px;font-size:24px;">8</button>
-      <button id="calculator_N" value="9" style="width:60px;height:60px;font-size:24px;">9</button>
-      <br><br>
-      <button id="calculator_N" value="4" style="width:60px;height:60px;font-size:24px;">4</button>
-      <button id="calculator_N" value="5" style="width:60px;height:60px;font-size:24px;">5</button>
-      <button id="calculator_N" value="6" style="width:60px;height:60px;font-size:24px;">6</button>
-      <br><br>
-      <button id="calculator_N" value="1" style="width:60px;height:60px;font-size:24px;">1</button>
-      <button id="calculator_N" value="2" style="width:60px;height:60px;font-size:24px;">2</button>
-      <button id="calculator_N" value="3" style="width:60px;height:60px;font-size:24px;">3</button>
-      <br><br>
-      <button id="calculator_N" value="0" style="width:60px;height:60px;font-size:24px;">0</button>
-      <button id="calculatorDecimal" style="width:60px;height:60px;font-size:24px;">.</button>
-      <button id="calculatorClear" style="width:60px;height:60px;font-size:24px;">AC</button>
-      <button id="calculator_O" value="=" style="width:60px;height:297px;font-size:24px;position:absolute;top:calc(100% - 312px);right:15px;">=</button>
-    </div>
-  </div>
-  <div id="writeWindow" class="window" style="display:none;">
-    <div id="writeWindowTitleBar" class="windowTitleBar blur"><div id="writeWindowClose" class="windowAction"><img src="close.svg"></div><div id="writeWindowMaximize" class="windowAction"><img src="max.svg"></div><ui>Write</ui></div>
-    <div id="writeWindowBody" class="windowBody blur" style="padding:0;">
-      <div class="menubar">
-        <div id="writeBold" class="menubarButton"><b>B</b></div>
-        <div id="writeItalics" class="menubarButton"><i>i</i></div>
-        <div id="writeUnderline" class="menubarButton"><u>U</u></div>
-        <div id="writeStrikethrough" class="menubarButton"><strike>S</strike></div>
-        <select id="writeFont">
-          <option value="Times New Roman" style="font-family:'Times New Roman';">Times New Roman</option>
-          <option value="Georgia" style="font-family:'Georgia';">Georgia</option>
-          <option value="Arial" style="font-family:'Arial';">Arial</option>
-          <option value="Verdana" style="font-family:'Verdana';">Verdana</option>
-          <option value="open sans">Open Sans</option>
-          <option value="Courier New" style="font-family:'Courier New';">Courier New</option>
-          <option value="Lucida Console" style="font-family:'Lucida Console';">Lucida Console</option>
-        </select>
-        <select id="writeFontSize">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-        </select>
-        <div id="writeIndentLeft" class="menubarButton">|🡠</div>
-        <div id="writeIndentCenter" class="menubarButton">|</div>
-        <div id="writeIndentRight" class="menubarButton">🡢|</div>
-        <select id="writeFormatBlock">
-          <option value="pre">Normal</option>
-          <option value="h1">Heading 1</option>
-          <option value="h2">Heading 2</option>
-          <option value="h3">Heading 3</option>
-          <option value="h4">Heading 4</option>
-          <option value="h5">Heading 5</option>
-          <option value="h6">Heading 6</option>
-          <option value="address">Address</option>
-        </select>
-        <div id="writeOrderedList" class="menubarButton">1.</div>
-        <div id="writeUnorderedList" class="menubarButton">•</div>
-      </div>
-      <iframe id="writeText" style="background-color:rgba(255,255,255,0.7);width:100%;height:calc(100% - 46px);border:none;" src="Write/editor.html"></iframe>
-    </div>
-  </div>
-  <div id="terminalWindow" class="window" style="display:none;">
-    <div id="terminalWindowTitleBar" class="windowTitleBar blur"><div id="terminalWindowClose" class="windowAction"><img src="close.svg"></div><div id="terminalWindowMaximize" class="windowAction"><img src="max.svg"></div><ui>Terminal</ui></div>
-    <div id="terminalWindowBody" class="windowBody blur" style="padding:0;">
-      <button style="width:calc(100% - 10px);margin-left:5px;margin-right:5px;" onclick="document.getElementById('terminalOutput').innerHTML = '⮞ ' + eval(document.getElementById('terminalCode').value)">Evaluate</button>
-      <br>
-      <textarea autocomplete="a" id="terminalCode" style="width:100%;height:calc(100% - 57px);resize:none;border-radius:0;font-family:monospace;margin-top:5px;"></textarea>
-      <div id="terminalOutput" style="width:calc(100% - 10px);margin-left:5px;margin-right:5px;">⮞</div>
-    </div>
-  </div>
-  <div id="uiWindow" class="window" style="display:none;">
-    <div id="uiWindowTitleBar" class="windowTitleBar blur"><div id="uiWindowClose" class="windowAction"><img src="close.svg"></div><div id="uiWindowMaximize" class="windowAction"><img src="max.svg"></div><ui>UI</ui></div>
-    <div id="uiWindowBody" class="windowBody">
-      <div class="menubar" style="margin-right:-15px;margin-left:-15px;margin-top:-15px;"><div class="menubarButton" onclick="os.alert('You found me!', 'flyOS has custom alerts!', 'UI')">Menu Bar & Button</div></div>
-      <h1>Header</h1>
-      <p>Paragraph</p>
-      <div class="contextMenu blur"><div class="contextMenuSelection notAllowed">Context Menu</div><div class="contextMenuSeparator"></div><div class="contextMenuSelection">...in a window!?</div></div>
-      <br><br><label class="chboxContainer">Checkbox
-        <input type="checkbox"></input>
-        <span class="checkmark">✓</span>
-      </label>
-      <label class="chboxContainer">Disabled Checkbox
-        <input type="checkbox" disabled></input>
-        <span class="checkmark notAllowed">✓</span>
-      </label>
-      <button>Button</button> <button disabled>Disabled Button</button><br><br>
-      <input type="textbox" placeholder="TextBox"></input> <input type="textbox" disabled placeholder="Disabled TextBox"></input><br><br>
-      <input type="range"></input> Slider<br><br> <input type="range" disabled></input>Disabled Slider<br><br>
-      <textarea placeholder="TextArea"></textarea> <textarea disabled placeholder="Disabled TextArea"></textarea><br><br>
-      <select>
-        <option>Selection Box</option>
-        <option>isn't soup good at css?</option>
-      </select>
-      <select disabled><option>Disabled Selection Box</option></select><br><br>
-      <button onclick="document.getElementById('uiWindowBody').classList.add('blur')">Click me to make this window a blurWindow!</button>
-    </div>
-  </div>
-  <div id="settingsWindow" class="window" style="display:none;">
-    <div id="settingsWindowTitleBar" class="windowTitleBar blur"><div id="settingsWindowClose" class="windowAction"><img src="close.svg"></div><div id="settingsWindowMaximize" class="windowAction"><img src="max.svg"></div><ui>Settings</ui></div>
-    <div id="settingsWindowBody" class="windowBody blur">
-      <h1>Customization</h1>
-      <h2>System</h2>
-      <label class="chboxContainer">Transparency Effects
-        <input type="checkbox" id="settingsTransparencyEffects" checked>
-        <span class="checkmark">✓</span>
-      </label>
-      <select id="settingsTheme">
-        <option value="dark">Dark Mode</option>
-        <option value="light">Light Mode</option>
-      </select>
-      <h2>Wallpaper</h2>
-      <input type="textbox" placeholder="Wallpaper URL" id="settingsWallpaperURL"> <button id="settingsWallpaperURLSelect">Select</button>
-      <h1>Accessibility</h1>
-      <h2>Vision</h2>
-      <input id="settingsFontSize" type="range" value="14" max="30" min="14" class="slider" style="margin-right: 15px;"><label id="settingsFontSizePreview">Font Size: 14px</label></input>
-    </div>
-  </div>
-  <div id="aboutWindow" class="window" style="display:none;">
-    <div id="aboutWindowTitleBar" class="windowTitleBar blur"><div id="aboutWindowClose" class="windowAction"><img src="close.svg"></div>About flyOS</div>
-    <div id="aboutWindowBody" class="windowBody blur" style="resize:none;text-align:center;">
-      <img src="logo.webp" style="float:left;margin-right:15px;">
-    <h1 style="float:right;margin-top:20px;margin-left:45px;margin-right:45px;">flyOS</h1>
-    <p><strong>Build</strong> 25</p>
-    <p><strong>Version</strong> 2.1</p>
-    <p>Made with love by <a href="https://www.youtube.com/channel/UCK3sTrOaVuGHqsXJcWjceLw">soup</a></p>
-    </div>
-  </div>
+  <div id="Alert" class="window" style="display:none;z-index:200;"><div id="%window%TitleBar" class="windowTitleBar blur">Title</div><div class="windowBody blur" style="resize:none;padding-right:50px;"><h1 id="%window%Title">Title</h1><p id="%window%Message">Message</p><button id="%window%Close">OK</button></div></div>
+  <div id="Prompt" class="window" style="display:none;z-index:200;"><div id="%window%TitleBar" class="windowTitleBar blur">Title</div><div class="windowBody blur" style="resize:none;padding-right:50px;"><h1 id="%window%Title">Title</h1><p id="%window%Message">Message</p><input id="%window%Input" type="text" style="display:none;"> <button id="%window%OK">OK</button> <button id="%window%Close">Cancel</button></div></div>
   <div id="osContextMenu" class="contextMenu blur" style="display:none;position:fixed;">
-    <div id="closeAllWindows" class="contextMenuSelection">Close all windows</div>
+    <div id="StopAllProcesses" class="contextMenuSelection">Close all windows</div>
+    <div id="MinimizeAllWindows" class="contextMenuSelection">Minimize all windows</div>
     <div class="contextMenuSeparator"></div>
-    <div id="settingsWindowOpen3" class="contextMenuSelection">Settings</div>
-    <div id="terminalWindowOpen3" class="contextMenuSelection">Terminal</div>
+    <div onclick="os.startPackage(os.packages.find(e => e.name === 'Settings'))" class="contextMenuSelection">Settings</div>
+    <div onclick="os.startPackage(os.packages.find(e => e.name === 'Terminal'))" class="contextMenuSelection">Terminal</div>
   </div>
   <div class="dock blur">
-    <div id="systemButton" class="menubarButton"><img src="logo.webp" style="border-radius:0px;transform:scale(1);margin:0;filter:none;height:35px;width:35px;padding-top:0px;padding:-4px;"></div>
-    <img id="calculatorWindowOpen2" style="margin-left:45px;" src="Calculator/icon.webp">
-    <img id="writeWindowOpen2" src="Write/icon.webp">
-    <img id="uiWindowOpen2" src="UI/icon.webp">
-    <img id="terminalWindowOpen2" src="Terminal/icon.webp">
-    <img id="settingsWindowOpen2" src="Settings/icon.webp">
+    <div id="systemButton" class="menubarButton"><img src="logo.webp" style="border-radius:0px;transform:scale(1);margin:0;height:35px;width:35px;padding-top:0px;padding:-4px;"></div>
+    <container style="margin-left:35px;" id="dockDisplay"></container>
     <div id="menubarClock" style="font-size:14px;text-align:right;" class="menubarObject"></div>
   </div>
   <div id="applications" class="fullscreen blur" style="display:none;transform:scale(0);opacity:0;">
-    <h1 id="aboutWindowOpen" style="cursor:default;margin-top:-15px;transition:cubic-bezier(.17,.67,0,.83) 0.3s;">flyOS</h1>
-    <div><img id="calculatorWindowOpen" src="Calculator/icon.webp"><br>Calculator</div>
-    <div><img id="writeWindowOpen" src="Write/icon.webp"><br>Write</div>
-    <div><img id="uiWindowOpen" src="UI/icon.webp"><br>UI</div>
-    <div><img id="terminalWindowOpen" src="Terminal/icon.webp"><br>Terminal</div>
-    <div><img id="settingsWindowOpen" src="Settings/icon.webp"><br>Settings</div>
+    <h1 onclick="os.startPackage(os.packages.find(element => element.name === 'About'))" style="cursor:default;margin-top:-15px;transition:cubic-bezier(.17,.67,0,.83) 0.3s;">auroraOS</h1>
+    <container id="appsDisplay"></container>
     <br>
     <ui style="margin-left:-12.75%;width:25%;position:fixed;bottom:45px;"><div id="systemShutdown" style="margin-right:15px;"class="menubarButton">Shut down</div><div id="systemReboot" class="menubarButton">Restart</div></ui>
   </div>

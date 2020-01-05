@@ -1,0 +1,5 @@
+{
+    "name": "Ace",
+    "startOnBoot": false,
+    "isApp": true
+}

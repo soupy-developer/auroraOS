@@ -1,0 +1,156 @@
+body {
+  background: url("wallpaper.webp") no-repeat center center fixed;
+  background-size: cover;
+  margin: 0px;
+}
+*:not(h1) {box-sizing: border-box; font-family: "open sans", sans-serif; font-size: 14px; transition: cubic-bezier(.17,.67,0,.83) 0.3s; transition-property: font-size;}
+
+a { text-decoration: none; color: #bb7ff0; }
+a:hover { text-decoration: underline; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+
+.fullscreen { text-align: center; transition: 0.3s; width: 100%; height: 100%; position: fixed; top:50%; z-index: 253; padding: 75px; }
+.fullscreen div { text-align: center; display: inline-block; margin: 30px; transition: cubic-bezier(.17,.67,0,.83) 0.3s; }
+.fullscreen div img { height: 80px; width: 80px; }
+.fullscreen div:hover, .fullscreen h1:hover { transform: scale(1.25); }
+.fullscreen div:active, .fullscreen h1:active { transform: scale(1.5); }
+
+body.loading, body.loading * { cursor: progress !important; }
+
+.dock {
+  width: 100%;
+  text-align: center;
+  cursor: default;
+  padding: 7px;
+  position: fixed;
+  bottom: 0;
+  z-index: 254;
+}
+.dock img {
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: cubic-bezier(.17,.67,0,.83) 0.3s;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+.dock img:hover {
+  margin-left: 20px;
+  margin-right: 20px;
+  transform: translateY(-15px) scale(1.5);
+}
+.dock img:active {
+  margin-left: 35px;
+  margin-right: 35px;
+  transform: translateY(-30px) scale(2);
+}
+.dock .menubarButton { float: left; }
+.dock .menubarObject { float: right; }
+
+.contextMenu {
+  position: fixed;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: inline-block;
+  margin: 5px;
+  box-shadow: 0px 0px 32px rgba(0,0,0,0.7);
+  transition: cubic-bezier(.17,.67,0,.83) 0.1s;
+  cursor: default;
+  z-index: 255;
+}
+.contextMenuSelection {
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.contextMenuSelection img { width: 20px; height: 20px; }
+.notAllowed {
+  cursor: not-allowed;
+}
+.contextMenuSeparator {
+  height: 1px;
+  margin: 5px 0 5px 0;
+}
+
+.window {
+  position: fixed;
+  box-shadow: 0px 0px 32px rgba(0,0,0,0.7);
+  z-index: 1;
+  transition: 0.2s;
+  border-radius: 5px;
+}
+.windowTitleBar {
+  border-radius: 5px 5px 0px 0px;
+  padding: 7px;
+  padding-left: 10px;
+  cursor: default;
+  text-align: center;
+}
+.windowTitleBar ui { margin-right: 3.5rem; }
+.windowBody {
+  border-radius: 0px 0px 5px 5px;
+  padding: 15px;
+  height: 100%;
+  resize: both;
+  overflow: auto;
+}
+
+h1 { margin-top: 10px; margin-bottom:10px; }
+.windowAction {
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  margin-right: 0.4em;
+  margin-top: -0.05em;
+}
+.windowAction img {
+  height: 0.95rem;
+  width: 0.95rem;
+}
+
+input, button, textarea, select {
+  outline: none;
+}
+option {
+  outline: none;
+}
+button[disabled], input[disabled], textarea[disabled], select[disabled] {
+  cursor: not-allowed;
+}
+.chboxContainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  user-select: none;
+}
+.chboxContainer input { display: none; }
+.checkmark {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  padding-left: 5px;
+  padding-right: 4px;
+  border-radius: 5px;
+}
+input[type="range"] { -webkit-appearance: none; }
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.menubar {
+  padding: 5px;
+  border-radius: 0;
+  cursor: default;
+}
+.menubarButton, .menubarObject {
+  padding: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline-block;
+}
+
+iframe {
+  border: none;
+}

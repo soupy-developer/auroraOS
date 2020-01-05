@@ -1,0 +1,5 @@
+{
+    "name": "Files",
+    "startOnBoot": false,
+    "isApp": true
+}

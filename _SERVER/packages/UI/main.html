@@ -1,0 +1,25 @@
+<div id="%window%TitleBar" class="windowTitleBar blur"><div id="%window%Close" class="windowAction"><img src="close.svg"></div><div id="%window%Maximize" class="windowAction"><img src="max.svg"></div><div id="%window%Minimize" class="windowAction"><img src="min.svg"></div><ui>UI</ui></div>
+    <div id="%window%Body" class="windowBody">
+      <div class="menubar" style="margin-right:-15px;margin-left:-15px;margin-top:-15px;"><div class="menubarButton" onclick="os.alert('You found me!', 'auroraOS has custom alerts!', '%window%')">Menu Bar & Button</div></div>
+      <h1>Header</h1>
+      <p>Paragraph</p>
+      <div class="contextMenu blur" style="position:initial;"><div class="contextMenuSelection notAllowed">Context Menu</div><div class="contextMenuSeparator"></div><div class="contextMenuSelection">...in a window!?</div></div>
+      <br><br><label class="chboxContainer">Checkbox
+        <input type="checkbox"></input>
+        <span class="checkmark">&#10003;</span>
+      </label>
+      <label class="chboxContainer">Disabled Checkbox
+        <input type="checkbox" disabled></input>
+        <span class="checkmark notAllowed">&#10003;</span>
+      </label>
+      <button>Button</button> <button disabled>Disabled Button</button><br><br>
+      <input type="textbox" placeholder="TextBox"></input> <input type="textbox" disabled placeholder="Disabled TextBox"></input><br><br>
+      <input type="range"></input> Slider<br><br> <input type="range" disabled></input>Disabled Slider<br><br>
+      <textarea placeholder="TextArea"></textarea> <textarea disabled placeholder="Disabled TextArea"></textarea><br><br>
+      <select>
+        <option>Selection Box</option>
+        <option>isn't soup good at css?</option>
+      </select>
+      <select disabled><option>Disabled Selection Box</option></select><br><br>
+      <button onclick="document.getElementById('%window%Body').classList.add('blur')">Click me to make this window a blurWindow!</button>
+    </div>

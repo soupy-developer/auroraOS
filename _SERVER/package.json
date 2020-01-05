@@ -1,0 +1,12 @@
+{
+  "name": "aurora-os",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "express": "~4.16.1",
+    "mime": "^2.4.4",
+    "rimraf": "^3.0.0"
+  }
+}

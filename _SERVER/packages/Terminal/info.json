@@ -1,0 +1,5 @@
+{
+    "name": "Terminal",
+    "startOnBoot": false,
+    "isApp": true
+}

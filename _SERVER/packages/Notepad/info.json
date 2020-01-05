@@ -1,0 +1,5 @@
+{
+    "name": "Notepad",
+    "startOnBoot": false,
+    "isApp": true
+}
