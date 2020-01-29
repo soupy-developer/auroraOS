@@ -1,7 +1,7 @@
 ;(async function(){
 var package = os.runningPackages[document.currentScript.id];
 var wRaw = await package.resource("main.html");
-var window = package.createWindow(atob(wRaw));
+var window = package.createWindow(atob(wRaw), { resizable: true });
 
 var mimeToMode = {
   "application/javascript": "javascript",

@@ -3,17 +3,19 @@
 
 <head>
   <title>auroraOS</title>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
   <link href="default.css" rel="stylesheet">
-  <link id="STYLE_Theme" href="data:text/css;base64,Ojotd2Via2l0LXNjcm9sbGJhci10aHVtYiB7IGJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwwLDAsMC41KTsgYm9yZGVyLXJhZGl1czogNXB4OyB9DQoNCi5mdWxsc2NyZWVuIHsNCiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDUwLDUwLDUwKTsNCiAgY29sb3I6IHdoaXRlOw0KfQ0KDQouZG9jayB7DQogIGJhY2tncm91bmQtY29sb3I6IHJnYig1MCw1MCw1MCk7DQogIGNvbG9yOiB3aGl0ZTsNCn0NCg0KLmNvbnRleHRNZW51IHsNCiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDUwLDUwLDUwKTsNCiAgY29sb3I6IHdoaXRlOw0KfQ0KLm5vdEFsbG93ZWQgew0KICBjb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwwLjMpOw0KfQ0KLmNvbnRleHRNZW51U2VwYXJhdG9yIHsNCiAgYm9yZGVyLXRvcDogMXB4IHNvbGlkIHJnYmEoMjU1LDI1NSwyNTUsMC4zKTsNCn0NCg0KLndpbmRvd1RpdGxlQmFyIHsNCiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLDAsMCwwLjUpOw0KICBjb2xvcjogd2hpdGU7DQp9DQoud2luZG93Qm9keSB7DQogIGJhY2tncm91bmQtY29sb3I6IHJnYig1MCw1MCw1MCk7DQogIGNvbG9yOiAjZWJlYmViOw0KfQ0KLndpbmRvd0FjdGlvbiB7DQogIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50Ow0KICBwYWRkaW5nLWxlZnQ6IDAuMmVtOw0KICBwYWRkaW5nLXJpZ2h0OiAwLjJlbTsNCiAgbWFyZ2luLXJpZ2h0OiAwLjRlbTsNCiAgbWFyZ2luLXRvcDogLTAuMDVlbTsNCiAgZmxvYXQ6IGxlZnQ7DQp9DQoud2luZG93QWN0aW9uIGltZyB7DQogIGhlaWdodDogMC45NXJlbTsNCiAgd2lkdGg6IDAuOTVyZW07DQp9DQoud2luZG93QWN0aW9uIGltZzpob3ZlciB7IGZpbHRlcjogYnJpZ2h0bmVzcyg1MCUpOyB9DQoud2luZG93QWN0aW9uIGltZzphY3RpdmUgeyBmaWx0ZXI6IGJyaWdodG5lc3MoMzAlKTsgfQ0KDQppbnB1dCwgYnV0dG9uLCB0ZXh0YXJlYSwgc2VsZWN0IHsNCiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLDAsMCwwLjMpOw0KICBjb2xvcjogI2ViZWJlYjsNCiAgYm9yZGVyLXJhZGl1czogNXB4Ow0KICBwYWRkaW5nOiA1cHg7DQogIHBhZGRpbmctbGVmdDogN3B4Ow0KICBwYWRkaW5nLXJpZ2h0OiA3cHg7DQogIGJvcmRlcjogbm9uZTsNCn0NCg0Kb3B0aW9uIHsNCiAgYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7DQogIGNvbG9yOiAjZWJlYmViOw0KfQ0KYnV0dG9uW2Rpc2FibGVkXSwgaW5wdXRbZGlzYWJsZWRdLCB0ZXh0YXJlYVtkaXNhYmxlZF0sIHNlbGVjdFtkaXNhYmxlZF0gew0KICBiYWNrZ3JvdW5kOiByZ2JhKDAsMCwwLDAuMTUpOw0KICBjb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwwLjMpOw0KfQ0KLmNoYm94Q29udGFpbmVyIGlucHV0OmNoZWNrZWQgfiAuY2hlY2ttYXJrIHsgY29sb3I6IHdoaXRlOyB9DQouY2hlY2ttYXJrIHsNCiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLDAsMCwwLjMpOw0KICBjb2xvcjogdHJhbnNwYXJlbnQ7DQp9DQppbnB1dFt0eXBlPSJyYW5nZSJdIHsgaGVpZ2h0OiAzcHg7IH0NCmlucHV0W3R5cGU9InJhbmdlIl06Oi13ZWJraXQtc2xpZGVyLXRodW1iIHsNCiAgd2lkdGg6IDIwcHg7DQogIGhlaWdodDogMjBweDsNCiAgYm9yZGVyLXJhZGl1czogMTAwJTsNCiAgYmFja2dyb3VuZDogc2lsdmVyOw0KfQ0KaW5wdXRbdHlwZT0icmFuZ2UiXTo6LXdlYmtpdC1zbGlkZXItdGh1bWI6aG92ZXIgeyBiYWNrZ3JvdW5kOiBncmF5OyB9DQoubWVudWJhciB7DQogIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50Ow0KICBib3JkZXItYm90dG9tOiAxcHggc29saWQgcmdiYSgyNTUsMjU1LDI1NSwwLjMpOw0KICBjb2xvcjogd2hpdGU7DQp9DQoubWVudWJhckJ1dHRvbiwgLm1lbnViYXJPYmplY3Qgew0KICBib3JkZXItcmFkaXVzOiA1cHg7DQp9DQoubWVudWJhckJ1dHRvbjpob3ZlciwgYnV0dG9uOmhvdmVyOm5vdChbZGlzYWJsZWRdKSwgLmNoZWNrbWFyazpob3Zlcjpub3QoLm5vdEFsbG93ZWQpLCBzZWxlY3Q6aG92ZXI6bm90KFtkaXNhYmxlZF0pLCAuY29udGV4dE1lbnVTZWxlY3Rpb246aG92ZXI6bm90KC5ub3RBbGxvd2VkKSwgOjotd2Via2l0LXNjcm9sbGJhci10aHVtYjpob3ZlciB7IGJhY2tncm91bmQtY29sb3I6IHJnYmEoMywxNjksMjU1LDAuNSk7IH0NCi5tZW51YmFyQnV0dG9uOmFjdGl2ZSwgYnV0dG9uOmFjdGl2ZTpub3QoW2Rpc2FibGVkXSksIC5jaGVja21hcms6YWN0aXZlOm5vdCgubm90QWxsb3dlZCksIHNlbGVjdDphY3RpdmU6bm90KFtkaXNhYmxlZF0pLCAuY29udGV4dE1lbnVTZWxlY3Rpb246YWN0aXZlOm5vdCgubm90QWxsb3dlZCksIDo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWI6YWN0aXZlIHsgYmFja2dyb3VuZC1jb2xvcjogIzAwNGI4YTsgfQ0KYnV0dG9uLCAuY2hlY2ttYXJrOm5vdCgubm90QWxsb3dlZCkgew0KICBvdmVyZmxvdzogaGlkZGVuOw0KICB0cmFuc2Zvcm06IHRyYW5zbGF0ZTNkKDAsIDAsIDApOw0KfQ0KYnV0dG9uOmFmdGVyLCAuY2hlY2ttYXJrOm5vdCgubm90QWxsb3dlZCk6YWZ0ZXIgew0KICBjb250ZW50OiAiIjsNCiAgZGlzcGxheTogYmxvY2s7DQogIHBvc2l0aW9uOiBhYnNvbHV0ZTsNCiAgd2lkdGg6IDEwMCU7DQogIGhlaWdodDogMTAwJTsNCiAgdG9wOiAwOw0KICBsZWZ0OiAtMXB4Ow0KICBwb2ludGVyLWV2ZW50czogbm9uZTsNCiAgYmFja2dyb3VuZC1pbWFnZTogcmFkaWFsLWdyYWRpZW50KGNpcmNsZSwgd2hpdGUgOCUsIHRyYW5zcGFyZW50IDEwJSk7DQogIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7DQogIGJhY2tncm91bmQtcG9zaXRpb246IDUwJTsNCiAgdHJhbnNmb3JtOiBzY2FsZSgxMCwgMTApOw0KICBvcGFjaXR5OiAwOw0KICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gLjNzLCBvcGFjaXR5IDFzOw0KfQ0KYnV0dG9uOmFjdGl2ZTphZnRlciwgLmNoZWNrbWFyazpub3QoLm5vdEFsbG93ZWQpOmFjdGl2ZTphZnRlciB7DQogIHRyYW5zZm9ybTogc2NhbGUoMCwwKTsNCiAgb3BhY2l0eTogLjM7DQogIHRyYW5zaXRpb246IDBzOw0KfQ0KDQouYmx1ciB7DQogIGNvbG9yOiByZ2IoMjQwLDI0MCwyNDApOw0KICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsMCwwLDAuNik7DQogIGJhY2tkcm9wLWZpbHRlcjogYmx1cigyMHB4KTsNCn0=" rel="stylesheet">
+  <link id="STYLE_Theme" href="" rel="stylesheet">
+  <script src="jquery.min.js" defer></script>
+  <script src="jquery-ui.min.js" defer></script>
   <script src="core.js" defer></script>
 </head>
 
 <body>
-  <div id="startup" style="cursor:progress;background-color:black;color:white;width:100%;height:100%;position:absolute;z-index:256;text-align:center;"><img src="logo.webp" style="position:absolute;top:50%;left:50%;margin-top:-95px;margin-left:-75px;"><img src="loading.webp" style="position:absolute;top:50%;left:50%;margin-top:160px;margin-left:-15px;width:30px;height:30px;"><noscript><p style="width:100%;">Your browser doesn't support JavaScript :(</p></noscript><p style="width:100%;position:absolute;bottom:0;">© 2019 soup</p></div>
-  <div id="shutdown" style="display:none;"></div>
+  <div id="startup" style="background-color:black;color:white;width:100%;height:100%;position:fixed;z-index:256;text-align:center;"><img src="logo.webp" style="position:absolute;top:50%;left:50%;margin-top:-95px;margin-left:-75px;"><img src="loading.webp" style="position:absolute;top:50%;left:50%;margin-top:160px;margin-left:-15px;width:30px;height:30px;"><noscript><p style="width:100%;">Your browser doesn't support JavaScript :(</p></noscript><p style="width:100%;position:absolute;bottom:0;">© 2020 soup</p></div>
   <div id="Alert" class="window" style="display:none;z-index:200;"><div id="%window%TitleBar" class="windowTitleBar blur">Title</div><div class="windowBody blur" style="resize:none;padding-right:50px;"><h1 id="%window%Title">Title</h1><p id="%window%Message">Message</p><button id="%window%Close">OK</button></div></div>
-  <div id="Prompt" class="window" style="display:none;z-index:200;"><div id="%window%TitleBar" class="windowTitleBar blur">Title</div><div class="windowBody blur" style="resize:none;padding-right:50px;"><h1 id="%window%Title">Title</h1><p id="%window%Message">Message</p><input id="%window%Input" type="text" style="display:none;"> <button id="%window%OK">OK</button> <button id="%window%Close">Cancel</button></div></div>
+  <div id="Prompt" class="window" style="display:none;z-index:200;"><div id="%window%TitleBar" class="windowTitleBar blur">Title</div><div class="windowBody blur" style="resize:none;padding-right:50px;"><h1 id="%window%Title">Title</h1><p id="%window%Message">Message</p><input id="%window%Input" type="text"> <button id="%window%OK">OK</button> <button id="%window%Close">Cancel</button></div></div>
   <div id="osContextMenu" class="contextMenu blur" style="display:none;position:fixed;">
     <div id="StopAllProcesses" class="contextMenuSelection">Close all windows</div>
     <div id="MinimizeAllWindows" class="contextMenuSelection">Minimize all windows</div>
@@ -22,15 +24,14 @@
     <div onclick="os.startPackage(os.packages.find(e => e.name === 'Terminal'))" class="contextMenuSelection">Terminal</div>
   </div>
   <div class="dock blur">
-    <div id="systemButton" class="menubarButton"><img src="logo.webp" style="border-radius:0px;transform:scale(1);margin:0;height:35px;width:35px;padding-top:0px;padding:-4px;"></div>
+    <div id="systemButton" class="menubarButton animated flip delay-1s"><img src="logo.webp" style="border-radius:0px;transform:scale(1);margin:-2px;height:30px;width:30px;padding-top:0px;padding:-8px;"></div>
     <container style="margin-left:35px;" id="dockDisplay"></container>
-    <div id="menubarClock" style="font-size:14px;text-align:right;" class="menubarObject"></div>
+    <div id="menubarClock" style="text-align:right;margin:-4px;" class="menubarObject"></div>
+    <img id="menubarLoading" src="loading.webp" class="menubarObject" style="display:none;position:fixed;bottom:8px;right:85px;transform:scale(1);height:40px;width:47px;margin:0px;">
   </div>
-  <div id="applications" class="fullscreen blur" style="display:none;transform:scale(0);opacity:0;">
-    <h1 onclick="os.startPackage(os.packages.find(element => element.name === 'About'))" style="cursor:default;margin-top:-15px;transition:cubic-bezier(.17,.67,0,.83) 0.3s;">auroraOS</h1>
-    <container id="appsDisplay"></container>
-    <br>
-    <ui style="margin-left:-12.75%;width:25%;position:fixed;bottom:45px;"><div id="systemShutdown" style="margin-right:15px;"class="menubarButton">Shut down</div><div id="systemReboot" class="menubarButton">Restart</div></ui>
+  <div id="applications" class="fullscreen blur" style="display:none;">
+    <input type="textbox" id="appSearch" placeholder="Search apps.." style="width:calc(100% - 40px);margin:20px;">
+    <ul id="appsDisplay" style="overflow-y:auto;max-height:80%;"></ul>
   </div>
 </body>
 

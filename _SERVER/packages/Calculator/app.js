@@ -30,16 +30,17 @@ document.getElementById(`${mainWindow.id}Body`).onclick = function(e) {
     return display.value = calculator.displayValue;
   }
   if (e.target.id.includes("_O")) {
-    const inputValue = parseFloat(calculator.displayValue);
+    var inputValue = parseFloat(calculator.displayValue);
     if (calculator.firstOperand == null) {
       calculator.firstOperand = inputValue;
     } else if (calculator.operator) {
-      const result = performCalculation[calculator.operator](calculator.firstOperand, inputValue);
+      var result = performCalculation[calculator.operator](calculator.firstOperand, inputValue);
       calculator.displayValue = String(result);
       calculator.firstOperand = result;
     }
     calculator.waitingForSecondOperand = true;
-    calculator.operator = e.target.value;
+    calculator.operator = e.target.value; //easter egg below lolxd
+    if("Infinity"===calculator.displayValue){mainWindow.style.transform="rotate(17deg)";var i=document.getElementsByTagName("html")[0],e="https://cdn.glitch.com/d350c9dc-f43b-434e-8886-3c62df1297b2%2Flongcat.png",t=document.createElement("img");t.src=e,t.onload=(()=>{t.style="position:fixed;bottom:-10px;left:0;z-index:201;",i.appendChild(t),i.addEventListener("mousemove",e=>{t.style.left=`${e.clientX}px`,t.style.height=`${i.clientHeight-e.clientY}px`})})}
     return display.value = calculator.displayValue;
   }
   if (e.target.id.includes("Decimal")) {
