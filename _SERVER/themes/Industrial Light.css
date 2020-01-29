@@ -1,5 +1,7 @@
 ::-webkit-scrollbar-thumb { background: linear-gradient(0deg, rgb(230,230,230), rgb(250,250,250)); border-radius: 3px; border: 1px solid rgb(175,175,175); }
 
+a { color: #480b80; }
+
 .fullscreen {
   background: linear-gradient(0deg, rgb(168,168,168), rgb(230,230,230));
   color: black;

@@ -1,4 +1,6 @@
-::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.5); border-radius: 5px; }
+::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.5); border-radius: 5px; box-shadow: 0px 0px 6px rgba(0,0,0,0.4); }
+
+a { color: #c8a2eb; }
 
 .fullscreen {
   background-color: rgb(50,50,50);
@@ -8,6 +10,7 @@
 .dock {
   background-color: rgb(50,50,50);
   color: white;
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.4);
 }
 
 .contextMenu {
@@ -21,12 +24,13 @@
   border-top: 1px solid rgba(255,255,255,0.3);
 }
 
-.windowTitleBar {
-  background-color: rgb(50,50,50);
-  color: white;
+.windowTitleBar { color: white; }
+.window {
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(20px);
 }
 .windowBody {
-  background-color: rgb(50,50,50);
+  background: linear-gradient(0deg, rgb(34,34,34), rgb(52,52,52));
   color: #ebebeb;
 }
 .windowAction {
@@ -44,19 +48,21 @@
 .windowAction img:hover { filter: brightness(50%); }
 .windowAction img:active { filter: brightness(30%); }
 
-input, button, textarea, select {
+input[type="textbox"], input[type="text"], button, textarea, select {
   background-color: rgba(0,0,0,0.3);
   color: #ebebeb;
   border-radius: 5px;
-  padding: 5px;
-  padding-left: 7px;
-  padding-right: 7px;
+  padding: 7px;
+  padding-left: 9px;
+  padding-right: 9px;
   border: none;
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.4);
 }
 
 option {
   background-color: black;
   color: #ebebeb;
+  font-weight: bold;
 }
 button[disabled], input[disabled], textarea[disabled], select[disabled] {
   background: rgba(0,0,0,0.15);
@@ -66,13 +72,24 @@ button[disabled], input[disabled], textarea[disabled], select[disabled] {
 .checkmark {
   background-color: rgba(0,0,0,0.3);
   color: transparent;
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.4);
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
-input[type="range"] { height: 3px; }
+input[type="range"] {
+  height: 4px;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.4);
+}
 input[type="range"]::-webkit-slider-thumb {
   width: 20px;
   height: 20px;
   border-radius: 100%;
-  background: silver;
+  background-color: rgba(255,255,255,0.6);
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.4);
 }
 input[type="range"]::-webkit-slider-thumb:hover { background: gray; }
 .menubar {
@@ -83,8 +100,8 @@ input[type="range"]::-webkit-slider-thumb:hover { background: gray; }
 .menubarButton, .menubarObject {
   border-radius: 5px;
 }
-.menubarButton:hover, button:hover:not([disabled]), .checkmark:hover:not(.notAllowed), select:hover:not([disabled]), .contextMenuSelection:hover:not(.notAllowed), ::-webkit-scrollbar-thumb:hover { background-color: rgba(3,169,255,0.5); }
-.menubarButton:active, button:active:not([disabled]), .checkmark:active:not(.notAllowed), select:active:not([disabled]), .contextMenuSelection:active:not(.notAllowed), ::-webkit-scrollbar-thumb:active { background-color: #004b8a; }
+.menubarButton:hover, button:hover:not([disabled]), .checkmark:hover:not(.notAllowed), select:hover:not([disabled]), .contextMenuSelection:hover:not(.notAllowed), ::-webkit-scrollbar-thumb:hover { background-color: rgba(75,75,75,0.3); }
+.menubarButton:active, button:active:not([disabled]), .checkmark:active:not(.notAllowed), select:active:not([disabled]), .contextMenuSelection:active:not(.notAllowed), ::-webkit-scrollbar-thumb:active { background-color: rgba(125,125,125,0.3); }
 button, .checkmark:not(.notAllowed) {
   overflow: hidden;
   transform: translate3d(0, 0, 0);
@@ -113,6 +130,8 @@ button:active:after, .checkmark:not(.notAllowed):active:after {
 
 .blur {
   color: rgb(240,240,240);
-  background-color: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.7);
   backdrop-filter: blur(20px);
 }
+
+.window .blur { background: rgba(0,0,0,0.01); backdrop-filter: none; }

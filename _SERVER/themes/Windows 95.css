@@ -1,4 +1,4 @@
-*:not(h1) { font-family: Arial; }
+::-webkit-scrollbar-thumb { border-top: 1px solid white; border-left: 1px solid white; border-right: 1px solid gray; border-bottom: 1px solid gray; box-shadow: inset 1px 1px #dfdfdf, 1px 0 black, 0 1px black, 1px 1px black; }
 
 .fullscreen {
   border-top: 1px solid white;

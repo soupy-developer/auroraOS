@@ -8,5 +8,8 @@
     "express": "~4.16.1",
     "mime": "^2.4.4",
     "rimraf": "^3.0.0"
+  },
+  "scripts": {
+    "start": "node _SERVER/server.js"
   }
 }
