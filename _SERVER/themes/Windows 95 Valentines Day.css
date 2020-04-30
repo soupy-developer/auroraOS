@@ -1,3 +1,7 @@
+body {
+  background: url("https://www.xmple.com/wallpaper/spots-purple-polka-pink-dots-3840x2160-c2-ff69b4-9400d3-l2-86-247-a-15-f-3.svg") no-repeat center center fixed !important;
+}
+
 ::-webkit-scrollbar-thumb { border-top: 1px solid white; border-left: 1px solid white; border-right: 1px solid gray; border-bottom: 1px solid gray; box-shadow: inset 1px 1px #dfdfdf, 1px 0 black, 0 1px black, 1px 1px black; }
 
 .fullscreen {
@@ -6,12 +10,12 @@
   border-right: 1px solid gray;
   border-bottom: 1px solid gray;
   box-shadow: inset 1px 1px #dfdfdf, 1px 0 black, 0 1px black, 1px 1px black;
-  background: silver;
+  background: #ff57f7;
   color: black;
 }
 
 .dock {
-  background: silver;
+  background: #ff57f7;
   color: black;
   box-shadow: inset 1px 1px #dfdfdf, 1px 0 black, 0 1px black, 1px 1px black;
   border-top: 1px solid silver;
@@ -40,7 +44,7 @@
 }
 
 .contextMenu {
-  background: silver;
+  background: #ff57f7;
   color: black;
   border-radius: 0;
   border-top: 1px solid white;
@@ -68,11 +72,11 @@
   border-bottom: 1px solid gray;
   border-radius: 0;
   box-shadow: 1px 0 black, 0 1px black, 1px 1px black, inset 1px 1px white;
-  background-color: silver;
+  background-color: #ff57f7;
 }
 .windowTitleBar {
-  color: white;
-  background: darkblue;
+  color: black;
+  background: repeating-linear-gradient(0deg,  #ccc,  #ff57f7 2px,  #5e2db3 0);
   border-bottom: 1px solid rgba(0,0,0,0.3);
   border-radius: 0;
   margin-bottom: -3px;
@@ -119,7 +123,7 @@ input, button:not([class]), textarea, select {
 .progressBarInner { background: rgb(7, 13, 102); color: transparent; border: 1px solid black; }
 .progressBarOuter {
   width: 100%;
-  background: white;
+  background: #5e2db3;
   border-top: 1px solid black;
   border-left: 1px solid black;
   border-right: 1px solid #dfdfdf;
@@ -133,7 +137,8 @@ textarea, input {
   border-right: 1px solid #dfdfdf;
   border-bottom: 1px solid #dfdfdf;
   box-shadow: inset 1px 1px grey, 1px 0 white, 0 1px white, 1px 1px white;
-  background: white;
+  background: #5e2db3;
+  color: white;
 }
 
 .menubar {
@@ -149,7 +154,7 @@ button[disabled], input[disabled], textarea[disabled], select[disabled], .notAll
   text-shadow: 0 1px rgba(255,255,255,.5);
   color: gray;
 }
-.chboxContainer input:checked ~ .checkmark { color: black; }
+.chboxContainer input:checked ~ .checkmark { color: white; }
 .checkmark {
   color: transparent;
   border-radius: 0px;
@@ -158,7 +163,7 @@ button[disabled], input[disabled], textarea[disabled], select[disabled], .notAll
   border-right: 1px solid #dfdfdf;
   border-bottom: 1px solid #dfdfdf;
   box-shadow: inset 1px 1px grey, 1px 0 white, 0 1px white, 1px 1px white;
-  background: white;
+  background: #5e2db3;
 }
 input[type="range"] {
   border-top: 2px solid black;

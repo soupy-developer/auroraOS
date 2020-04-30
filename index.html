@@ -1,38 +1,51 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
   <title>auroraOS</title>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
-  <link href="default.css" rel="stylesheet">
-  <link id="STYLE_Theme" href="" rel="stylesheet">
-  <script src="jquery.min.js" defer></script>
-  <script src="jquery-ui.min.js" defer></script>
+  <link rel="icon" type="image/webp" href="logo.webp"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet" media="print" onload="this.onload=null,this.media='all'">
+  <link href="default.css" rel="stylesheet preload" as="style">
+  <link href="PWA/manifest.json" rel="manifest">
+  <link id="STYLE_Theme" rel="stylesheet">
+  <link href="https://www.google-analytics.com/" rel="preconnect">
+  <script src="jquery.js" defer></script>
   <script src="core.js" defer></script>
+  
+  <meta name="robots" content="noarchive"/>
+  <meta name="description" content="auroraOS demo. An open-source OS in your web browser with a fast window manager, beautiful GUI, and more."/>
+  <meta name="title" content="auroraOS Demo"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000"/>
+  
+  <meta property="og:title" content="auroraOS"/>
+  <meta property="og:description" content="auroraOS demo. An open-source OS in your web browser with a fast window manager, beautiful GUI, and more."/>
+  <meta property="og:image" content="https://auroraos.glitch.me/logo.webp"/>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-148421117-1"></script>
+  <script async>if(location.protocol!=="https:")location.href="https:"+window.location.href.substring(window.location.protocol.length);function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-148421117-1");</script>
 </head>
-
 <body>
-  <div id="startup" style="background-color:black;color:white;width:100%;height:100%;position:fixed;z-index:256;text-align:center;"><img src="logo.webp" style="position:absolute;top:50%;left:50%;margin-top:-95px;margin-left:-75px;"><img src="loading.webp" style="position:absolute;top:50%;left:50%;margin-top:160px;margin-left:-15px;width:30px;height:30px;"><noscript><p style="width:100%;">Your browser doesn't support JavaScript :(</p></noscript><p style="width:100%;position:absolute;bottom:0;">© 2020 soup</p></div>
-  <div id="Alert" class="window" style="display:none;z-index:200;"><div id="%window%TitleBar" class="windowTitleBar blur">Title</div><div class="windowBody blur" style="resize:none;padding-right:50px;"><h1 id="%window%Title">Title</h1><p id="%window%Message">Message</p><button id="%window%Close">OK</button></div></div>
-  <div id="Prompt" class="window" style="display:none;z-index:200;"><div id="%window%TitleBar" class="windowTitleBar blur">Title</div><div class="windowBody blur" style="resize:none;padding-right:50px;"><h1 id="%window%Title">Title</h1><p id="%window%Message">Message</p><input id="%window%Input" type="text"> <button id="%window%OK">OK</button> <button id="%window%Close">Cancel</button></div></div>
+  <div id="startup" style="background:black;color:white;width:100%;height:100%;position:fixed;z-index:256;text-align:center;"><img src="logo.webp" style="position:fixed;top:50%;left:50%;margin-top:-95px;margin-left:-75px;"><img src="loading.webp" style="position:fixed;top:50%;left:50%;margin-top:160px;margin-left:-15px;width:30px;height:30px;"><noscript><p>Your browser doesn't support JavaScript :(</p></noscript></div>
+  <div id="Alert" class="window" style="display:none;z-index:200;"><div id="%window%TitleBar" class="windowTitleBar blur">Title</div><div class="windowBody blur" style="padding-right:50px;"><h1 id="%window%Title">Title</h1><p id="%window%Message">Message</p><button id="%window%Close">OK</button></div></div>
+  <div id="Prompt" class="window" style="display:none;z-index:200;"><div id="%window%TitleBar" class="windowTitleBar blur">Title</div><div class="windowBody blur" style="padding-right:50px;"><h1 id="%window%Title">Title</h1><p id="%window%Message">Message</p><input id="%window%Input" type="text" style="display:none;"> <button id="%window%OK">OK</button> <button id="%window%Close">Cancel</button></div></div>
+  
+  <img id="PackageStartAnimation" style="display:none;">
   <div id="osContextMenu" class="contextMenu blur" style="display:none;position:fixed;">
     <div id="StopAllProcesses" class="contextMenuSelection">Close all windows</div>
     <div id="MinimizeAllWindows" class="contextMenuSelection">Minimize all windows</div>
     <div class="contextMenuSeparator"></div>
     <div onclick="os.startPackage(os.packages.find(e => e.name === 'Settings'))" class="contextMenuSelection">Settings</div>
-    <div onclick="os.startPackage(os.packages.find(e => e.name === 'Terminal'))" class="contextMenuSelection">Terminal</div>
   </div>
-  <div class="dock blur">
-    <div id="systemButton" class="menubarButton animated flip delay-1s"><img src="logo.webp" style="border-radius:0px;transform:scale(1);margin:-2px;height:30px;width:30px;padding-top:0px;padding:-8px;"></div>
+  <div id="dock" class="dock blur">
+    <div id="systemButton" class="menubarButton animated flip delay-1s"><img alt="Start" src="logo.webp" style="border-radius:0px;transform:scale(1);margin:-2px;height:30px;width:30px;padding-top:0px;padding:-8px;"></div>
     <container style="margin-left:35px;" id="dockDisplay"></container>
     <div id="menubarClock" style="text-align:right;margin:-4px;" class="menubarObject"></div>
-    <img id="menubarLoading" src="loading.webp" class="menubarObject" style="display:none;position:fixed;bottom:8px;right:85px;transform:scale(1);height:40px;width:47px;margin:0px;">
+    <img id="menubarLoading" src="loading.webp" class="menubarObject" style="display:none;position:fixed;bottom:8px;right:85px;border:none;transform:scale(1);height:40px;width:47px;margin:0px;">
   </div>
   <div id="applications" class="fullscreen blur" style="display:none;">
     <input type="textbox" id="appSearch" placeholder="Search apps.." style="width:calc(100% - 40px);margin:20px;">
     <ul id="appsDisplay" style="overflow-y:auto;max-height:80%;"></ul>
   </div>
 </body>
-
 </html>
