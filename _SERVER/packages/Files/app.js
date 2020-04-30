@@ -1,7 +1,6 @@
 ;(async function(){
 var package = os.runningPackages[document.currentScript.id];
 var mainWindowRaw = await package.resource("main.html");
-var window = package.createWindow(atob(mainWindowRaw), { resizable: true });
 
 var bodyContextMenu = document.createElement("div");
 bodyContextMenu.id = `${package.name}ContextMenu`;
@@ -11,6 +10,8 @@ bodyContextMenu.innerHTML = `<div id="${package.name}Folder" class="contextMenuS
 document.body.appendChild(bodyContextMenu);
 
 package.close = function() { document.body.removeChild(bodyContextMenu); };
+
+var window = package.createWindow(atob(mainWindowRaw), { resizable: true });
 
 window.body.addEventListener("contextmenu", function(e) {
   if (e.defaultPrevented) return;
@@ -23,11 +24,13 @@ window.body.addEventListener("contextmenu", function(e) {
   }, 1)
 }, false);
 
-document.addEventListener("mouseup", function() { bodyContextMenu.style.display = "none"; });
+document.addEventListener("mouseup", function(e) { if (e.button === 0) bodyContextMenu.style = "display:none;" })
 
 var fileIcons = {
+  "file": "file.webp",
   "directory": "directory.webp",
   "application/javascript": "javascript.webp",
+  "text/html": "html.webp",
 };
 
 var fileList = document.getElementById(`${package.name}FileList`);
@@ -53,12 +56,12 @@ var readDirectory = async function(path) {
     if (["application/javascript", "application/json", "text/css"].includes(item.type)) html.onclick = async function() { os.startPackage(os.packages.find(e => e.name === "Ace"), {file: await os.filesystem.readFile(item.path), type: item.type}); };
     if (item.type === "text/html") html.onclick = async function() { os.startPackage(os.packages.find(e => e.name === "HTML Viewer"), await os.filesystem.readFile(item.path)); };
     // END FILE ACTIONS
-    html.innerHTML += `<img src="fileIcons/${fileIcons[item.type]}" style="float:left;height:2rem;width:2.1rem;margin-right:1rem;margin-top:0.7rem;"><p style="float:left;">${item.name}</p> <p style="float:right;">${item.type}</p>`;
+    html.innerHTML += `<img src="/file/readStatic/packages%2FFiles%2FfileIcons%2F${fileIcons[item.type] ? fileIcons[item.type] : fileIcons["file"]}" style="float:left;height:2.4rem;width:2.5rem;margin-right:1rem;margin-top:0.5rem;"><p style="float:left;">${item.name}</p> <p style="float:right;">${item.type}</p>`;
     fileList.appendChild(html);
   });
 }
 
-readDirectory("/");
+readDirectory("/home");
 
 dirBox.addEventListener("keypress", e => { if (e.keyCode === 13) readDirectory(dirBox.value) });
 

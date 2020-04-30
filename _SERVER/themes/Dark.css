@@ -1,36 +1,22 @@
-::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.5); border-radius: 5px; box-shadow: 0px 0px 6px rgba(0,0,0,0.4); }
+::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.5); border-radius: 7px; box-shadow: 0px 0px 6px rgba(0,0,0,0.2); }
 
 a { color: #c8a2eb; }
 
-.fullscreen {
-  background-color: rgb(50,50,50);
-  color: white;
-}
+.fullscreen, .dock, .contextMenu, .windowTitleBar { color: white; }
 
-.dock {
-  background-color: rgb(50,50,50);
-  color: white;
-  box-shadow: 0px 0px 6px rgba(0,0,0,0.4);
-}
+.dock { box-shadow: 0px 0px 6px rgba(0,0,0,0.4); }
 
-.contextMenu {
-  background-color: rgb(50,50,50);
-  color: white;
-}
-.notAllowed {
-  color: rgba(255,255,255,0.3);
-}
+.notAllowed { color: rgba(255,255,255,0.3); }
 .contextMenuSeparator {
   border-top: 1px solid rgba(255,255,255,0.3);
 }
 
-.windowTitleBar { color: white; }
 .window {
   background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(25px);
 }
 .windowBody {
-  background: linear-gradient(0deg, rgb(34,34,34), rgb(52,52,52));
+  background: rgb(44,47,54);
   color: #ebebeb;
 }
 .windowAction {
@@ -48,16 +34,19 @@ a { color: #c8a2eb; }
 .windowAction img:hover { filter: brightness(50%); }
 .windowAction img:active { filter: brightness(30%); }
 
-input[type="textbox"], input[type="text"], button, textarea, select {
+input[type="textbox"], input[type="text"], button, textarea, select, .progressBarOuter {
   background-color: rgba(0,0,0,0.3);
   color: #ebebeb;
-  border-radius: 5px;
+  border-radius: 7px;
   padding: 7px;
   padding-left: 9px;
   padding-right: 9px;
   border: none;
-  box-shadow: 0px 0px 6px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.2);
 }
+
+.progressBarInner { border-radius: 7px; background: rgba(255,255,255,0.4); color: black; }
+.progressBarOuter { width: 100%; background: rgba(0,0,0,0.15); }
 
 option {
   background-color: black;
@@ -80,7 +69,7 @@ button[disabled], input[disabled], textarea[disabled], select[disabled] {
 input[type="range"] {
   height: 4px;
   background-color: rgba(0,0,0,0.3);
-  border-radius: 5px;
+  border-radius: 7px;
   border: none;
   box-shadow: 0px 0px 6px rgba(0,0,0,0.4);
 }
@@ -93,15 +82,14 @@ input[type="range"]::-webkit-slider-thumb {
 }
 input[type="range"]::-webkit-slider-thumb:hover { background: gray; }
 .menubar {
-  background-color: transparent;
   border-bottom: 1px solid rgba(255,255,255,0.3);
   color: white;
 }
 .menubarButton, .menubarObject {
-  border-radius: 5px;
+  border-radius: 7px;
 }
-.menubarButton:hover, button:hover:not([disabled]), .checkmark:hover:not(.notAllowed), select:hover:not([disabled]), .contextMenuSelection:hover:not(.notAllowed), ::-webkit-scrollbar-thumb:hover { background-color: rgba(75,75,75,0.3); }
-.menubarButton:active, button:active:not([disabled]), .checkmark:active:not(.notAllowed), select:active:not([disabled]), .contextMenuSelection:active:not(.notAllowed), ::-webkit-scrollbar-thumb:active { background-color: rgba(125,125,125,0.3); }
+.menubarButton:hover, button:hover:not([disabled]), .checkmark:hover:not(.notAllowed), select:hover:not([disabled]), .contextMenuSelection:hover:not(.notAllowed) { background-color: rgba(75,75,75,0.3); }
+.menubarButton:active, button:active:not([disabled]), .checkmark:active:not(.notAllowed), select:active:not([disabled]), .contextMenuSelection:active:not(.notAllowed) { background-color: rgba(125,125,125,0.3); }
 button, .checkmark:not(.notAllowed) {
   overflow: hidden;
   transform: translate3d(0, 0, 0);
@@ -128,10 +116,11 @@ button:active:after, .checkmark:not(.notAllowed):active:after {
   transition: 0s;
 }
 
-.blur {
-  color: rgb(240,240,240);
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(20px);
+@supports (backdrop-filter: blur(25px)) {
+  .blur {
+    color: rgb(240,240,240);
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(25px);
+  }
+  .window .blur { background: transparent; backdrop-filter: none; }
 }
-
-.window .blur { background: rgba(0,0,0,0.01); backdrop-filter: none; }

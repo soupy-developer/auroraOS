@@ -3,22 +3,19 @@
 a { color: #c8a2eb; }
 
 .fullscreen {
+  border: 1px solid rgb(59,65,74);
   background-color: rgb(44,48,54);
-  color: white;
+  color: rgb(220,220,220);
 }
 
 .dock {
-  background: transparent;
-  color: black;
-}
-
-.dock img {
-  filter: drop-shadow(0px 0px 5px black);
+  border: 1px solid rgb(59,65,74);
+  background-color: rgb(44,48,54);
 }
 
 .contextMenu {
   background-color: rgb(44,48,54);
-  color: white;
+  color: rgb(220,220,220);
   border-radius: 3px;
   border: 1px solid rgb(59,65,74);
 }
@@ -28,16 +25,18 @@ a { color: #c8a2eb; }
 
 .window {
   border: 1px solid rgb(59,65,74);
+  border-radius: 3px;
 }
 .windowTitleBar {
+  border-radius: 3px 3px 0px 0px;
   background-color: rgb(54,58,63);
   color: rgb(220,220,220);
-  font-weight: bold;
   border-bottom: 1px solid rgba(0,0,0,0.3);
 }
 .windowBody {
   background-color: rgb(44,48,54);
-  color: white;
+  border-radius: 0px 0px 3px 3px;
+  color: rgb(220,220,220);
 }
 .windowAction {
   margin-right: 0.4em;
@@ -49,9 +48,9 @@ a { color: #c8a2eb; }
 .windowAction img:hover { filter: brightness(40%); }
 .windowAction img:active { filter: brightness(0%); }
 
-input, button, textarea, select {
+input, button, textarea, select, .progressBarOuter {
   background-color: rgb(44,48,54);
-  color: white;
+  color: rgb(220,220,220);
   border-radius: 3px;
   padding: 4px;
   padding-left: 7px;
@@ -59,19 +58,23 @@ input, button, textarea, select {
   border: 1px solid rgb(32,35,40);
 }
 
+.progressBarInner { border-radius: 3px; background: linear-gradient(0deg, rgb(0,65,155), rgb(13,113,155)); color: black; }
+.progressBarOuter { width: 100%; }
+
 textarea, input { box-shadow: inset 0px 0px 3px rgba(0,0,0,0.25); }
 
 option {
   background-color: rgb(44,48,54);
-  color: white;
+  color: rgb(220,220,220);
 }
 button[disabled], input[disabled], textarea[disabled], select[disabled], .notAllowed {
   background-color: rgb(24,28,34);
   color: rgba(255,255,255,0.3);
 }
-.chboxContainer input:checked ~ .checkmark { color: white; }
+.chboxContainer input:checked ~ .checkmark { color: rgb(220,220,220); }
 .checkmark {
   color: transparent;
+  border-radius: 3px;
   background-color: rgb(44,48,54);
   border: 1px solid rgb(32,35,40);
 }
@@ -86,17 +89,15 @@ input[type="range"]::-webkit-slider-thumb {
 .menubar {
   background-color: rgb(54,58,63);
   color: rgb(220,220,220);
-  font-weight: bold;
   border-bottom: 1px solid rgba(0,0,0,0.3);
 }
 .menubarButton, .menubarObject {
   border: 1px solid rgb(32,35,40);
-  font-weight: bold;
   border-radius: 3px;
 }
 #systemButton { border: none; }
-#systemButton img { box-shadow: none; filter: drop-shadow(0px 0px 5px black); }
-#menubarClock { color: white; text-shadow: 0px 0px 5px black; border: none; }
+#systemButton img { box-shadow: none; }
+#menubarClock { color: white; border: none; }
 
-.menubarButton:hover, button:hover:not([disabled]), .checkmark:hover:not(.notAllowed), select:hover:not([disabled]), .contextMenuSelection:hover:not(.notAllowed), ::-webkit-scrollbar-thumb:hover, input[type="range"]::-webkit-slider-thumb:hover { background: linear-gradient(0deg, rgb(0,65,155), rgb(13,113,155)); }
+.menubarButton:hover, button:hover:not([disabled]), .checkmark:hover:not(.notAllowed), select:hover:not([disabled]), .contextMenuSelection:hover:not(.notAllowed), input[type="range"]::-webkit-slider-thumb:hover { background: linear-gradient(0deg, rgb(0,65,155), rgb(13,113,155)); }
 .menubarButton:active, button:active:not([disabled]), .checkmark:active:not(.notAllowed), select:active:not([disabled]), .contextMenuSelection:active:not(.notAllowed), ::-webkit-scrollbar-thumb:active, input[type="range"]::-webkit-slider-thumb:active { background: linear-gradient(0deg, rgb(48,115,255), rgb(63,173,255)); }

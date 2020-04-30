@@ -1,22 +1,29 @@
+@font-face{font-family:"Open Sans";src:local("Open Sans Regular"),local("OpenSans-Regular"),url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0bf8pkAg.woff2) format("woff2")}
+
 body {
   background: url("wallpaper.webp") no-repeat center center fixed;
   background-size: cover;
   margin: 0px;
 }
-*:not(h1):not(pre) { box-sizing: border-box; font-family: "open sans", sans-serif; font-size: 14px; transition: font-size cubic-bezier(.17,.67,0,.83) 0.3s; }
+*:not(h1):not(pre) { box-sizing: border-box; font-family: -apple-system,segoe ui,"Open Sans",system-ui; font-size: 15px; }
 
 a { text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 
-.fullscreen { transition: 0.2s; width: 800px; height: 75%; position: fixed; bottom: -20%; z-index: 253; padding: 10px; opacity: 0; border-radius: 0px 5px 0px 0px; box-shadow: rgba(0, 0, 0, 0.7) 0px 0px 32px; }
-.fullscreen div { text-align: center; display: inline-block; margin: 30px; transition: cubic-bezier(.17,.67,0,.83) 0.3s; }
-.fullscreen div img { height: 80px; width: 80px; }
-.fullscreen div:hover, .fullscreen div:focus { transform: scale(1.25); }
-.fullscreen div:active { transform: scale(1.5); }
+.fullscreen { transform: translateY(0); transition: 0.2s; width: 800px; height: 75%; position: fixed; bottom: 0; z-index: 253; padding: 10px; opacity: 0; border-radius: 0px 7px 0px 0px; box-shadow: rgba(0, 0, 0, 0.7) 0px 0px 32px; }
+.fullscreen div { text-align: center; display: inline-block; margin: 30px; transition: cubic-bezier(.17,.67,0,.83) 0.1s; }
+.fullscreen div img { height: 80px; width: 80px; filter: drop-shadow(0px 0px 2px rgba(0,0,0,0.5)); }
+.fullscreen div:hover, .fullscreen div:focus { transform: scale(1.35); }
+.fullscreen div:active { transform: scale(1.6); }
 
-body.loading, body.loading * { cursor: progress !important; }
+#PackageStartAnimation {
+  position: fixed;
+  z-index: 500;
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
 
 img {
   user-drag: none;
@@ -56,7 +63,7 @@ img {
 
 .contextMenu {
   position: fixed;
-  border-radius: 5px;
+  border-radius: 7px;
   padding-top: 5px;
   padding-bottom: 5px;
   display: inline-block;
@@ -82,13 +89,12 @@ img {
 
 .window {
   position: fixed;
-  box-shadow: 0px 0px 32px rgba(0,0,0,0.7);
+  box-shadow: 0px 0px 32px rgba(0,0,0,0.5);
   z-index: 1;
-  transition: 0.2s;
-  border-radius: 5px;
+  transition: transform 0.2s, opacity 0.2s;
+  border-radius: 7px;
 }
 .windowTitleBar {
-  border-radius: 5px 5px 0px 0px;
   padding: 7px;
   padding-left: 10px;
   cursor: default;
@@ -97,7 +103,6 @@ img {
 }
 .windowTitleBar ui { margin-right: 3.5rem; }
 .windowBody {
-  border-radius: 0px 0px 5px 5px;
   padding: 15px;
   height: calc(100% - 35px);
   overflow: auto;
@@ -111,16 +116,12 @@ h1 { margin-top: 10px; margin-bottom:10px; }
   margin-top: -0.05em;
 }
 .windowAction img {
-  height: 0.95rem;
-  width: 0.95rem;
+  height: 0.92rem;
+  width: 0.92rem;
 }
 
-input, button, textarea, select, option {
-  outline: none;
-}
-button[disabled], input[disabled], textarea[disabled], select[disabled] {
-  cursor: not-allowed;
-}
+input, button, textarea, select, option { outline: none; }
+button[disabled], input[disabled], textarea[disabled], select[disabled] { cursor: not-allowed; }
 .chboxContainer {
   display: block;
   position: relative;
@@ -135,7 +136,7 @@ button[disabled], input[disabled], textarea[disabled], select[disabled] {
   left: 0;
   padding-left: 5px;
   padding-right: 4px;
-  border-radius: 5px;
+  border-radius: 7px;
 }
 input[type="range"] { -webkit-appearance: none; }
 input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; }
@@ -151,6 +152,9 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; }
   display: inline-block;
 }
 
+.progressBarInner { height: 100%; text-align: center; padding: 2px; }
+.progressBarOuter { display: inline-block; padding: 0 !important; height: 24px; }
+
 iframe { border: none; }
 
 
@@ -159,13 +163,9 @@ iframe { border: none; }
 	position: absolute;
 	font-size: 0.1px;
 	display: block;
-	-ms-touch-action: none;
 	touch-action: none;
 }
-.ui-resizable-disabled .ui-resizable-handle,
-.ui-resizable-autohide .ui-resizable-handle {
-	display: none;
-}
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
 .ui-resizable-n {
 	cursor: n-resize;
 	height: 7px;
