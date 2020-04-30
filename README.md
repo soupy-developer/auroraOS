@@ -5,7 +5,6 @@ A window manager/desktop environment in your browser.
 
 [Try it out!](https://auroraos.glitch.me/) | [Discord Support](https://discord.gg/8nFuT3d)
 
-**To clear up confusion, eitan3085 is my alternate account.**
 # Features
 * Easy to use GUI
 * Beautiful GUI
