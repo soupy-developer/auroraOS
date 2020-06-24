@@ -1,10 +1,9 @@
 ;(async function() {
-var package = os.runningPackages[document.currentScript.id];
-var mainWindowRaw = await package.resource("main.html");
-package.createWindow(atob(mainWindowRaw), { resizable: true });
+const package = document.currentScript.package;
+package.createWindow(atob(await package.resource("main.html")), { startingDimensions: [500, 400], titleBar: "Default", title: "Write", minimizable: true, resizable: true });
 
 document.getElementById(`${package.name}Text`).contentWindow.onload = async function() {
-  var text = document.getElementById(`${package.name}Text`).contentDocument;
+  const text = document.getElementById(`${package.name}Text`).contentDocument;
   document.getElementById(`${package.name}Bold`).onclick = function() { text.execCommand("bold", false); }
   document.getElementById(`${package.name}Italics`).onclick = function() { text.execCommand("italic", false); }
   document.getElementById(`${package.name}Underline`).onclick = function() { text.execCommand("underline", false); }

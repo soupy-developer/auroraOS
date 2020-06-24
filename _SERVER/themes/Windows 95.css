@@ -1,6 +1,6 @@
 ::-webkit-scrollbar-thumb { border-top: 1px solid white; border-left: 1px solid white; border-right: 1px solid gray; border-bottom: 1px solid gray; box-shadow: inset 1px 1px #dfdfdf, 1px 0 black, 0 1px black, 1px 1px black; }
 
-.fullscreen {
+#applications {
   border-top: 1px solid white;
   border-left: 1px solid white;
   border-right: 1px solid gray;
@@ -32,7 +32,7 @@
 .dock img:hover { transform: none; margin-left: 5px; margin-right: 5px; }
 #appsDisplay div:hover { transform: none; }
 
-.dock img:focus, #systemButton:focus, #appsDisplay div:focus, button:focus, input:focus, textarea:focus, select:focus, .checkmark:focus {
+.dock img:focus, #systemButton:focus, #appsDisplay div:focus, button:focus, input:focus, textarea:focus, select:focus, .checkmark:focus, item:focus {
   outline-color: black;
   outline-style: dotted;
   outline-width: 1px;
@@ -42,7 +42,6 @@
 .contextMenu {
   background: silver;
   color: black;
-  border-radius: 0;
   border-top: 1px solid white;
   border-left: 1px solid white;
   border-right: 1px solid gray;
@@ -66,7 +65,6 @@
   border-left: 1px solid white;
   border-right: 1px solid gray;
   border-bottom: 1px solid gray;
-  border-radius: 0;
   box-shadow: 1px 0 black, 0 1px black, 1px 1px black, inset 1px 1px white;
   background-color: silver;
 }
@@ -103,8 +101,7 @@
   width: 0.9rem;
 }
 
-input, button:not([class]), textarea, select {
-  border-radius: 0px;
+input, button:not([class]), select {
   border-top: 1px solid white;
   border-left: 1px solid white;
   border-right: 1px solid gray;
@@ -178,7 +175,8 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-webkit-slider-thumb:active { background-color: white; }
 
 #systemButton img { box-shadow: none; border: none; filter: brightness(0%); }
-#menubarClock {
+
+#menubarClock, list {
   border-top: 1px solid gray;
   border-left: 1px solid gray;
   border-right: 1px solid #dfdfdf;
@@ -198,19 +196,7 @@ input[type="range"]::-webkit-slider-thumb:active { background-color: white; }
   box-shadow: inset 1px 1px grey, 1px 0 white, 0 1px white, 1px 1px white;
 }
 
-.menubarButton:hover {
-  border-top: 1px solid white;
-  border-left: 1px solid white;
-  border-right: 1px solid gray;
-  border-bottom: 1px solid gray;
-  box-shadow: inset 1px 1px #dfdfdf, 1px 0 black, 0 1px black, 1px 1px black;
-}
-.menubarButton:active:not(#systemButton) {
-  border-top: 1px solid black;
-  border-left: 1px solid black;
-  border-right: 1px solid #dfdfdf;
-  border-bottom: 1px solid #dfdfdf;
-  box-shadow: inset 1px 1px grey, 1px 0 white, 0 1px white, 1px 1px white;
+.menubarButton:hover:not(#systemButton) {
   background-color: darkblue;
   color: white;
 }

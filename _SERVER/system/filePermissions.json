@@ -1,0 +1,11 @@
+{
+  "userDefaults": {
+    "default": 2,
+    "admin": 4
+  },
+  "home": {
+    "guest": 3,
+    "default": 3
+  },
+  "system": { "demo": 1, "guest": 1 }
+}

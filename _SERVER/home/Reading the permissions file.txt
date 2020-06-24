@@ -1,0 +1,14 @@
+Reading permissions.json
+----------------------------
+folder {
+   username: permLevel
+}
+----------------------------
+permLevel:
+1 -- Cannot read or write files. Cannot view contents of folder.
+2 -- Can read but not write. Can view contents of folder.
+3 -- Can read and write. Can view contents of folder and create files.
+4 -- Can read, write, rename, and delete. Can view contents of folder, create files, rename folder, and delete folder.
+----------------------------
+If no permissions are specified for a file, it automatically assumes the permissions of the folder.
+If no permissions are specified for a folder, anyone can do anything with it.

@@ -1,7 +1,0 @@
-please don't overwrite this pls pls pls
-TO DO ---------
--Work on Aurora Market installation
--Record demonstration video of Aurora Market installation
--Make a banner for Ace on the Aurora Market
--Fix Ace (hidden for now)
--Increase version number to 4.3 and not 5.0 because I'm a spoiled auroraOS 4.0 rat

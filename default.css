@@ -1,34 +1,32 @@
 @font-face{font-family:"Open Sans";src:local("Open Sans Regular"),local("OpenSans-Regular"),url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0bf8pkAg.woff2) format("woff2")}
 
 body {
-  background: url("wallpaper.webp") no-repeat center center fixed;
+  background: url("wallpaper.webp");
+  background-attachment: fixed;
   background-size: cover;
+  background-position: center;
   margin: 0px;
+  overscroll-behavior: none;
 }
-*:not(h1):not(pre) { box-sizing: border-box; font-family: -apple-system,segoe ui,"Open Sans",system-ui; font-size: 15px; }
+*:not(h1):not(pre) { box-sizing: border-box; font-size: 14px; }
+*:not(span):not(pre) { font-family: -apple-system,segoe ui,"Open Sans",system-ui; }
 
 a { text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar { width: 10px; }
 
-.fullscreen { transform: translateY(0); transition: 0.2s; width: 800px; height: 75%; position: fixed; bottom: 0; z-index: 253; padding: 10px; opacity: 0; border-radius: 0px 7px 0px 0px; box-shadow: rgba(0, 0, 0, 0.7) 0px 0px 32px; }
-.fullscreen div { text-align: center; display: inline-block; margin: 30px; transition: cubic-bezier(.17,.67,0,.83) 0.1s; }
-.fullscreen div img { height: 80px; width: 80px; filter: drop-shadow(0px 0px 2px rgba(0,0,0,0.5)); }
-.fullscreen div:hover, .fullscreen div:focus { transform: scale(1.35); }
-.fullscreen div:active { transform: scale(1.6); }
+#applications { transform: translateY(40px); transition: 0.2s; width: 55%; max-width: 800px; height: 75%; max-height: 800px; position: fixed; bottom: 0; z-index: 253; padding: 10px; opacity: 0; }
+#applications div { text-align: center; display: inline-block; margin: 25px; transition: cubic-bezier(.17,.67,0,.83) 0.2s; }
+#applications div img { height: 80px; width: 80px; filter: drop-shadow(0px 0px 6px rgba(0,0,0,0.25)); }
+#applications div:hover, #applications div:focus { transform: scale(1.25); filter: brightness(1.3) drop-shadow(0px 0px 12px rgba(0,0,0,0.5));  }
+#applications div:active { transform: scale(1); filter: brightness(1.3) drop-shadow(0px 0px 12px rgba(0,0,0,0.5)); }
 
-#PackageStartAnimation {
-  position: fixed;
-  z-index: 500;
-  transition: opacity 0.3s, transform 0.3s;
-  pointer-events: none;
-}
+list { padding: 0 !important; overflow-y: auto; }
+itemcell { display: inline-block; padding: 7px; width: 50%; }
+item { display: list-item; outline: none; user-select: none; }
 
-img {
-  user-drag: none;
-  -webkit-user-drag: none;
-}
+img { user-drag: none; -webkit-user-drag: none; }
 
 .dock {
   width: 100%;
@@ -44,31 +42,26 @@ img {
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: -2px;
-  transition: cubic-bezier(.17,.67,0,.83) 0.3s;
-  height: 40px;
-  width: 40px;
+  transition: cubic-bezier(.17,.67,0,.83) 0.2s;
+  height: 36px;
+  width: 36px;
 }
 .dock img:hover {
-  margin-left: 20px;
-  margin-right: 20px;
-  transform: translateY(-15px) scale(1.5);
+  margin-left: 10px;
+  margin-right: 10px;
+  transform: translateY(-5px) scale(1.25); filter: brightness(1.3) drop-shadow(0px 0px 12px rgba(0,0,0,0.5));
 }
-.dock img:active {
-  margin-left: 35px;
-  margin-right: 35px;
-  transform: translateY(-30px) scale(2);
-}
+.dock img:active { transform: scale(1); filter: brightness(1.3) drop-shadow(0px 0px 12px rgba(0,0,0,0.5)); }
+
 .dock .menubarButton { float: left; }
 .dock .menubarObject { float: right; }
 
 .contextMenu {
   position: fixed;
-  border-radius: 7px;
   padding-top: 5px;
   padding-bottom: 5px;
   display: inline-block;
   margin: 5px;
-  box-shadow: 0px 0px 32px rgba(0,0,0,0.7);
   transition: cubic-bezier(.17,.67,0,.83) 0.1s;
   cursor: default;
   z-index: 255;
@@ -79,9 +72,7 @@ img {
   padding-right: 15px;
 }
 .contextMenuSelection img { width: 20px; height: 20px; }
-.notAllowed {
-  cursor: not-allowed;
-}
+.notAllowed { cursor: not-allowed; }
 .contextMenuSeparator {
   height: 1px;
   margin: 5px 0 5px 0;
@@ -89,10 +80,8 @@ img {
 
 .window {
   position: fixed;
-  box-shadow: 0px 0px 32px rgba(0,0,0,0.5);
   z-index: 1;
   transition: transform 0.2s, opacity 0.2s;
-  border-radius: 7px;
 }
 .windowTitleBar {
   padding: 7px;
@@ -101,7 +90,7 @@ img {
   text-align: center;
   user-select: none;
 }
-.windowTitleBar ui { margin-right: 3.5rem; }
+.windowTitleBar ui { margin-right: 3.5rem; text-overflow: ellipsis; }
 .windowBody {
   padding: 15px;
   height: calc(100% - 35px);
@@ -159,66 +148,4 @@ iframe { border: none; }
 
 
 /* JQUERY */
-.ui-resizable-handle {
-	position: absolute;
-	font-size: 0.1px;
-	display: block;
-	touch-action: none;
-}
-.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
-.ui-resizable-n {
-	cursor: n-resize;
-	height: 7px;
-	width: 100%;
-	top: -5px;
-	left: 0;
-}
-.ui-resizable-s {
-	cursor: s-resize;
-	height: 7px;
-	width: 100%;
-	bottom: -5px;
-	left: 0;
-}
-.ui-resizable-e {
-	cursor: e-resize;
-	width: 7px;
-	right: -5px;
-	top: 0;
-	height: 100%;
-}
-.ui-resizable-w {
-	cursor: w-resize;
-	width: 7px;
-	left: -5px;
-	top: 0;
-	height: 100%;
-}
-.ui-resizable-se {
-	cursor: se-resize;
-	width: 12px;
-	height: 12px;
-	right: 1px;
-	bottom: 1px;
-}
-.ui-resizable-sw {
-	cursor: sw-resize;
-	width: 9px;
-	height: 9px;
-	left: -5px;
-	bottom: -5px;
-}
-.ui-resizable-nw {
-	cursor: nw-resize;
-	width: 9px;
-	height: 9px;
-	left: -5px;
-	top: -5px;
-}
-.ui-resizable-ne {
-	cursor: ne-resize;
-	width: 9px;
-	height: 9px;
-	right: -5px;
-	top: -5px;
-}
+.ui-resizable-handle{position:absolute;font-size:.1px;display:block;touch-action:none}.ui-resizable-autohide .ui-resizable-handle,.ui-resizable-disabled .ui-resizable-handle{display:none}.ui-resizable-n{cursor:n-resize;height:7px;width:100%;top:-5px;left:0}.ui-resizable-s{cursor:s-resize;height:7px;width:100%;bottom:-5px;left:0}.ui-resizable-e{cursor:e-resize;width:7px;right:-5px;top:0;height:100%}.ui-resizable-w{cursor:w-resize;width:7px;left:-5px;top:0;height:100%}.ui-resizable-se{cursor:se-resize;width:12px;height:12px;right:1px;bottom:1px}.ui-resizable-sw{cursor:sw-resize;width:9px;height:9px;left:-5px;bottom:-5px}.ui-resizable-nw{cursor:nw-resize;width:9px;height:9px;left:-5px;top:-5px}.ui-resizable-ne{cursor:ne-resize;width:9px;height:9px;right:-5px;top:-5px}
