@@ -1,5 +1,1 @@
-;(async function(){
-var package = os.runningPackages[document.currentScript.id];
-var mainWindowRaw = await package.resource("main.html");
-package.createWindow(atob(mainWindowRaw), { resizable: true });
-})()
+!async function(){document.currentScript.package.createWindow(atob(await document.currentScript.package.resource("main.html")),{resizable:!0,minimizable:!0,titleBar:"Default",title:"UI",startingDimensions:[430,620]})}();

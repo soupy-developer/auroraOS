@@ -1,0 +1,115 @@
+::-webkit-scrollbar-thumb { border-radius: 10px; border: 0.5px solid rgb(210,210,210); box-shadow: rgba(0,0,0,0.05) 0px 1px 1px; background-color: white; }
+
+a { color: #480b80; }
+
+#applications {
+  border-radius: 0 6px 0 0;
+  box-shadow: rgba(0,0,0,0.35) 0px 0px 24px;
+  background-color: rgba(255,255,255,0.5);
+  backdrop-filter: blur(20px);
+}
+
+.dock {
+  box-shadow: rgba(0,0,0,0.35) 0px 0px 24px;
+  background-color: rgba(255,255,255,0.5);
+  backdrop-filter: blur(20px);
+}
+
+.notAllowed { color: rgba(0,0,0,0.3); }
+
+.contextMenuSeparator { border-top: 1px solid rgba(0,0,0,0.4); }
+.contextMenu {
+  border-radius: 6px;
+  box-shadow: rgba(0,0,0,0.35) 0px 0px 24px;
+  background-color: rgba(255,255,255,0.5);
+  backdrop-filter: blur(20px);
+}
+
+.window {
+  border-radius: 6px;
+  box-shadow: rgba(0,0,0,0.35) 0px 0px 24px;
+  color: black;
+}
+.windowTitleBar {
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid rgb(210,210,210);
+  background: linear-gradient(0deg, rgb(230,230,230), rgb(240,240,240));
+}
+.windowBody {
+  background: rgb(240,240,240);
+  border-radius: 0 0 6px 6px;
+}
+.windowAction {
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  margin-right: 0.4em;
+  margin-top: -0.05em;
+  float: left;
+}
+.windowAction img {
+  height: 0.95rem;
+  width: 0.95rem;
+  filter: brightness(0%);
+}
+.windowAction img:hover { filter: brightness(50%); }
+.windowAction img:active { filter: brightness(70%); }
+
+input, button, textarea, select, .progressBarOuter, list, .menubarButton {
+  background: white;
+  box-shadow: rgba(0,0,0,0.05) 0px 1px 1px;
+  border-radius: 6px;
+  padding: 4px 6px;
+  border: 0.5px solid rgb(210,210,210);
+  font-weight: 500;
+}
+#appSearch { background: rgba(240,240,240,0.4); border: none; }
+
+.progressBarInner { background: rgb(20,124,239); color: white; }
+.progressBarOuter { width: 100%; overflow: hidden; }
+
+#systemButton { border: none; background-color: transparent; }
+#systemButton img { filter: brightness(0%); }
+
+option {
+  color: black;
+  font-weight: 500;
+}
+button[disabled], input[disabled], textarea[disabled], select[disabled] {
+  background: white;
+  color: rgba(0,0,0,0.3);
+  box-shadow: none;
+}
+*::placeholder { color: rgba(0,0,0,0.3); }
+.chboxContainer input:checked ~ .checkmark { color: black !important; }
+.checkmark {
+  background: white;
+  border-radius: 6px;
+  border: 0.5px solid rgb(210,210,210);
+  box-shadow: rgba(0,0,0,0.05) 0px 1px 1px;
+  color: transparent !important;
+  padding: 4px;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+}
+input[type="range"] {
+  height: 2px;
+  background: white;
+  border-radius: 6px;
+  border: 0.5px solid rgb(210,210,210);
+  box-shadow: rgba(0,0,0,0.05) 0px 1px 1px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: white;
+  border: 0.5px solid rgb(210,210,210);
+  box-shadow: rgba(0,0,0,0.05) 0px 1px 1px;
+}
+.menubar { border-bottom: 1px solid rgb(210,210,210); }
+.menubarObject { border-radius: 6px; }
+.menubarButton:hover, button:hover:not([disabled]), .checkmark:hover:not(.notAllowed), select:hover:not([disabled]), input[type="range"]::-webkit-slider-thumb:hover, item:hover { background: linear-gradient(0deg, rgb(20,124,239), rgb(109,179,243)); color: white; }
+.menubarButton:active, button:active:not([disabled]), .checkmark:active:not(.notAllowed), select:active:not([disabled]), input[type="range"]::-webkit-slider-thumb:active, item:focus { background: linear-gradient(0deg, rgb(0,104,219), rgb(89,159,223)); color: white; }
+.contextMenuSelection:hover:not(.notAllowed) { background: rgb(20,124,239); color: white; }
+.contextMenuSelection:active:not(.notAllowed) { background: rgb(0,104,219); color: white; }
