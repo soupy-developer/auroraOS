@@ -1,3 +1,5 @@
+[![Run on Repl.it](https://repl.it/badge/github/soupy-developer/auroraOS)](https://repl.it/github/soupy-developer/auroraOS)
+
 # auroraOS
 A window manager/desktop environment in your browser.
 
