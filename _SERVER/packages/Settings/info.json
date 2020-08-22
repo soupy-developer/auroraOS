@@ -1,5 +1,7 @@
 {
-    "name": "Settings",
-    "startOnBoot": false,
-    "isApp": true
+  "name": "Settings",
+  "startOnBoot": false,
+  "isApp": true,
+  
+  "release": 2
 }

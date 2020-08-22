@@ -1,5 +1,7 @@
 {
-    "name": "Files",
-    "startOnBoot": false,
-    "isApp": true
+  "name": "Files",
+  "startOnBoot": false,
+  "isApp": true,
+  
+  "release": 2
 }

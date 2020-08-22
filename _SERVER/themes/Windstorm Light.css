@@ -15,7 +15,7 @@ a { color: #480b80; }
   backdrop-filter: blur(20px);
 }
 
-.notAllowed { color: rgba(0,0,0,0.3); }
+*[disabled], *::placeholder { color: rgba(0,0,0,0.3); }
 
 .contextMenuSeparator { border-top: 1px solid rgba(0,0,0,0.4); }
 .contextMenu {
@@ -28,7 +28,6 @@ a { color: #480b80; }
 .window {
   border-radius: 6px;
   box-shadow: rgba(0,0,0,0.35) 0px 0px 24px;
-  color: black;
 }
 .windowTitleBar {
   border-radius: 6px 6px 0 0;
@@ -39,18 +38,7 @@ a { color: #480b80; }
   background: rgb(240,240,240);
   border-radius: 0 0 6px 6px;
 }
-.windowAction {
-  padding-left: 0.2em;
-  padding-right: 0.2em;
-  margin-right: 0.4em;
-  margin-top: -0.05em;
-  float: left;
-}
-.windowAction img {
-  height: 0.95rem;
-  width: 0.95rem;
-  filter: brightness(0%);
-}
+.windowAction img { filter: brightness(0%); }
 .windowAction img:hover { filter: brightness(50%); }
 .windowAction img:active { filter: brightness(70%); }
 
@@ -62,9 +50,22 @@ input, button, textarea, select, .progressBarOuter, list, .menubarButton {
   border: 0.5px solid rgb(210,210,210);
   font-weight: 500;
 }
+
+@keyframes focus {
+  from { background: rgb(90,194,255); }
+  to { background: white; }
+}
+
+button:focus:not(:hover):not(:active), input[type="range"]:focus, select:focus:not(option):not(:hover):not(:active) {
+  animation-name: focus;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
 #appSearch { background: rgba(240,240,240,0.4); border: none; }
 
-.progressBarInner { background: rgb(20,124,239); color: white; }
 .progressBarOuter { width: 100%; overflow: hidden; }
 
 #systemButton { border: none; background-color: transparent; }
@@ -76,10 +77,8 @@ option {
 }
 button[disabled], input[disabled], textarea[disabled], select[disabled] {
   background: white;
-  color: rgba(0,0,0,0.3);
   box-shadow: none;
 }
-*::placeholder { color: rgba(0,0,0,0.3); }
 .chboxContainer input:checked ~ .checkmark { color: black !important; }
 .checkmark {
   background: white;
@@ -109,7 +108,9 @@ input[type="range"]::-webkit-slider-thumb {
 }
 .menubar { border-bottom: 1px solid rgb(210,210,210); }
 .menubarObject { border-radius: 6px; }
-.menubarButton:hover, button:hover:not([disabled]), .checkmark:hover:not(.notAllowed), select:hover:not([disabled]), input[type="range"]::-webkit-slider-thumb:hover, item:hover { background: linear-gradient(0deg, rgb(20,124,239), rgb(109,179,243)); color: white; }
-.menubarButton:active, button:active:not([disabled]), .checkmark:active:not(.notAllowed), select:active:not([disabled]), input[type="range"]::-webkit-slider-thumb:active, item:focus { background: linear-gradient(0deg, rgb(0,104,219), rgb(89,159,223)); color: white; }
-.contextMenuSelection:hover:not(.notAllowed) { background: rgb(20,124,239); color: white; }
-.contextMenuSelection:active:not(.notAllowed) { background: rgb(0,104,219); color: white; }
+
+.menubarButton:hover, button:hover:not([disabled]), .checkmark:hover:not([disabled]), select:hover:not([disabled]), input[type="range"]::-webkit-slider-thumb:hover, item:hover { background: linear-gradient(0deg, rgb(20,124,239), rgb(109,179,243)); color: white; }
+.menubarButton:active, button:active:not([disabled]), .checkmark:active:not([disabled]), select:active:not([disabled]), input[type="range"]::-webkit-slider-thumb:active, item:focus { background: linear-gradient(0deg, rgb(0,104,219), rgb(89,159,223)); color: white; }
+
+.contextMenuSelection:hover:not([disabled]), ::-webkit-scrollbar-thumb:hover, .progressBarInner { background: rgb(20,124,239); color: white; }
+.contextMenuSelection:active:not([disabled]), ::-webkit-scrollbar-thumb:active { background: rgb(0,104,219); color: white; }

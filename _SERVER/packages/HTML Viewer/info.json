@@ -1,5 +1,7 @@
 {
-    "name": "HTML Viewer",
-    "startOnBoot": false,
-    "isApp": false
+  "name": "HTML Viewer",
+  "startOnBoot": false,
+  "isApp": false,
+  
+  "release": 1
 }

@@ -15,11 +15,17 @@ app.use(compression());
 app.use(express.static(path.resolve(__dirname, "../")));
 app.use(bodyParser.json());
 
-const users = {"guest": "guest"};
 var permissionsCache = JSON.parse(fs.readFileSync(`${__dirname}/system/filePermissions.json`));
 var lastModified = fs.statSync(`${__dirname}/system/filePermissions.json`).mtimeMs;
 
-async function readPermissions(path, user) {
+const authenticate = async function(username, password) {
+  if (username === "guest" && password === "guest") return true;
+  if (!db.get(`users.${username}.password`)) return false;
+  const result = await bcrypt.compare(password, await db.get(`users.${username}.password`));
+  return result;
+};
+
+const readPermissions = async function(path, user) {
   return new Promise(function(resolve, err) {
     fs.stat(`${__dirname}/system/filePermissions.json`, (err, stats) => {
       if (stats.mtimeMs > lastModified) {
@@ -38,7 +44,7 @@ async function readPermissions(path, user) {
 
 // copy and paste below to change passwords for now until Settings is updated
 // to set your administrator password, change "admin" to your password
-/*bcrypt.hash("admin", 2, function(err, result) {
+/*bcrypt.hash("admin", 5, function(err, result) {
   db.set("users.admin.password", result);
 })*/
 
@@ -65,28 +71,21 @@ app.get("/packages", async function(req, res) {
 });
 
 app.post("/auth", async function(req, res) {
-  if (!db.get(`users.${req.body.username}.password`)) return res.send("Denied");
-  const hash = await db.get(`users.${req.body.username}.password`);
-  bcrypt.compare(req.body.password, hash, function(err, result) {
-    if (result === true) {
-      bcrypt.hash(req.body.username, 1, function(err, result) {
-        users[req.body.username] = result;
-        return res.send(result);
-      });
-    } else if (result === false) return res.send("Denied");
-  });
+  const result = await authenticate(req.body.username, req.body.password);
+  if (result === true) return res.send("Allowed"); else return res.send("Denied");
 });
 
 // START FILE API
 
 app.post("/file/read/:type/:filePath", async function(req, res) {
   const filePath = req.params.filePath.split("/").filter(str=>str!=="").join("/"); if (filePath.includes("./")) return res.send("Denied");
-  const username = req.body.username; if (!(users[username] === req.body.token)) return res.send("Denied");
-  if (await readPermissions(filePath, username) < 2) return res.send("Denied");
+  if (await authenticate(req.body.username, req.body.password) === false) return res.send("Denied");
+  if (await readPermissions(filePath, req.body.username) < 2) return res.send("Denied");
   
   if (req.params.type === "directory") {
     const array = [];
-    fs.readdir(`${__dirname}/${filePath}`, { withFileTypes: true }, function(e, rawDir) {
+    fs.readdir(`${__dirname}/${filePath}`, { withFileTypes: true }, function(err, rawDir) {
+      if (err || !rawDir) return res.send("Denied");
       for (const file of rawDir) {
         var type = mime.getType(path.extname(file.name));
         if (file.isDirectory() && !type) type = "directory";
@@ -96,7 +95,7 @@ app.post("/file/read/:type/:filePath", async function(req, res) {
     });
   } else if (req.params.type === "file") {
     fs.readFile(`${__dirname}/${filePath}`, (err, data) => {
-      if (err) return res.send("Denied");
+      if (err || !data) return res.send("Denied");
       const file = Buffer.from(data).toString("base64");
       res.send(file);
     });
@@ -110,14 +109,14 @@ app.get("/file/readStatic/:filePath", async function(req, res) {
 })
 app.post("/file/write/:type/:filePath", async function(req, res) {
   const filePath = req.params.filePath.split("/").filter(str=>str!=="").join("/"); if (filePath.includes("./")) return res.send("Denied");
-  const username = req.body.username; if (!users[username] === req.body.token) return res.send("Denied");
+  if (await authenticate(req.body.username, req.body.password) === false) return res.send("Denied");
   
   if (req.params.type === "directory") {
-    if (await readPermissions(path.resolve(filePath, "./"), username) < 3) return res.send("Denied");
+    if (await readPermissions(path.resolve(filePath, "./"), req.body.username) < 3) return res.send("Denied");
     
     fs.mkdir(`${__dirname}/${filePath}`, function(){ return res.send("Complete"); });
   } else if (req.params.type === "file") {
-    if (await readPermissions(filePath, username) < 3) return res.send("Denied");
+    if (await readPermissions(filePath, req.body.username) < 3) return res.send("Denied");
     
     const file = Buffer.from(req.body.data, "base64").toString("ascii");
     fs.writeFile(`${__dirname}/${filePath}`, file, "ascii", function(){ return res.send("Complete"); });
@@ -125,8 +124,8 @@ app.post("/file/write/:type/:filePath", async function(req, res) {
 });
 app.post("/file/rm/:type/:filePath", async function(req, res) {
   const filePath = req.params.filePath.split("/").filter(str=>str!=="").join("/"); if (filePath.includes("./")) return res.send("Denied");
-  const username = req.body.username; if (!users[username] === req.body.token) return res.send("Denied");
-  if (await readPermissions(filePath, username) < 4) return res.send("Denied");
+  if (await authenticate(req.body.username, req.body.password) === false) return res.send("Denied");
+  if (await readPermissions(filePath, req.body.username) < 4) return res.send("Denied");
   
   if (req.params.type === "directory") rimraf(`${__dirname}/${filePath}`, function(){ res.send("Complete"); }); else if (req.params.type === "file") fs.unlink(`${__dirname}/${filePath}`, function(){ return res.send("Complete"); });
 });

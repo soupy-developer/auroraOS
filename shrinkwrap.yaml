@@ -1,10 +1,10 @@
 dependencies:
-  bcrypt: 4.0.1
-  better-sqlite3: 7.0.1
+  bcrypt: 5.0.0
+  better-sqlite3: 7.1.0
   body-parser: 1.19.0
   compression: 1.7.4
   express: 4.16.4
-  mime: 2.4.5
+  mime: 2.4.6
   quick.db: 7.1.1
   rimraf: 3.0.2
 packages:
@@ -56,16 +56,16 @@ packages:
     dev: false
     resolution:
       integrity: sha512-mLQ4i2QO1ytvGWFWmcngKO//JXAQueZvwEKtjgQFM4jIK0kU+ytMfplL8j+n5mspOfjHwoAg+9yhb7BwAHm36g==
-  /bcrypt/4.0.1:
+  /bcrypt/5.0.0:
     dependencies:
-      node-addon-api: 2.0.0
-      node-pre-gyp: 0.14.0
+      node-addon-api: 3.0.0
+      node-pre-gyp: 0.15.0
     dev: false
     engines:
       node: '>= 10.0.0'
     requiresBuild: true
     resolution:
-      integrity: sha512-hSIZHkUxIDS5zA2o00Kf2O5RfVbQ888n54xQoF/eIaquU4uaLxK8vhhBdktd0B3n2MjkcAWzv4mnhogykBKOUQ==
+      integrity: sha512-jB0yCBl4W/kVHM2whjfyqnxTmOHkCX4kHEa5nYKSoGeYe8YrjTYTc87/6bwt1g8cmV0QrbhKriETg9jWtcREhg==
   /better-sqlite3/6.0.1:
     dependencies:
       bindings: 1.5.0
@@ -76,7 +76,7 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-4aV1zEknM9g1a6B0mVBx1oIlmYioEJ8gSS3J6EpN1b1bKYEE+N5lmpmXHKNKTi0qjHziSd7XrXwHl1kpqvEcHQ==
-  /better-sqlite3/7.0.1:
+  /better-sqlite3/7.1.0:
     dependencies:
       bindings: 1.5.0
       prebuild-install: 5.3.4
@@ -84,7 +84,7 @@ packages:
     dev: false
     requiresBuild: true
     resolution:
-      integrity: sha512-fsVcoGXxnseNajbfFbth0BKnDWebPY6x77UWfrBHApCKq1yo41DlWnFsffOsLpjkQ4VKgDU5C3aUtiw3wGGU0Q==
+      integrity: sha512-FV/snQ8F/kyqhdxsevzbojVtMowDWOfe1A5N3lYu1KJwoho2t7JgITmdlSc7DkOh3Zq65I+ZyeNWXQrkLEDFTg==
   /bindings/1.5.0:
     dependencies:
       file-uri-to-path: 1.0.0
@@ -556,13 +556,13 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-KI1+qOZu5DcW6wayYHSzR/tXKCDC5Om4s1z2QJjDULzLcmf3DvzS7oluY4HCTrc+9FiKmWUgeNLg7W3uIQvxtQ==
-  /mime/2.4.5:
+  /mime/2.4.6:
     dev: false
     engines:
       node: '>=4.0.0'
     hasBin: true
     resolution:
-      integrity: sha512-3hQhEUF027BuxZjQA3s7rIv/7VCQPa27hN9u9g87sEkWaKwQPuXOkVKtOeiyUrnWqTDiOs8Ed2rwg733mB0R5w==
+      integrity: sha512-RZKhC3EmpBchfTGBVb8fb+RL2cWyw/32lshnsETttkBAyAUXSGHxbEJWWRXc751DrIxG1q04b8QwMbAwkRPpUA==
   /mimic-response/2.1.0:
     dev: false
     engines:
@@ -632,17 +632,17 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
-  /node-abi/2.17.0:
+  /node-abi/2.18.0:
     dependencies:
       semver: 5.7.1
     dev: false
     resolution:
-      integrity: sha512-dFRAA0ACk/aBo0TIXQMEWMLUTyWYYT8OBYIzLmEUrQTElGRjxDCvyBZIsDL0QA7QCaj9PrawhOmTEdsuLY4uOQ==
-  /node-addon-api/2.0.0:
+      integrity: sha512-yi05ZoiuNNEbyT/xXfSySZE+yVnQW6fxPZuFbLyS1s6b5Kw3HzV2PHOM4XR+nsjzkHxByK+2Wg+yCQbe35l8dw==
+  /node-addon-api/3.0.0:
     dev: false
     resolution:
-      integrity: sha512-ASCL5U13as7HhOExbT6OlWJJUV/lLzL2voOSP1UVehpRD8FbSrSDjfScK/KwAvVTI5AS6r4VwbOMlIqtvRidnA==
-  /node-pre-gyp/0.14.0:
+      integrity: sha512-sSHCgWfJ+Lui/u+0msF3oyCgvdkhxDbkCS6Q8uiJquzOimkJBvX6hl5aSSA7DR1XbMpdM8r7phjcF63sF4rkKg==
+  /node-pre-gyp/0.15.0:
     dependencies:
       detect-libc: 1.0.3
       mkdirp: 0.5.5
@@ -657,7 +657,7 @@ packages:
     dev: false
     hasBin: true
     resolution:
-      integrity: sha512-+CvDC7ZttU/sSt9rFjix/P05iS43qHCOOGzcr3Ry99bXG7VX953+vFyEuph/tfqoYu8dttBkE86JSKBO2OzcxA==
+      integrity: sha512-7QcZa8/fpaU/BKenjcaeFF9hLz2+7S9AqyXFhlH/rilsQ/hPZKK32RtR5EQHJElgu+q5RfbJ34KriI79UWaorA==
   /noop-logger/0.1.1:
     dev: false
     resolution:
@@ -772,7 +772,7 @@ packages:
       minimist: 1.2.5
       mkdirp: 0.5.5
       napi-build-utils: 1.0.2
-      node-abi: 2.17.0
+      node-abi: 2.18.0
       noop-logger: 0.1.1
       npmlog: 4.1.2
       pump: 3.0.0
@@ -1157,11 +1157,11 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
-  bcrypt: ^4.0.1
-  better-sqlite3: ^7.0.1
+  bcrypt: ^5.0.0
+  better-sqlite3: ^7.1.0
   body-parser: ^1.19.0
   compression: ^1.7.4
   express: ~4.16.1
-  mime: ^2.4.5
+  mime: ^2.4.6
   quick.db: ^7.1.1
   rimraf: ^3.0.2
