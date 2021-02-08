@@ -1,9 +1,9 @@
 # auroraOS
 A window manager/desktop environment in your browser.
 
-© 2020 soup
+© 2021 soup
 
-[Try it out!](https://auroraos.glitch.me/) | [Discord Support](https://discord.gg/8nFuT3d)
+[Try it out!](https://aurora-oofie.glitch.me/) | [Discord Support](https://discord.gg/ZYKSYbm)
 
 # Features
 * Easy to use GUI
@@ -32,4 +32,4 @@ This means that you **must**
 * State significant changes to auroraOS (Rewriting window manager, significant GUI changes)
 * Include the full text of the same **GNU General Public License v2.0** license that auroraOS uses
 
-## Need to contact me? My Discord is Snorp#5935.
+## Need to contact me? My Discord is turnip#7363.
