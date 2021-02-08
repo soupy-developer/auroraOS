@@ -1,6 +1,9 @@
 # auroraOS
 A window manager/desktop environment in your browser.
 
+**This project is deprecated and will no longer be receiving any updates, nor will support be given. Thank you.**
+Contributions will still be accepted.
+
 © 2021 soup
 
 [Try it out!](https://auroraos-dev.glitch.me/) | [Discord Support](https://discord.gg/ZYKSYbm)
@@ -31,5 +34,3 @@ This means that you **must**
 * Include copyright
 * State significant changes to auroraOS (Rewriting window manager, significant GUI changes)
 * Include the full text of the same **GNU General Public License v2.0** license that auroraOS uses
-
-## Need to contact me? My Discord is turnip#7363.
