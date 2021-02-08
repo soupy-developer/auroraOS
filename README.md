@@ -3,7 +3,7 @@ A window manager/desktop environment in your browser.
 
 © 2021 soup
 
-[Try it out!](https://aurora-oofie.glitch.me/) | [Discord Support](https://discord.gg/ZYKSYbm)
+[Try it out!](https://auroraos-dev.glitch.me/) | [Discord Support](https://discord.gg/ZYKSYbm)
 
 # Features
 * Easy to use GUI
