@@ -8,21 +8,23 @@ body {
   margin: 0px;
   overscroll-behavior: none;
 }
+
 *:not(h1):not(pre) { box-sizing: border-box; font-size: 14px; }
 *:not(span):not(pre) { font-family: -apple-system,segoe ui,"Open Sans",system-ui; }
 
 a { text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
 
-#applications { transform: translateY(40px); transition: 0.2s; width: 55%; max-width: 800px; height: 75%; max-height: 800px; position: fixed; bottom: 0; z-index: 253; padding: 10px; opacity: 0; }
+#applications { transform: translateY(40px); transition: cubic-bezier(.17,.67,.15,1.02) 0.4s; width: 55%; max-width: 800px; height: 75%; max-height: 800px; position: fixed; bottom: 0; z-index: 253; padding: 10px; opacity: 0; }
+#applications #appsDisplay { transition: cubic-bezier(.17,.67,.15,1.02) 0.8s; }
 #applications div { text-align: center; display: inline-block; margin: 25px; transition: cubic-bezier(.17,.67,0,.83) 0.2s; }
 #applications div img { height: 80px; width: 80px; filter: drop-shadow(0px 0px 6px rgba(0,0,0,0.25)); }
 #applications div:hover, #applications div:focus { transform: scale(1.25); filter: brightness(1.3) drop-shadow(0px 0px 12px rgba(0,0,0,0.5));  }
 #applications div:active { transform: scale(1); filter: brightness(1.3) drop-shadow(0px 0px 12px rgba(0,0,0,0.5)); }
 
-list { padding: 0 !important; overflow-y: auto; }
+list { padding: 0 !important; overflow-y: auto; margin: 10px; }
 itemcell { display: inline-block; padding: 7px; width: 50%; }
 item { display: list-item; outline: none; user-select: none; }
 
@@ -31,7 +33,6 @@ img { user-drag: none; -webkit-user-drag: none; }
 .dock {
   width: 100%;
   text-align: center;
-  cursor: default;
   padding: 7px;
   position: fixed;
   bottom: 0;
@@ -54,7 +55,7 @@ img { user-drag: none; -webkit-user-drag: none; }
 .dock img:active { transform: scale(1); filter: brightness(1.3) drop-shadow(0px 0px 12px rgba(0,0,0,0.5)); }
 
 .dock .menubarButton { float: left; }
-.dock .menubarObject { float: right; }
+.dock .menubarObject { float: right; cursor: default; }
 
 .contextMenu {
   position: fixed;
@@ -71,22 +72,17 @@ img { user-drag: none; -webkit-user-drag: none; }
   padding-left: 15px;
   padding-right: 15px;
 }
-.contextMenuSelection img { width: 20px; height: 20px; }
-.notAllowed { cursor: not-allowed; }
 .contextMenuSeparator {
   height: 1px;
   margin: 5px 0 5px 0;
 }
 
-.window {
-  position: fixed;
-  z-index: 1;
-  transition: transform 0.2s, opacity 0.2s;
-}
+*[disabled] { cursor: not-allowed; }
+
+.window { position: fixed; transition: transform 0.2s, opacity 0.2s; }
 .windowTitleBar {
   padding: 7px;
   padding-left: 10px;
-  cursor: default;
   text-align: center;
   user-select: none;
 }
@@ -97,8 +93,9 @@ img { user-drag: none; -webkit-user-drag: none; }
   overflow: auto;
 }
 
-h1 { margin-top: 10px; margin-bottom:10px; }
+h1 { margin-top: 10px; margin-bottom: 10px; }
 .windowAction {
+  float: left;
   padding-left: 0.2em;
   padding-right: 0.2em;
   margin-right: 0.4em;
@@ -110,7 +107,6 @@ h1 { margin-top: 10px; margin-bottom:10px; }
 }
 
 input, button, textarea, select, option { outline: none; }
-button[disabled], input[disabled], textarea[disabled], select[disabled] { cursor: not-allowed; }
 .chboxContainer {
   display: block;
   position: relative;
@@ -129,11 +125,7 @@ button[disabled], input[disabled], textarea[disabled], select[disabled] { cursor
 }
 input[type="range"] { -webkit-appearance: none; }
 input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; }
-.menubar {
-  padding: 5px;
-  border-radius: 0;
-  cursor: default;
-}
+.menubar { padding: 5px; cursor: default; }
 .menubarButton, .menubarObject {
   padding: 6px;
   padding-left: 10px;
@@ -146,6 +138,6 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; }
 
 iframe { border: none; }
 
+#systemButton { user-select: none; }
 
-/* JQUERY */
 .ui-resizable-handle{position:absolute;font-size:.1px;display:block;touch-action:none}.ui-resizable-autohide .ui-resizable-handle,.ui-resizable-disabled .ui-resizable-handle{display:none}.ui-resizable-n{cursor:n-resize;height:7px;width:100%;top:-5px;left:0}.ui-resizable-s{cursor:s-resize;height:7px;width:100%;bottom:-5px;left:0}.ui-resizable-e{cursor:e-resize;width:7px;right:-5px;top:0;height:100%}.ui-resizable-w{cursor:w-resize;width:7px;left:-5px;top:0;height:100%}.ui-resizable-se{cursor:se-resize;width:12px;height:12px;right:1px;bottom:1px}.ui-resizable-sw{cursor:sw-resize;width:9px;height:9px;left:-5px;bottom:-5px}.ui-resizable-nw{cursor:nw-resize;width:9px;height:9px;left:-5px;top:-5px}.ui-resizable-ne{cursor:ne-resize;width:9px;height:9px;right:-5px;top:-5px}

@@ -34,11 +34,6 @@ a { color: #480b80; }
   background-color: white;
   color: black;
 }
-.windowAction {
-  margin-right: 0.4em;
-  margin-top: -0.05em;
-  float: left;
-}
 
 .windowAction img { filter: brightness(0%); }
 .windowAction img:hover { filter: brightness(30%); }

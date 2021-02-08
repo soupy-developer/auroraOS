@@ -4,15 +4,13 @@ const serverAddress = "/" // Change to your server address
 
 var curID, openContextMenu; curID = 0; openContextMenu = null;
 
-var token = "guest";
-var username = "guest";
 var curZ = 0;
 var mouseX = 0;
 var mouseY = 0;
 
 String.prototype.replaceAll = function(f,r){return this.split(f).join(r);};
 
-addEventListener("mousemove", function(e) {
+document.addEventListener("mousemove", function(e) {
   mouseX = e.clientX;
   mouseY = e.clientY;
 });
@@ -32,7 +30,7 @@ const os = {
       packagee.dockIcon = document.createElement("img");
       startAnim.src = packagee.dockIcon.src = `data:image/webp;base64,${app.icon}`;
       startAnim.style = `position:fixed;z-index:500;transition:opacity 0.3s, transform 0.3s;pointer-events:none;transform:translate(-50%, -50%) scale(0.4);top:${mouseY}px;left:${mouseX}px;height:300px;width:300px;`;
-      packagee.dockIcon.style = "transform:scale(0);margin:0px;";
+      packagee.dockIcon.style = "transform:scale(0);margin-left:-18px;margin-right:-18px;";
       packagee.dockIcon.onclick = function() { packagee.windows.forEach(w => { if (w.minimized === packagee.windows[0].minimized) w.minimize(); }) };
       document.getElementById("dockDisplay").appendChild(packagee.dockIcon);
       document.body.appendChild(startAnim);
@@ -90,11 +88,11 @@ const os = {
         hide: function(e) { if ((e && e.button === 0) || !e) { menu.style.display = "none"; openContextMenu = null; } },
         disableItem: function(item, value) {
           if (value === false) {
-            item.classList.remove("notAllowed");
+            item.removeAttribute("disabled");
             item.onclick = item.disabledclick;
             item.disabledclick = null;
           } else {
-            item.classList.add("notAllowed");
+            item.setAttribute("disabled", true)
             item.disabledclick = item.onclick;
             item.onclick = null;
           }
@@ -108,7 +106,7 @@ const os = {
           element.className = "contextMenuSelection";
           element.innerText = item.name;
           if (item.disabled) {
-            element.classList.add("notAllowed");
+            element.setAttribute("disabled", true)
             element.disabledclick = item.activate;
           } else element.onclick = item.activate;
           menu.appendChild(element);
@@ -139,7 +137,7 @@ const os = {
   stopPackage: function(app) {
     if (app.close) app.close();
     if (app.isApp) {
-      app.dockIcon.style = "transform:scale(0);margin:0px;";
+      app.dockIcon.style = "transform:scale(0);margin-left:-18px;margin-right:-18px;";
       setTimeout(function() { app.dockIcon.remove(); }, 500)
     }
     os.runningPackages.splice(os.runningPackages.findIndex(p => p.name === app.name), 1)
@@ -161,32 +159,32 @@ const os = {
   filesystem: {
     readDirectory: async function(path) {
       path = path.replaceAll("/", "%2F");
-      const result = await os.fetch("POST", `${serverAddress}file/read/directory/${path}`, { token: token, username: username });
+      const result = await os.fetch("POST", `${serverAddress}file/read/directory/${path}`, { username: sessionStorage.getItem("username") ? sessionStorage.getItem("username") : "guest", password: sessionStorage.getItem("password") ? sessionStorage.getItem("password") : "guest" });
       if (result === "Denied") return false; else return JSON.parse(result);
     },
     readFile: async function(path) {
       path = path.replaceAll("/", "%2F");
-      const result = await os.fetch("POST", `${serverAddress}file/read/file/${path}`, { token: token, username: username });
+      const result = await os.fetch("POST", `${serverAddress}file/read/file/${path}`, { username: sessionStorage.getItem("username") ? sessionStorage.getItem("username") : "guest", password: sessionStorage.getItem("password") ? sessionStorage.getItem("password") : "guest" });
       if (result === "Denied") return false; else return result;
     },
     writeDirectory: async function(path) {
       path = path.replaceAll("/", "%2F");
-      const result = await os.fetch("POST", `${serverAddress}file/write/directory/${path}`, { token: token, username: username });
+      const result = await os.fetch("POST", `${serverAddress}file/write/directory/${path}`, { username: sessionStorage.getItem("username") ? sessionStorage.getItem("username") : "guest", password: sessionStorage.getItem("password") ? sessionStorage.getItem("password") : "guest" });
       if (result === "Denied") return false; else return true;
     },
     writeFile: async function(path, data) {
       path = path.replaceAll("/", "%2F");
-      const result = await os.fetch("POST", `${serverAddress}file/write/file/${path}`, { token: token, username: username, data: btoa(data) });
+      const result = await os.fetch("POST", `${serverAddress}file/write/file/${path}`, { username: sessionStorage.getItem("username") ? sessionStorage.getItem("username") : "guest", password: sessionStorage.getItem("password") ? sessionStorage.getItem("password") : "guest", data: btoa(data) });
       if (result === "Denied") return false; else return true;
     },
     deleteDirectory: async function(path) {
       path = path.replaceAll("/", "%2F");
-      const result = await os.fetch("POST", `${serverAddress}file/rm/directory/${path}`, { token: token, username: username });
+      const result = await os.fetch("POST", `${serverAddress}file/rm/directory/${path}`, { username: sessionStorage.getItem("username") ? sessionStorage.getItem("username") : "guest", password: sessionStorage.getItem("password") ? sessionStorage.getItem("password") : "guest" });
       if (result === "Denied") return false; else return true;
     },
     deleteFile: async function(path) {
       path = path.replaceAll("/", "%2F");
-      const result = await os.fetch("POST", `${serverAddress}file/rm/file/${path}`, { token: token, username: username });
+      const result = await os.fetch("POST", `${serverAddress}file/rm/file/${path}`, { username: sessionStorage.getItem("username") ? sessionStorage.getItem("username") : "guest", password: sessionStorage.getItem("password") ? sessionStorage.getItem("password") : "guest" });
       if (result === "Denied") return false; else return true;
     },
   }

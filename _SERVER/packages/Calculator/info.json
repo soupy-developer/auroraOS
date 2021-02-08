@@ -1,5 +1,7 @@
 {
-    "name": "Calculator",
-    "startOnBoot": false,
-    "isApp": true
+  "name": "Calculator",
+  "startOnBoot": false,
+  "isApp": true,
+  
+  "release": 1
 }

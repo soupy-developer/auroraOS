@@ -1,5 +1,7 @@
 {
-    "name": "UI",
-    "startOnBoot": false,
-    "isApp": true
+  "name": "UI",
+  "startOnBoot": false,
+  "isApp": true,
+  
+  "release": 1
 }

@@ -4,12 +4,12 @@ menubarSystem = document.getElementById("systemButton");
 apps = document.getElementById("applications");
 clockDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 clockMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-defaultTheme = "themes/Glass.css";
+defaultTheme = "themes/Windstorm Light.css";
 
 os.filesystem.readFile("themes/Glass.css").then(theme => document.getElementById("STYLE_Theme").href = `data:text/css;base64,${theme}`);
 
 os.registerWindow = function(elmnt, options, package) {
-  var width, height, top, left, pos1, pos2, pos3, pos4;
+  var width, height, top, left, posX, posY;
   elmnt.maximized = false;
   elmnt.minimized = false;
   elmnt.close = function() {
@@ -20,43 +20,40 @@ os.registerWindow = function(elmnt, options, package) {
   };
   document.getElementById(elmnt.id + "Close").onclick = elmnt.close;
   document.getElementById(elmnt.id + "TitleBar").addEventListener("mousedown", function(e) {
-      curZ++; elmnt.style.zIndex = curZ;
-      if (elmnt.maximized === false) {
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        document.onmouseup = function() { document.onmouseup = null; document.onmousemove = null; };
-        document.onmousemove = function(e) {
-          pos1 = pos3 - e.clientX;
-          pos2 = pos4 - e.clientY;
-          pos3 = e.clientX;
-          pos4 = e.clientY;
-          elmnt.style.top = elmnt.offsetTop - pos2 + "px";
-          elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
-        };
+    curZ++; elmnt.style.zIndex = curZ;
+    if (elmnt.maximized === false) {
+      document.body.style.cursor = "none";
+      
+      posX = e.clientX;
+      posY = e.clientY;
+      function move(e) {
+        elmnt.style.left = elmnt.offsetLeft - (posX - e.clientX) + "px";
+        elmnt.style.top = elmnt.offsetTop - (posY - e.clientY) + "px";
+        posX = e.clientX;
+        posY = e.clientY;
       }
-    });
+      document.onmouseup = function() { document.onmouseup = null; document.body.style.cursor = null; document.removeEventListener("mousemove", move); };
+      document.addEventListener("mousemove", move);
+    }
+  });
   document.getElementById(elmnt.id + "TitleBar").addEventListener("touchstart", function(e) {
-      curZ++; elmnt.style.zIndex = curZ;
-      if (elmnt.maximized === false) {
+    curZ++; elmnt.style.zIndex = curZ;
+    if (elmnt.maximized === false) {
+      e = e.touches[0];
+      posX = e.screenX;
+      posY = e.screenY;
+      function move(e) {
+        e.preventDefault();
         e = e.touches[0];
-        pos3 = e.screenX;
-        pos4 = e.screenY;
-        function move(e) {
-          e.preventDefault();
-          e = e.touches[0];
-          pos1 = pos3 - e.screenX;
-          pos2 = pos4 - e.screenY;
-          pos3 = e.screenX;
-          pos4 = e.screenY;
-          elmnt.style.top = elmnt.offsetTop - pos2 / 0.9 + "px";
-          elmnt.style.left = elmnt.offsetLeft - pos1 / 0.9 + "px";
-        }
-        document.ontouchend = function() { document.ontouchend = null; document.removeEventListener("touchmove", move); };
-        document.addEventListener("touchmove", move, { passive: false });
+        elmnt.style.left = elmnt.offsetLeft - (posX - e.clientX) / 0.9 + "px";
+        elmnt.style.top = elmnt.offsetTop - (posY - e.clientY) / 0.9 + "px";
+        posX = e.clientX;
+        posY = e.clientY;
       }
-    },
-    { passive: true }
-  );
+      document.ontouchend = function() { document.ontouchend = null; document.removeEventListener("touchmove", move); };
+      document.addEventListener("touchmove", move, { passive: false });
+    }
+  }, { passive: true });
   if (options.minimizable) {
     elmnt.minimize = function() {
       if (elmnt.minimized == false) {
@@ -135,23 +132,19 @@ document.getElementById("loginEnter").onclick = async function() {
     document.getElementById("loginEnter").disabled = false;
     return document.getElementById("loginInfo").innerText = "Username or password is incorrect";
   }
-  token = response;
-  username = user;
   document.getElementById("loginInfo").innerText = "Welcome back, " + user + ".";
   ready();
-  window.sessionStorage.setItem("username", user);
-  window.sessionStorage.setItem("password", document.getElementById("loginPassword").value);
+  sessionStorage.setItem("username", user);
+  sessionStorage.setItem("password", document.getElementById("loginPassword").value);
   document.getElementById("dock").style.display = null;
   document.getElementById("login").style.opacity = 0;
   setTimeout(function() { document.getElementById("login").remove(); }, 300);
 };
 
 ;(async function(){
-  if (window.sessionStorage.getItem("username")) {
-    const response = await os.fetch("POST", serverAddress + "auth", { username: window.sessionStorage.getItem("username"), password: window.sessionStorage.getItem("password") });
+  if (sessionStorage.getItem("username")) {
+    const response = await os.fetch("POST", serverAddress + "auth", { username: sessionStorage.getItem("username"), password: sessionStorage.getItem("password") });
     if (response !== "Denied") {
-      token = response;
-      username = window.sessionStorage.getItem("username");
       document.getElementById("login").remove();
       document.getElementById("dock").style.display = null;
       ready();
@@ -163,16 +156,16 @@ document.getElementById("loginEnter").onclick = async function() {
 })()
 
 function ready() {
-  if (window.localStorage.getItem("theme")) os.filesystem.readFile(window.localStorage.getItem("theme")).then(async function(theme) {
-    if (theme === false) { window.localStorage.setItem("theme", defaultTheme); theme = await os.filesystem.readFile(defaultTheme);  }
+  if (localStorage.getItem("theme")) os.filesystem.readFile(localStorage.getItem("theme")).then(async function(theme) {
+    if (theme === false) { localStorage.setItem("theme", defaultTheme); theme = await os.filesystem.readFile(defaultTheme);  }
     document.getElementById("STYLE_Theme").href = `data:text/css;base64,${theme}`;
-  }); else { window.localStorage.setItem("theme", defaultTheme); os.filesystem.readFile(defaultTheme).then(theme => document.getElementById("STYLE_Theme").href = `data:text/css;base64,${theme}`); };
+  }); else { localStorage.setItem("theme", defaultTheme); os.filesystem.readFile(defaultTheme).then(theme => document.getElementById("STYLE_Theme").href = `data:text/css;base64,${theme}`); };
   
-  if (window.localStorage.getItem("bgURL")) {
+  if (localStorage.getItem("bgURL")) {
     const style = document.createElement("style");
     style.id = "STYLE_Wallpaper";
     document.head.appendChild(style);
-    style.sheet.insertRule("body{background-image:url('" + window.localStorage.getItem("bgURL") + "')}")
+    style.sheet.insertRule("body{background-image:url('" + localStorage.getItem("bgURL") + "')}")
   };
   
   function c() {
@@ -185,16 +178,16 @@ function ready() {
 
   menubarSystem.addEventListener("click", function() {
     if (apps.style.display !== "none") {
+      document.getElementById("appsDisplay").style.transform = "translateY(40px)";
       apps.style.transform = null;
       apps.style.opacity = 0;
-      setTimeout(function() {
-        apps.style.display = "none";
-      }, 200);
+      setTimeout(function() { apps.style.display = "none"; }, 200);
     } else {
       apps.style.display = null;
       document.getElementById("appSearch").value = null;
       if (typeof window.orientation == "undefined") document.getElementById("appSearch").focus();
       window.requestAnimationFrame(function() {
+        document.getElementById("appsDisplay").style.transform = null;
         apps.style.transform = "translateY(-52px)";
         apps.style.opacity = 1;
       });

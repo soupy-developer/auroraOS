@@ -1,5 +1,7 @@
 {
-    "name": "Market",
-    "startOnBoot": false,
-    "isApp": false
+  "name": "Market",
+  "startOnBoot": false,
+  "isApp": true,
+  
+  "release": 1
 }

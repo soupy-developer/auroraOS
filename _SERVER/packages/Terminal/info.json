@@ -1,5 +1,7 @@
 {
-    "name": "Terminal",
-    "startOnBoot": false,
-    "isApp": true
+  "name": "Terminal",
+  "startOnBoot": false,
+  "isApp": true,
+  
+  "release": 2
 }
