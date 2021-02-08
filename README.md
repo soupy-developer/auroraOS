@@ -2,7 +2,6 @@
 A window manager/desktop environment in your browser.
 
 **This project is deprecated and will no longer be receiving any updates, nor will support be given. Thank you.**
-Contributions will still be accepted.
 
 © 2021 soup
 
