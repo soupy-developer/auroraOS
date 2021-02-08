@@ -1,0 +1,86 @@
+::-webkit-scrollbar-thumb { background: lightgray; border: 1px solid rgb(175,175,175); }
+
+a { color: #480b80; }
+
+#applications {
+  background: lightgray;
+  color: black;
+  border: 1px solid rgba(0,0,0,0.3);
+  box-shadow: rgba(0, 0, 0, 0.7) 0px 0px 32px;
+}
+
+.dock {
+  background: lightgray;
+  color: black;
+  border: 1px solid rgba(0,0,0,0.3);
+}
+
+.contextMenu {
+  background: lightgray;
+  border: 1px solid rgba(0,0,0,0.3);
+  color: black;
+  box-shadow: 0px 0px 32px rgba(0,0,0,0.7);
+}
+.contextMenuSeparator {
+  border-top: 1px solid rgba(0,0,0,0.3);
+}
+
+.window { border: none; box-shadow: 0px 0px 32px rgba(0,0,0,0.5); }
+.windowTitleBar {
+  background: lightgray;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+.windowBody {
+  background-color: white;
+  color: black;
+}
+
+.windowAction img { filter: brightness(0%); }
+.windowAction img:hover { filter: brightness(30%); }
+
+input, button, textarea, select, .progressBarOuter, list {
+  background: lightgray;
+  color: black;
+  padding: 4px;
+  padding-left: 7px;
+  padding-right: 7px;
+  border: 1px solid rgb(175,175,175);
+}
+
+.progressBarInner { background: lightgray; }
+.progressBarOuter { width: 100%; background: white;}
+
+option {
+  background-color: lightgray;
+  color: black;
+}
+button[disabled], input[disabled], textarea[disabled], select[disabled] {
+  background: rgb(175,175,175);
+  color: rgba(0,0,0,0.3);
+}
+.notAllowed { color: rgba(0,0,0,0.3); }
+.chboxContainer input:checked ~ .checkmark { color: black; }
+.checkmark {
+  color: transparent;
+  background: lightgray;
+  border: 1px solid rgb(175,175,175);
+  border-radius: 0px;
+}
+input[type="range"] { height: 3px; }
+input[type="range"]::-webkit-slider-thumb {
+  background: white;
+  border: 1px solid rgb(175,175,175);
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}
+.menubar { color: black; }
+.menubarButton, .menubarObject {
+  border: 1px solid rgb(175,175,175);
+  background-color: lightgray;
+}
+
+#systemButton img { filter: brightness(0%); }
+
+.menubarButton:hover, button:hover:not([disabled]), .checkmark:hover:not(.notAllowed), select:hover:not([disabled]), .contextMenuSelection:hover:not(.notAllowed), input[type="range"]::-webkit-slider-thumb:hover, item:hover { background: rgb(175,175,175); }
+.menubarButton:active, button:active:not([disabled]), .checkmark:active:not(.notAllowed), select:active:not([disabled]), .contextMenuSelection:active:not(.notAllowed), ::-webkit-scrollbar-thumb:active, input[type="range"]::-webkit-slider-thumb:active, item:focus { background: gray; }

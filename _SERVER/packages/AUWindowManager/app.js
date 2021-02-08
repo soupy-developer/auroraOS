@@ -22,6 +22,8 @@ os.registerWindow = function(elmnt, options, package) {
   document.getElementById(elmnt.id + "TitleBar").addEventListener("mousedown", function(e) {
     curZ++; elmnt.style.zIndex = curZ;
     if (elmnt.maximized === false) {
+      document.body.style.cursor = "none";
+      
       posX = e.clientX;
       posY = e.clientY;
       function move(e) {
@@ -30,7 +32,7 @@ os.registerWindow = function(elmnt, options, package) {
         posX = e.clientX;
         posY = e.clientY;
       }
-      document.onmouseup = function() { document.onmouseup = null; document.removeEventListener("mousemove", move); };
+      document.onmouseup = function() { document.onmouseup = null; document.body.style.cursor = null; document.removeEventListener("mousemove", move); };
       document.addEventListener("mousemove", move);
     }
   });
